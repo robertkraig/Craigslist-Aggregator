@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cljobs>
+	<regions>
+		<region>
+			<name>Southern California</name>
+			<type>socal</type>
+		</region>
+		<region>
+			<name>Central California</name>
+			<type>cencal</type>
+		</region>
+		<region>
+			<name>Northern California</name>
+			<type>norcal</type>
+		</region>
+	</regions>
+	<locations>
+		<location>
+			<type>socal</type>
+			<url><![CDATA[http://losangeles.craigslist.org/search/?areaID=7&amp;subAreaID=&query={find}&catAbbreviation=jjj]]></url>
+			<partial>losangeles.craigslist.org</partial>
+			<name>Los Angeles</name>
+		</location>
+		<location>
+			<type>socal</type>
+			<url><![CDATA[http://losangeles.craigslist.org/search/?areaID=7&subAreaID=&query={find}&catAbbreviation=ggg]]></url>
+			<partial>losangeles.craigslist.org</partial>
+			<name>Los Angeles</name>
+		</location>
+		<location>
+			<type>socal</type>
+			<url><![CDATA[http://sandiego.craigslist.org/search/jjj?query={find}&catAbbreviation=jjj]]></url>
+			<partial>sandiego.craigslist.org</partial>
+			<name>San Diego</name>
+		</location>
+		<location>
+			<type>socal</type>
+			<url><![CDATA[http://sandiego.craigslist.org/search/?areaID=8&subAreaID=&query={find}&catAbbreviation=ggg]]></url>
+			<partial>sandiego.craigslist.org</partial>
+			<name>San Diego</name>
+		</location>
+		<location>
+			<type>socal</type>
+			<url><![CDATA[http://orangecounty.craigslist.org/search/?areaID=103&subAreaID=&query={find}&catAbbreviation=jjj]]></url>
+			<partial>orangecounty.craigslist.org</partial>
+			<name>Orange</name>
+		</location>
+		<location>
+			<type>socal</type>
+			<url><![CDATA[http://orangecounty.craigslist.org/search/?areaID=103&subAreaID=&query={find}&catAbbreviation=ggg]]></url>
+			<partial>orangecounty.craigslist.org</partial>
+			<name>Orange</name>
+		</location>
+		<location>
+			<type>socal</type>
+			<url><![CDATA[http://inlandempire.craigslist.org/search/?areaID=104&subAreaID=&query={find}&catAbbreviation=jjj]]></url>
+			<partial>inlandempire.craigslist.org</partial>
+			<name>Inland Empire</name>
+		</location>
+		<location>
+			<type>socal</type>
+			<url><![CDATA[http://inlandempire.craigslist.org/search/jjj?query={find}&catAbbreviation=ggg]]></url>
+			<partial>inlandempire.craigslist.org</partial>
+			<name>Inland Empire</name>
+		</location>
+		<location>
+			<type>norcal</type>
+			<url><![CDATA[http://fresno.craigslist.org/search/jjj?query={find}&catAbbreviation=jjj]]></url>
+			<partial>fresno.craigslist.org</partial>
+			<name>Fresno</name>
+		</location>
+		<location>
+			<type>norcal</type>
+			<url><![CDATA[http://fresno.craigslist.org/search/cpg?query={find}&catAbbreviation=cpg]]></url>
+			<partial>fresno.craigslist.org</partial>
+			<name>Fresno</name>
+		</location>
+		<location>
+			<type>norcal</type>
+			<url><![CDATA[http://sacramento.craigslist.org/search/jjj?query={find}&catAbbreviation=jjj]]></url>
+			<partial>sacramento.craigslist.org</partial>
+			<name>Sacramento</name>
+		</location>
+		<location>
+			<type>norcal</type>
+			<url><![CDATA[http://sacramento.craigslist.org/search/cpg?query={find}&catAbbreviation=cpg]]></url>
+			<partial>sacramento.craigslist.org</partial>
+			<name>Sacramento</name>
+		</location>
+		<location>
+			<type>norcal</type>
+			<url><![CDATA[http://sfbay.craigslist.org/search/jjj?query={find}&catAbbreviation=jjj]]></url>
+			<partial>sfbay.craigslist.org</partial>
+			<name>San Francisco / Bay Area</name>
+		</location>
+		<location>
+			<type>norcal</type>
+			<url><![CDATA[http://sfbay.craigslist.org/search/cpg?query={find}&catAbbreviation=cpg]]></url>
+			<partial>sfbay.craigslist.org</partial>
+			<name>San Francisco / Bay Area</name>
+		</location>
+		<location>
+			<type>cencal</type>
+			<url><![CDATA[http://slo.craigslist.org/search/jjj?query={find}&catAbbreviation=jjj]]></url>
+			<partial>slo.craigslist.org</partial>
+			<name>San Luis Obispo</name>
+		</location>
+		<location>
+			<type>cencal</type>
+			<url><![CDATA[http://slo.craigslist.org/search/cpg?query={find}&catAbbreviation=cpg]]></url>
+			<partial>slo.craigslist.org</partial>
+			<name>San Luis Obispo</name>
+		</location>
+		<location>
+			<type>cencal</type>
+			<url><![CDATA[http://santabarbara.craigslist.org/search/jjj?query={find}&catAbbreviation=jjj]]></url>
+			<partial>santabarbara.craigslist.org</partial>
+			<name></name>
+		</location>
+		<location>
+			<type>cencal</type>
+			<url><![CDATA[http://santabarbara.craigslist.org/search/cpg?query={find}&catAbbreviation=cpg]]></url>
+			<partial>santabarbara.craigslist.org</partial>
+			<name>Santa Barbara</name>
+		</location>
+	</locations>
+</cljobs>
