@@ -16,114 +16,133 @@
 	</regions>
 	<locations>
 		<location>
+			<state>CA</state>
 			<type>socal</type>
 			<url><![CDATA[http://losangeles.craigslist.org/search/?areaID=7&amp;subAreaID=&query={find}&catAbbreviation=jjj]]></url>
 			<partial>losangeles.craigslist.org</partial>
 			<name>Los Angeles</name>
 		</location>
 		<location>
+			<state>CA</state>
 			<type>socal</type>
 			<url><![CDATA[http://losangeles.craigslist.org/search/?areaID=7&subAreaID=&query={find}&catAbbreviation=ggg]]></url>
 			<partial>losangeles.craigslist.org</partial>
 			<name>Los Angeles</name>
 		</location>
 		<location>
+			<state>CA</state>
 			<type>socal</type>
 			<url><![CDATA[http://sandiego.craigslist.org/search/jjj?query={find}&catAbbreviation=jjj]]></url>
 			<partial>sandiego.craigslist.org</partial>
 			<name>San Diego</name>
 		</location>
 		<location>
+			<state>CA</state>
 			<type>socal</type>
 			<url><![CDATA[http://sandiego.craigslist.org/search/?areaID=8&subAreaID=&query={find}&catAbbreviation=ggg]]></url>
 			<partial>sandiego.craigslist.org</partial>
 			<name>San Diego</name>
 		</location>
 		<location>
+			<state>CA</state>
 			<type>socal</type>
 			<url><![CDATA[http://orangecounty.craigslist.org/search/?areaID=103&subAreaID=&query={find}&catAbbreviation=jjj]]></url>
 			<partial>orangecounty.craigslist.org</partial>
 			<name>Orange</name>
 		</location>
 		<location>
+			<state>CA</state>
 			<type>socal</type>
 			<url><![CDATA[http://orangecounty.craigslist.org/search/?areaID=103&subAreaID=&query={find}&catAbbreviation=ggg]]></url>
 			<partial>orangecounty.craigslist.org</partial>
 			<name>Orange</name>
 		</location>
 		<location>
+			<state>CA</state>
 			<type>socal</type>
 			<url><![CDATA[http://inlandempire.craigslist.org/search/?areaID=104&subAreaID=&query={find}&catAbbreviation=jjj]]></url>
 			<partial>inlandempire.craigslist.org</partial>
 			<name>Inland Empire</name>
 		</location>
 		<location>
+			<state>CA</state>
 			<type>socal</type>
 			<url><![CDATA[http://inlandempire.craigslist.org/search/jjj?query={find}&catAbbreviation=ggg]]></url>
 			<partial>inlandempire.craigslist.org</partial>
 			<name>Inland Empire</name>
 		</location>
 		<location>
+			<state>CA</state>
 			<type>norcal</type>
 			<url><![CDATA[http://sacramento.craigslist.org/search/jjj?query={find}&catAbbreviation=jjj]]></url>
 			<partial>sacramento.craigslist.org</partial>
 			<name>Sacramento</name>
 		</location>
 		<location>
+			<state>CA</state>
 			<type>norcal</type>
 			<url><![CDATA[http://sacramento.craigslist.org/search/cpg?query={find}&catAbbreviation=cpg]]></url>
 			<partial>sacramento.craigslist.org</partial>
 			<name>Sacramento</name>
 		</location>
 		<location>
+			<state>CA</state>
 			<type>norcal</type>
 			<url><![CDATA[http://sfbay.craigslist.org/search/jjj?query={find}&catAbbreviation=jjj]]></url>
 			<partial>sfbay.craigslist.org</partial>
 			<name>San Francisco / Bay Area</name>
 		</location>
 		<location>
+			<state>CA</state>
 			<type>norcal</type>
 			<url><![CDATA[http://sfbay.craigslist.org/search/cpg?query={find}&catAbbreviation=cpg]]></url>
 			<partial>sfbay.craigslist.org</partial>
 			<name>San Francisco / Bay Area</name>
 		</location>
 		<location>
+			<state>CA</state>
 			<type>norcal</type>
 			<url><![CDATA[http://monterey.craigslist.org/search/cpg?query={find}&catAbbreviation=cpg]]></url>
 			<partial>monterey.craigslist.org</partial>
 			<name>Monterey Bay</name>
 		</location>
 		<location>
+			<state>CA</state>
 			<type>norcal</type>
 			<url><![CDATA[http://monterey.craigslist.org/search/jjj?query={find}&catAbbreviation=jjj]]></url>
 			<partial>monterey.craigslist.org</partial>
 			<name>Monterey Bay</name>
 		</location>
 		<location>
+			<state>CA</state>
 			<type>cencal</type>
 			<url><![CDATA[http://fresno.craigslist.org/search/jjj?query={find}&catAbbreviation=jjj]]></url>
 			<partial>fresno.craigslist.org</partial>
 			<name>Fresno</name>
 		</location>
 		<location>
+			<state>CA</state>
 			<type>cencal</type>
 			<url><![CDATA[http://fresno.craigslist.org/search/cpg?query={find}&catAbbreviation=cpg]]></url>
 			<partial>fresno.craigslist.org</partial>
 			<name>Fresno</name>
 		</location>
 		<location>
+			<state>CA</state>
 			<type>cencal</type>
 			<url><![CDATA[http://slo.craigslist.org/search/jjj?query={find}&catAbbreviation=jjj]]></url>
 			<partial>slo.craigslist.org</partial>
 			<name>San Luis Obispo</name>
 		</location>
 		<location>
+			<state>CA</state>
 			<type>cencal</type>
 			<url><![CDATA[http://slo.craigslist.org/search/cpg?query={find}&catAbbreviation=cpg]]></url>
 			<partial>slo.craigslist.org</partial>
 			<name>San Luis Obispo</name>
 		</location>
 		<location>
+			<state>CA</state>
 			<type>cencal</type>
 			<url><![CDATA[http://santabarbara.craigslist.org/search/jjj?query={find}&catAbbreviation=jjj]]></url>
 			<partial>santabarbara.craigslist.org</partial>
@@ -136,12 +155,14 @@
 			<name>Santa Barbara</name>
 		</location>
 		<location>
+			<state>CA</state>
 			<type>cencal</type>
 			<url><![CDATA[http://ventura.craigslist.org/search/jjj?query={find}&catAbbreviation=jjj]]></url>
 			<partial>ventura.craigslist.org</partial>
 			<name>Ventura</name>
 		</location>
 		<location>
+			<state>CA</state>
 			<type>cencal</type>
 			<url><![CDATA[http://ventura.craigslist.org/search/cpg?query={find}&catAbbreviation=cpg]]></url>
 			<partial>ventura.craigslist.org</partial>
@@ -154,10 +175,18 @@
 			<name>Bakersfield</name>
 		</location>
 		<location>
+			<state>CA</state>
 			<type>cencal</type>
 			<url><![CDATA[http://bakersfield.craigslist.org/search/jjj?query={find}&catAbbreviation=jjj]]></url>
 			<partial>bakersfield.craigslist.org</partial>
 			<name>Bakersfield</name>
+		</location>
+		<location>
+			<state>NV</state>
+			<type></type>
+			<url><![CDATA[http://lasvegas.craigslist.org/search/jjj?query={find}&catAbbreviation=jjj]]></url>
+			<partial>lasvegas.craigslist.org</partial>
+			<name>Las Vegas</name>
 		</location>
 	</locations>
 </cljobs>

@@ -11,7 +11,7 @@ foreach($xml->xpath('/cljobs/locations/location') as $location)
 	$loc = get_object_vars($location);
 	$locations[] = $loc;
 	extract($loc);
-	$areas[$partial] = '<label for="'.$partial.'"><input class="region '.$type.'" type="checkbox" id="'.$partial.'" name="include[]" value="'.$partial.'" />'.$name.'</label>';
+	$areas[$partial] = '<label for="'.$partial.'"><input class="region '.$type.'" type="checkbox" id="'.$partial.'" name="include[]" value="'.$partial.'" />'.$name.', '.$state.'</label>';
 	unset($name);
 	unset($url);
 	unset($partial);
@@ -231,8 +231,9 @@ pageTracker._trackPageview();
 		-moz-box-shadow: 0px 0px 2px #999;
 		-webkit-box-shadow: 0px 0px 2px #999;
 	}
-	#content {overflow-y: scroll; width: 100%;}
-	#find_jobs {float:left; position: relative; width: 250px; background-color: #fff; border: solid 1px #999; padding:10px; border-left: none; border-top: none;}
+	#content-container {position: absolute; top: 0px; left: 286px; right: 0px; bottom: 0px;padding-top: 10px;}
+	#content {overflow-y: scroll; display:block;}
+	#find_jobs {position: relative; width: 250px; background-color: #fff; border: solid 1px #999; padding:10px; border-left: none; border-top: none; margin: 0px;}
 
 	a#donate {text-decoration: none; display:block; border-top: solid 1px #999; margin:-10px; margin-top: 0px; line-height: 30px; text-align: center;}
 	a#donate:hover{background-color: #F4FDFF;}
@@ -314,12 +315,14 @@ $(function(){
 
 function content_size()
 {
+	$('#content-container').css('left',$('#find_jobs').outerWidth(true));
 	$('#content')
 		.css('height',$(window).height()-50)
-		.css('width',$(window).width() - $('#find_jobs').width() - 70);
+		.css('width',$(window).width() - $('#find_jobs').outerWidth(true)-10)
+		.css('margin-left','10px');
 }
 </script>
-<div style="float:left; padding: 10px;">
+<div id="content-container">
 	<div style="display:none;" id="toggle_disp">
 		<a style="display:inline-block;" href="#" rel="open">Close All</a>
 	</div>
