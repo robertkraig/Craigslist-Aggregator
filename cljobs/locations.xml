@@ -65,18 +65,6 @@
 		</location>
 		<location>
 			<type>norcal</type>
-			<url><![CDATA[http://fresno.craigslist.org/search/jjj?query={find}&catAbbreviation=jjj]]></url>
-			<partial>fresno.craigslist.org</partial>
-			<name>Fresno</name>
-		</location>
-		<location>
-			<type>norcal</type>
-			<url><![CDATA[http://fresno.craigslist.org/search/cpg?query={find}&catAbbreviation=cpg]]></url>
-			<partial>fresno.craigslist.org</partial>
-			<name>Fresno</name>
-		</location>
-		<location>
-			<type>norcal</type>
 			<url><![CDATA[http://sacramento.craigslist.org/search/jjj?query={find}&catAbbreviation=jjj]]></url>
 			<partial>sacramento.craigslist.org</partial>
 			<name>Sacramento</name>
@@ -98,6 +86,30 @@
 			<url><![CDATA[http://sfbay.craigslist.org/search/cpg?query={find}&catAbbreviation=cpg]]></url>
 			<partial>sfbay.craigslist.org</partial>
 			<name>San Francisco / Bay Area</name>
+		</location>
+		<location>
+			<type>norcal</type>
+			<url><![CDATA[http://monterey.craigslist.org/search/cpg?query={find}&catAbbreviation=cpg]]></url>
+			<partial>monterey.craigslist.org</partial>
+			<name>Monterey Bay</name>
+		</location>
+		<location>
+			<type>norcal</type>
+			<url><![CDATA[http://monterey.craigslist.org/search/jjj?query={find}&catAbbreviation=jjj]]></url>
+			<partial>monterey.craigslist.org</partial>
+			<name>Monterey Bay</name>
+		</location>
+		<location>
+			<type>cencal</type>
+			<url><![CDATA[http://fresno.craigslist.org/search/jjj?query={find}&catAbbreviation=jjj]]></url>
+			<partial>fresno.craigslist.org</partial>
+			<name>Fresno</name>
+		</location>
+		<location>
+			<type>cencal</type>
+			<url><![CDATA[http://fresno.craigslist.org/search/cpg?query={find}&catAbbreviation=cpg]]></url>
+			<partial>fresno.craigslist.org</partial>
+			<name>Fresno</name>
 		</location>
 		<location>
 			<type>cencal</type>
@@ -122,6 +134,30 @@
 			<url><![CDATA[http://santabarbara.craigslist.org/search/cpg?query={find}&catAbbreviation=cpg]]></url>
 			<partial>santabarbara.craigslist.org</partial>
 			<name>Santa Barbara</name>
+		</location>
+		<location>
+			<type>cencal</type>
+			<url><![CDATA[http://ventura.craigslist.org/search/jjj?query={find}&catAbbreviation=jjj]]></url>
+			<partial>ventura.craigslist.org</partial>
+			<name>Ventura</name>
+		</location>
+		<location>
+			<type>cencal</type>
+			<url><![CDATA[http://ventura.craigslist.org/search/cpg?query={find}&catAbbreviation=cpg]]></url>
+			<partial>ventura.craigslist.org</partial>
+			<name>Ventura</name>
+		</location>
+		<location>
+			<type>cencal</type>
+			<url><![CDATA[http://bakersfield.craigslist.org/search/cpg?query={find}&catAbbreviation=cpg]]></url>
+			<partial>bakersfield.craigslist.org</partial>
+			<name>Bakersfield</name>
+		</location>
+		<location>
+			<type>cencal</type>
+			<url><![CDATA[http://bakersfield.craigslist.org/search/jjj?query={find}&catAbbreviation=jjj]]></url>
+			<partial>bakersfield.craigslist.org</partial>
+			<name>Bakersfield</name>
 		</location>
 	</locations>
 </cljobs>
