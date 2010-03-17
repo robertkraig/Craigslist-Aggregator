@@ -314,7 +314,8 @@ $(function(){
 	$('#find_jobs').submit(function(){
 		if(!$('input[name="include[]"]:checked').length)
 		{
-			$('input[name="include[]"].region').attr('checked','checked');
+			$('input[value="socal"]').attr('checked','checked');
+			$('input[name="include[]"].socal').attr('checked','checked');
 		}
 		if($('#search_term').val() == "")
 		{
