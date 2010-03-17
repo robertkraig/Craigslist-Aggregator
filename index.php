@@ -1,4 +1,15 @@
 <?php
+/**
+ * @author Robert S Kraig
+ * @version 0.5
+ *
+ * I know that this source code can be a bit messy,
+ * but the purpose is far more important than the
+ * actual code at this point. If you want to help
+ * me improve it make a suggestion to my email or IM me.
+ */
+
+
 error_reporting(E_ALL);
 
 $xmlstr = file_get_contents('cljobs/locations.xml');
@@ -39,7 +50,8 @@ function replace_query(&$array,$find)
 
 function getJobs($location)
 {
-	$file = file_get_contents($location['url']);
+	$file = @file_get_contents($location['url']);
+	if(!$file) return array();
 
 	$dom = new DOMDocument();
 	@$dom->loadHTML($file);
@@ -94,46 +106,58 @@ function jobs($locations, $find = 'php', $include = '')
 	return $new_list;
 }
 
-if(isset($_POST['s']) && strlen($_POST['s'])):
+if(isset($_POST['s']) && strlen($_POST['s']))
+{
 	$include = $_POST['include'];
 	$include = implode('|', $include);
 	$include = str_replace('.', '\\.', $include);
 	$jobs = jobs($locations,$_POST['s'],$include);
 	//echo "<pre>".print_r($jobs,true)."</pre>"; return;
-	if(count($jobs)):
-			$tmp_key = false;
-		foreach($jobs as $key=>$job):
-			if(preg_match('/[ ]/', $key)):
+	if(count($jobs))
+	{
+		$tmp_key = false;
+		foreach($jobs as $key=>$job)
+		{
+			if(preg_match('/[ ]/', $key))
+			{
 				if($tmp_key) echo '</div>';
 				echo "<h1>{$key}</h1>";
 				echo '<div class="date">';
 				$tmp_key = true;
-			endif;
-	if(count($job)):
-		$test_val = '';
-		foreach($job as $_key=>$_job):
-			$link = strstr($_job['url'], 'http://')?$_job['url']:'http://'.$_job['from'].$_job['url'];
-			$not_near = strstr($_job['url'], 'http://')?'<span class="near"></span>':'';
-			if($test_val != $_job['from']):
-				$test_val =  $_job['from'];
-				$from = explode('.',$_job['from']);
-				if($_key):?>
-</ul>
+			}
+			if(count($job))
+			{
+				$test_val = '';
+				foreach($job as $_key=>$_job)
+				{
+					$link = strstr($_job['url'], 'http://')?$_job['url']:'http://'.$_job['from'].$_job['url'];
+					$not_near = strstr($_job['url'], 'http://')?'<span class="near"></span>':'';
+					if($test_val != $_job['from'])
+					{
+						$test_val =  $_job['from'];
+						$from = explode('.',$_job['from']);
+						if($_key)
+						{
+?>
+				</ul>
 <?php
-				endif;
+						}
 ?>
 <h2><?=$from[0];?></h2>
 <ul>
-<?php endif; ?>
+<?php
+					}
+?>
 	<li><a href="<?=$link;?>" target="_blank"><span><?=$_job['title'];?> : <span style="color:black;"><?=$_job['field'];?></span></span></a><?=$not_near;?></li>
 <?php
-		endforeach;
-	endif;
+				}
+			}
 ?>
 </ul>
 <?php
-		endforeach;
-	endif;?>
+		}
+	}
+?>
 <script type="text/javascript">
 $(function(){
 //		$('#content div.date').hide();
@@ -161,20 +185,13 @@ $(function(){
 	});
 });
 </script>
-<?php else: ?>
+<?php
+}
+else
+{
+?>
 <title>Job Search via Craigslist</title>
-<script type="text/javascript" src="http://www.google.com/jsapi"></script>
-<script type="text/javascript">
-  // You may specify partial version numbers, such as "1" or "1.3",
-  //  with the same result. Doing so will automatically load the
-  //  latest version matching that partial revision pattern
-  //  (i.e. both 1 and 1.3 would load 1.3.2 today).
-  google.load("jquery", "1.3.2");
-
-  google.setOnLoadCallback(function() {
-    // Place init code here instead of $(document).ready()
-  });
-</script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -234,23 +251,27 @@ pageTracker._trackPageview();
 	#content-container {position: absolute; top: 0px; left: 286px; right: 0px; bottom: 0px;padding-top: 10px;}
 	#content {overflow-y: scroll; display:block;}
 	#find_jobs {position: relative; width: 250px; background-color: #fff; border: solid 1px #999; padding:10px; border-left: none; border-top: none; margin: 0px;}
-
+	#change_size_container {display:block;}
 	a#donate {text-decoration: none; display:block; border-top: solid 1px #999; margin:-10px; margin-top: 0px; line-height: 30px; text-align: center;}
 	a#donate:hover{background-color: #F4FDFF;}
 	a#donate:focus{color: red;}
+	a#change_size,a#change_size:visited{text-decoration: none; margin:-10px;display:block; margin-bottom: 0px; padding: 5px; font-family: monospace; line-height: 20px; font-size: 20px;}
 </style>
 <form action="" method="post" id="find_jobs">
-	<div style="font-size: 24px;">Find yourself a Job</div>
-	<cite>I wrote this App because I found myself going back and forth between different areas of Craigslist so I could look up jobs. This is an aggregate of all the sites that you select in <strong>Areas</strong></cite>
-	<input type="text" id="search_term" name="s" value="" />
-	<cite>Ex: php, C#, .NET, ASP.NET, Linux</cite>
-	Region:<br />
-	<?php echo implode("\n\t",$regions); ?>
-	Areas: <br />
-	<?php echo implode("\n\t",$areas); ?>
-	<a href="#submit" id="search_btn">Search</a>
-	<div><a id="donate" href="http://www.compubomb.net/pages/payme" target="_blank">Donate To Author</a></div>
-	<img alt="loader" id="loader" style="display:none; position: absolute; bottom: 0; right: 0; margin:10px; margin-bottom: 35px;" src="/img/loading.gif" />
+	<a id="change_size" href="#">[-]</a>
+	<div id="change_size_container">
+		<div style="font-size: 24px;">Find yourself a Job</div>
+		<cite>I wrote this App because I found myself going back and forth between different areas of Craigslist so I could look up jobs. This is an aggregate of all the sites that you select in <strong>Areas</strong></cite>
+		<input type="text" id="search_term" name="s" value="" />
+		<cite>Ex: php, C#, .NET, ASP.NET, Linux</cite>
+		Region:<br />
+		<?php echo implode("\n\t",$regions); ?>
+		Areas: <br />
+		<?php echo implode("\n\t",$areas); ?>
+		<a href="#submit" id="search_btn">Search</a>
+		<div><a id="donate" href="http://www.compubomb.net/pages/payme" target="_blank">Donate To Author</a></div>
+		<img alt="loader" id="loader" style="display:none; position: absolute; bottom: 0; right: 0; margin:10px; margin-bottom: 35px;" src="/img/loading.gif" />
+	</div>
 </form>
 <script type="text/javascript">
 $(function(){
@@ -259,7 +280,24 @@ $(function(){
 		$('#find_jobs').submit();
 		return false;
 	});
+	$('#change_size').live('click',function(){
+		if($('#change_size_container').css('display') == 'block')
+		{
+			$('#change_size_container').css('display','none');
+			$('#find_jobs').animate({width:'25px'},'fast',function(){
+				$('#change_size').text('[+]');
+				content_size();
+			});
 
+		}else{
+			$('#find_jobs').animate({width:'250px'},'fast',function(){
+				$('#change_size_container').css('display','block');
+				content_size();
+				$('#change_size').text('[-]');
+			});
+		}
+		return false;
+	});
 	$('input[type="checkbox"].regions').live('click',function(){
 		var region = $(this).val();
 		var str = 'input[name="include[]"].'+region;
@@ -317,15 +355,17 @@ function content_size()
 {
 	$('#content-container').css('left',$('#find_jobs').outerWidth(true));
 	$('#content')
-		.css('height',$(window).height()-50)
+		.css('height',$(window).height()-30)
 		.css('width',$(window).width() - $('#find_jobs').outerWidth(true)-10)
 		.css('margin-left','10px');
 }
 </script>
 <div id="content-container">
-	<div style="display:none;" id="toggle_disp">
-		<a style="display:inline-block;" href="#" rel="open">Close All</a>
+	<div style="display:none; margin-left: 10px;" id="toggle_disp">
+		<a style="display:inline-block; text-decoration: none;" href="#" rel="open">Close All</a>
 	</div>
 	<div style="display:none;" id="content"></div>
 </div>
-<?php endif;?>
+<?php
+}
+?>
