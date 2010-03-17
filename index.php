@@ -102,8 +102,10 @@ function jobs($locations, $find = 'php', $include = '')
 		unset($job['date']);
 		$new_list[$date][] = $job;
 	}
+	ksort($new_list);
 
-	return $new_list;
+
+	return array_reverse($new_list);
 }
 
 if(isset($_POST['s']) && strlen($_POST['s']))
