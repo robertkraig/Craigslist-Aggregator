@@ -48,6 +48,6 @@ $(document).ready(function(){
 		var name = href.split('.')[0];
 		$(this).text(name);
 	});
-	$('.jobsite').hoverWindow();
+//	$('.jobsite').hoverWindow();
 });
 
