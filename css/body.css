@@ -1,0 +1,55 @@
+body {background-color: #F4FDFF; margin: 0px; padding: 0px;}
+* {font-family:Geneva,Arial,Helvetica,serif,sans-serif; outline: none;}
+h1 {font-size: 24px; margin:0px; padding:0px; cursor:pointer;}
+h2 {font-size: 18px; margin:0px; padding:0px; text-transform:uppercase;cursor:pointer; margin-left:20px; width: 200px;}
+h1:hover,h2:hover {color:red;}
+a {text-decoration:none; color:red;}
+a:visited{color:black;text-decoration: line-through;}
+a span {border-bottom:dashed 1px gray;}
+div.date {}
+ul {margin-bottom:10px; margin-left:25px;}
+ul li {list-style-type:none; margin:0px; padding:0px; display:block;}
+ul li,ul li a { font-size: 16px; line-height:25px;}
+form label {display:block;}
+form input,
+form button {margin:5px; padding:2px; color:red; border:solid 1px gray; background-color:white;}
+span.near {margin-left:10px; text-transform:uppercase; font-weight:bold;}
+form button, form input[type="text"]{
+	-moz-box-shadow: 0px 0px 2px #000;
+	-webkit-box-shadow: 0px 0px 2px #000;
+}
+cite {display:block;font-size: 10px; font-style: italic;margin:5px; margin-top: 0px; padding:2px;}
+a#search_btn {
+	margin:5px;
+	padding:2px;
+	color:red;
+	border:solid 1px gray;
+	background-color:white;
+	-moz-box-shadow: 0px 0px 2px #000;
+	-webkit-box-shadow: 0px 0px 2px #000;
+	text-decoration: none;
+	padding:5px;
+	display:inline-block;
+}
+form button:focus,
+form input[type="text"]:focus,
+form input[type="password"]:focus,
+form input[type="file"]:focus,
+form select:focus,
+form textarea:focus,
+a#search_btn:focus,
+a#search_btn:hover{
+	background-color: #FFF;
+	border: 1px solid #508FCF;
+	-moz-box-shadow: 0px 0px 2px #999;
+	-webkit-box-shadow: 0px 0px 2px #999;
+}
+#content-container {position: absolute; top: 0px; left: 286px; right: 0px; bottom: 0px;padding-top: 10px;}
+#content {overflow-y: scroll; display:block;}
+#find_jobs {position: relative; width: 250px; background-color: #fff; border: solid 1px #999; padding:10px; border-left: none; border-top: none; margin: 0px;}
+#change_size_container {display:block;}
+a#donate {text-decoration: none; display:block; border-top: solid 1px #999; margin:-10px; margin-top: 0px; line-height: 30px; text-align: center;}
+a#donate:hover{background-color: #F4FDFF;}
+a#donate:focus{color: red;}
+a#change_size,a#change_size:visited{text-decoration: none; margin:-10px;display:block; margin-bottom: 0px; padding: 5px; font-family: monospace; line-height: 20px; font-size: 20px;}
+.linkhover {color:red; font-weight: bold;}
