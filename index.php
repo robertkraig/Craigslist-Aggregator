@@ -150,7 +150,7 @@ if(isset($_POST['s']) && strlen($_POST['s']))
 <?php
 					}
 ?>
-	<li><a href="<?=$link;?>" title="<?=$from[0];?>" class="jobsite" target="_blank"><span><?=$_job['title'];?> : <span style="color:black;"><?=$_job['field'];?></span></span></a><?=$not_near;?></li>
+	<li><a href="<?=$link;?>" class="jobsite" target="_blank"><span><?=$_job['title'];?> : <span style="color:black;"><?=$_job['field'];?></span></span></a><?=$not_near;?></li>
 <?php
 				}
 			}
