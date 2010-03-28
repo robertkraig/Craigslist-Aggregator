@@ -12,7 +12,7 @@
      if (settings) $.extend(config, settings);
 
 		var hover_div = document.createElement('div');
-		$(hover_div).attr('id','tooltip').prependTo('body');
+		$(hover_div).attr('id','tooltip').hide().prependTo('body')
 		var topCord,leftCord;
 		var $tooltip = $('#tooltip');
 		$tooltip
