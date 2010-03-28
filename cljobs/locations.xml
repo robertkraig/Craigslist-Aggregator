@@ -25,7 +25,7 @@
 		<location>
 			<state>CA</state>
 			<type>socal</type>
-			<url><![CDATA[http://losangeles.craigslist.org/search/?areaID=7&subAreaID=&query={find}&catAbbreviation=ggg]]></url>
+			<url><![CDATA[http://losangeles.craigslist.org/search/?areaID=7&subAreaID=&query={find}&catAbbreviation=ggg&addThree=forpay]]></url>
 			<partial>losangeles.craigslist.org</partial>
 			<name>Los Angeles</name>
 		</location>
@@ -39,7 +39,7 @@
 		<location>
 			<state>CA</state>
 			<type>socal</type>
-			<url><![CDATA[http://sandiego.craigslist.org/search/?areaID=8&subAreaID=&query={find}&catAbbreviation=ggg]]></url>
+			<url><![CDATA[http://sandiego.craigslist.org/search/?areaID=8&subAreaID=&query={find}&catAbbreviation=ggg&addThree=forpay]]></url>
 			<partial>sandiego.craigslist.org</partial>
 			<name>San Diego</name>
 		</location>
@@ -53,7 +53,7 @@
 		<location>
 			<state>CA</state>
 			<type>socal</type>
-			<url><![CDATA[http://orangecounty.craigslist.org/search/?areaID=103&subAreaID=&query={find}&catAbbreviation=ggg]]></url>
+			<url><![CDATA[http://orangecounty.craigslist.org/search/?areaID=103&subAreaID=&query={find}&catAbbreviation=ggg&addThree=forpay]]></url>
 			<partial>orangecounty.craigslist.org</partial>
 			<name>Orange</name>
 		</location>
@@ -67,7 +67,7 @@
 		<location>
 			<state>CA</state>
 			<type>socal</type>
-			<url><![CDATA[http://inlandempire.craigslist.org/search/jjj?query={find}&catAbbreviation=ggg]]></url>
+			<url><![CDATA[http://inlandempire.craigslist.org/search/jjj?query={find}&catAbbreviation=ggg&addThree=forpay]]></url>
 			<partial>inlandempire.craigslist.org</partial>
 			<name>Inland Empire</name>
 		</location>
@@ -81,7 +81,7 @@
 		<location>
 			<state>CA</state>
 			<type>norcal</type>
-			<url><![CDATA[http://sacramento.craigslist.org/search/cpg?query={find}&catAbbreviation=cpg]]></url>
+			<url><![CDATA[http://sacramento.craigslist.org/search/cpg?query={find}&catAbbreviation=cpg&addThree=forpay]]></url>
 			<partial>sacramento.craigslist.org</partial>
 			<name>Sacramento</name>
 		</location>
@@ -95,14 +95,14 @@
 		<location>
 			<state>CA</state>
 			<type>norcal</type>
-			<url><![CDATA[http://sfbay.craigslist.org/search/cpg?query={find}&catAbbreviation=cpg]]></url>
+			<url><![CDATA[http://sfbay.craigslist.org/search/cpg?query={find}&catAbbreviation=cpg&addThree=forpay]]></url>
 			<partial>sfbay.craigslist.org</partial>
 			<name>San Francisco / Bay Area</name>
 		</location>
 		<location>
 			<state>CA</state>
 			<type>norcal</type>
-			<url><![CDATA[http://monterey.craigslist.org/search/cpg?query={find}&catAbbreviation=cpg]]></url>
+			<url><![CDATA[http://monterey.craigslist.org/search/cpg?query={find}&catAbbreviation=cpg&addThree=forpay]]></url>
 			<partial>monterey.craigslist.org</partial>
 			<name>Monterey Bay</name>
 		</location>
@@ -123,7 +123,7 @@
 		<location>
 			<state>CA</state>
 			<type>cencal</type>
-			<url><![CDATA[http://fresno.craigslist.org/search/cpg?query={find}&catAbbreviation=cpg]]></url>
+			<url><![CDATA[http://fresno.craigslist.org/search/cpg?query={find}&catAbbreviation=cpg&addThree=forpay]]></url>
 			<partial>fresno.craigslist.org</partial>
 			<name>Fresno</name>
 		</location>
@@ -137,7 +137,7 @@
 		<location>
 			<state>CA</state>
 			<type>cencal</type>
-			<url><![CDATA[http://slo.craigslist.org/search/cpg?query={find}&catAbbreviation=cpg]]></url>
+			<url><![CDATA[http://slo.craigslist.org/search/cpg?query={find}&catAbbreviation=cpg&addThree=forpay]]></url>
 			<partial>slo.craigslist.org</partial>
 			<name>San Luis Obispo</name>
 		</location>
@@ -150,7 +150,7 @@
 		</location>
 		<location>
 			<type>cencal</type>
-			<url><![CDATA[http://santabarbara.craigslist.org/search/cpg?query={find}&catAbbreviation=cpg]]></url>
+			<url><![CDATA[http://santabarbara.craigslist.org/search/cpg?query={find}&catAbbreviation=cpg&addThree=forpay]]></url>
 			<partial>santabarbara.craigslist.org</partial>
 			<name>Santa Barbara</name>
 		</location>
@@ -164,13 +164,13 @@
 		<location>
 			<state>CA</state>
 			<type>cencal</type>
-			<url><![CDATA[http://ventura.craigslist.org/search/cpg?query={find}&catAbbreviation=cpg]]></url>
+			<url><![CDATA[http://ventura.craigslist.org/search/cpg?query={find}&catAbbreviation=cpg&addThree=forpay]]></url>
 			<partial>ventura.craigslist.org</partial>
 			<name>Ventura</name>
 		</location>
 		<location>
 			<type>cencal</type>
-			<url><![CDATA[http://bakersfield.craigslist.org/search/cpg?query={find}&catAbbreviation=cpg]]></url>
+			<url><![CDATA[http://bakersfield.craigslist.org/search/cpg?query={find}&catAbbreviation=cpg&addThree=forpay]]></url>
 			<partial>bakersfield.craigslist.org</partial>
 			<name>Bakersfield</name>
 		</location>

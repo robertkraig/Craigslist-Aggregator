@@ -1,26 +1,50 @@
 (function($){
-	$.fn.hoverWindow = function(){
-		this.each(function(count){
-			var hover_div = document.createElement('div');
-			var $hover = $(hover_div);
-			$(this).parent().css('position','relative');
-			$hover
-				.attr('id','hover_'+count)
-				.addClass('linkhover')
-				.css('position','absolute')
-				.css('z-index','1')
-				.css('padding','2px')
-				.css('left',$(this).outerWidth(true)+5)
-				.css('top','-2')
-				.css('display','none')
-				.html($(this).attr('href'));
-			$(this).attr('id','link_'+count);
-			$(this).parent().prepend($hover);
-			var id = $(this).attr('id').split('_')[1];
-			$(this).parent().hover(function(){
-				$('#hover_'+id).show();
-			},function(){
-				$('#hover_'+id).hide();
+	$.fn.hoverWindow = function(settings) {
+
+     var config = {
+		 'attr': 'href',
+		 'prepend':'',
+		 'width':'',
+		 'height':'',
+		 'backgroundColor':'white'
+	 };
+
+     if (settings) $.extend(config, settings);
+
+		var hover_div = document.createElement('div');
+		$(hover_div).attr('id','tooltip').prependTo('body');
+		var topCord,leftCord;
+		var $tooltip = $('#tooltip');
+		$tooltip
+			.css('position','absolute')
+			.css('background-color',config.backgroundColor)
+			.css('border','solid 1px black')
+			.css('-moz-box-shadow','0px 0px 2px #000')
+			.css('-webkit-box-shadow','0px 0px 2px #000')
+			.css('padding','5px')
+			.css('z-index','100');
+
+		if(config.width.length)
+			$tooltip.css('width',config.width);
+		if(config.height.length)
+			$tooltip.css('height',config.height);
+
+		this.each(function(i){
+			var $self = $(this);
+			$self.mousemove(function(event){
+				topCord = event.clientY+15;
+				leftCord = event.clientX+15;
+				$tooltip
+					.css('top',topCord)
+					.css('left',leftCord)
+//				console.log('topCord',topCord,'leftCord',leftCord);
+			}).mouseover(function(){
+				$tooltip.show().html(
+					(config.prepend.length?config.prepend:'<strong>' + $self.text() + '</strong>' + '<br />') +
+					$self.attr(config.attr)
+				);
+			}).mouseout(function(){
+				$tooltip.hide();
 			});
 		});
 	};
@@ -48,6 +72,10 @@ $(document).ready(function(){
 		var name = href.split('.')[0];
 		$(this).text(name);
 	});
-//	$('.jobsite').hoverWindow();
+	$('.jobsite').hoverWindow({
+		'attr':'href',
+		'width':'500px',
+		'backgroundColor':'rgba(255,255,255,0.8)'
+	});
 });
 

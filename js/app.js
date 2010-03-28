@@ -80,7 +80,7 @@ function content_size()
 {
 	$('#content-container').css('left',$('#find_jobs').outerWidth(true));
 	$('#content')
-		.css('height',$(window).height()-30)
-		.css('width',$(window).width() - $('#find_jobs').outerWidth(true)-10)
+		.css('height',$(window).height()-40)
+		.css('width',$(window).width() - $('#find_jobs').outerWidth(true)-15)
 		.css('margin-left','10px');
 }
