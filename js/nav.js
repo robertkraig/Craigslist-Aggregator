@@ -1,4 +1,15 @@
 (function($){
+	$.fn.wait = function(time, type) {
+		time = time || 1000;
+		type = type || "fx";
+		return this.queue(type, function() {
+			var self = this;
+			setTimeout(function() {
+				$(self).dequeue();
+			}, time);
+		});
+	};
+
 	$.fn.hoverWindow = function(settings) {
 
      var config = {
@@ -22,6 +33,7 @@
 			.css('-moz-box-shadow','0px 0px 2px #000')
 			.css('-webkit-box-shadow','0px 0px 2px #000')
 			.css('padding','5px')
+			.css('opacity','0')
 			.css('z-index','100');
 
 		if(config.width.length)
@@ -42,9 +54,9 @@
 				$tooltip.show().html(
 					(config.prepend.length?config.prepend:'<strong>' + $self.text() + '</strong>' + '<br />') +
 					$self.attr(config.attr)
-				);
+				).wait().animate({opacity: 1}, { duration: 500, queue: false }, 'linear');
 			}).mouseout(function(){
-				$tooltip.hide();
+				$tooltip.animate({opacity: 0}, { duration: 500, queue: false }, 'linear',function(){$(this).hide();});
 			});
 		});
 	};
@@ -75,7 +87,7 @@ $(document).ready(function(){
 	$('.jobsite').hoverWindow({
 		'attr':'href',
 		'width':'500px',
-		'backgroundColor':'rgba(255,255,255,0.8)'
+		'backgroundColor':'rgba(255,255,255,0.9)'
 	});
 });
 
