@@ -102,9 +102,16 @@ function jobs($locations, $find = 'php', $include = '')
 		unset($job['date']);
 		$new_list[$date][] = $job;
 	}
-	ksort($new_list);
-
-
+	function mySort($a,$b)
+	{
+		$a = strtotime($a." ". date('Y'));
+		$b = strtotime($b." ". date('Y'));
+		if($a > $b)
+			return 1;
+		else
+			return -1;
+	}
+	uksort($new_list, 'mySort');
 	return array_reverse($new_list);
 }
 
