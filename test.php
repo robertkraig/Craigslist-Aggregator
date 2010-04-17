@@ -24,4 +24,21 @@ if($similarity[$best_key]['similarity'] == 0)
 else
 	echo "Most Similar Word: ".$similarity[$best_key]['word']."\n";
 
-?>
+// OR!
+
+$input = $_GET['input']?$_GET['input']:'';
+
+$words  = array(
+    'apple', 'pineapple', 'banana', 'orange',
+    'radish', 'carrot', 'pea', 'bean', 'potato'
+);
+
+$similarity = array();
+
+foreach ($words as $key=>$word)
+    $similarity[] = array('similarity'=>levenshtein($input, $word),'word'=>$word);
+
+uasort($similarity,function($a,$b) { if ($a['similarity'] === $b['similarity']) return 0; return ($a['similarity']<$b['similarity'])?-1:1; });
+$best_fit = array_shift($similarity);
+
+echo (($best_fit['similarity'] === 0) ? "Exact Match: " : "Most Similar: ") . $best_fit['word']."\n";

@@ -9,7 +9,6 @@
  * me improve it make a suggestion to my email or IM me.
  */
 
-
 error_reporting(E_ALL);
 
 $xmlstr = file_get_contents('cljobs/locations.xml');
@@ -66,17 +65,20 @@ function getJobs($location)
 		$name = $title->textContent;
 		$name = str_replace('<<', ' - ', $name);
 		$fields = explode('-', $name);
-		$jobs[$i]['date'] = trim($fields[0]);
-		$jobs[$i]['field'] = $fields[count($fields)-1];
-		$jobs[$i]['from'] = $location['partial'];
+		$jobs[$i]['location'] = $location['partial'];
+		$jobs[$i]['info'] = array(
+			'date' => trim($fields[0]),
+			'field' =>  $fields[count($fields)-1],
+			'from' => $location['partial']
+		);
 	}
 	for ($i = 0; $i < $a_tags->length; $i++) {
 		$link = $a_tags->item($i);
 		$location = $link->getAttribute('href');
 		$name = $link->textContent;
 		$name = substr($name, 0, strlen($name)-1);
-		$jobs[$i]['url']   = $location;
-		$jobs[$i]['title'] = $name;
+		$jobs[$i]['info']['url']   = $location;
+		$jobs[$i]['info']['title'] = $name;
 	}
 	//echo "<pre>".print_r($jobs,true)."</pre>"; return;
 
@@ -98,14 +100,14 @@ function jobs($locations, $find = 'php', $include = '')
 	$new_list = array();
 	foreach($jobs as $job)
 	{
-		$date = $job['date'];
-		unset($job['date']);
-		$new_list[$date][] = $job;
+		$date = $job['info']['date'];
+		unset($job['info']['date']);
+		$uniqu_group_hash = strtotime($date." ". date('Y'));
+		$new_list[$uniqu_group_hash]['date'] = $date;
+		$new_list[$uniqu_group_hash]['records'][] = $job;
 	}
 	function mySort($a,$b)
 	{
-		$a = strtotime($a." ". date('Y'));
-		$b = strtotime($b." ". date('Y'));
 		if($a > $b)
 			return 1;
 		else
@@ -121,51 +123,10 @@ if(isset($_POST['s']) && strlen($_POST['s']))
 	$include = implode('|', $include);
 	$include = str_replace('.', '\\.', $include);
 	$jobs = jobs($locations,$_POST['s'],$include);
-	//echo "<pre>".print_r($jobs,true)."</pre>"; return;
-	if(count($jobs))
-	{
-		$tmp_key = false;
-		foreach($jobs as $key=>$job)
-		{
-			if(preg_match('/[ ]/', $key))
-			{
-				if($tmp_key) echo '</div>';
-				echo "<h1>{$key}</h1>";
-				echo '<div class="date">';
-				$tmp_key = true;
-			}
-			if(count($job))
-			{
-				$test_val = '';
-				foreach($job as $_key=>$_job)
-				{
-					$link = strstr($_job['url'], 'http://')?$_job['url']:'http://'.$_job['from'].$_job['url'];
-					$not_near = strstr($_job['url'], 'http://')?'<span class="near"></span>':'';
-					if($test_val != $_job['from'])
-					{
-						$test_val =  $_job['from'];
-						$from = explode('.',$_job['from']);
-						if($_key)
-						{
-?>
-				</ul>
-<?php
-						}
-?>
-<h2><?=$from[0];?></h2>
-<ul>
-<?php
-					}
-?>
-	<li><a href="<?=$link;?>" class="jobsite" target="_blank"><span><?=$_job['title'];?> : <span style="color:black;"><?=$_job['field'];?></span></span></a><?=$not_near;?></li>
-<?php
-				}
-			}
-?>
-</ul>
-<?php
-		}
-	}
+	$json_output = json_encode($jobs);
+//	echo '<!--'.memory_get_usage().' -->';
+	echo $json_output;
+
 }
 else
 {
@@ -175,7 +136,7 @@ else
 	<head>
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 		<title>Job Search via Craigslist</title>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
 		<script type="text/javascript">
 			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -214,6 +175,7 @@ else
 			</div>
 			<div style="display:none;" id="content"></div>
 		</div>
+		<script type="text/javascript" src="/js/jquery.simplemodal-1.3.4.min.js"></script>
 	</body>
 </html>
 <?php
