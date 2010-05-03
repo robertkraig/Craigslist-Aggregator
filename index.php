@@ -1,7 +1,7 @@
 <?php
 /**
  * @author Robert S Kraig
- * @version 0.5
+ * @version 0.7
  *
  * I know that this source code can be a bit messy,
  * but the purpose is far more important than the
@@ -11,122 +11,17 @@
 
 error_reporting(E_ALL);
 
-$xmlstr = file_get_contents('cljobs/locations.xml');
-$xml = simplexml_load_string($xmlstr, 'SimpleXMLElement', LIBXML_NOCDATA);
+require 'lib/CraigListScraper.class.php';
 
-$locations = array();
-$areas = array();
-foreach($xml->xpath('/cljobs/locations/location') as $location)
-{
-	$loc = get_object_vars($location);
-	$locations[] = $loc;
-	extract($loc);
-	$areas[$partial] = '<label for="'.$partial.'"><input class="region '.$type.'" type="checkbox" id="'.$partial.'" name="include[]" value="'.$partial.'" />'.$name.', '.$state.'</label>';
-	unset($name);
-	unset($url);
-	unset($partial);
-	unset($type);
-}
-
-$regions = array();
-foreach($xml->xpath('/cljobs/regions/region') as $region)
-{
-	$reg = get_object_vars($region);
-	extract($reg);
-	$regions[] = '<label for="'.$type.'"><input class="regions" type="checkbox" id="'.$type.'" name="region[]" value="'.$type.'" />'.$name.'</label>';
-	unset($type);
-	unset($name);
-}
-
-function replace_query(&$array,$find)
-{
-	$find = urlencode($find);
-	foreach($array as $key=>$val)
-	{
-		$array[$key]['url'] = str_replace('{find}', $find, $array[$key]['url']);
-	}
-}
-
-function getJobs($location)
-{
-	$file = @file_get_contents($location['url']);
-	if(!$file) return array();
-
-	$dom = new DOMDocument();
-	@$dom->loadHTML($file);
-
-	$xpath = new DOMXPath($dom);
-	$p_tags = $xpath->evaluate("/html/body//blockquote//p");
-	$a_tags = $xpath->evaluate("/html/body//blockquote//p/a");
-
-	$jobs = array();
-	for ($i = 0; $i < $p_tags->length; $i++) {
-		$title = $p_tags->item($i);
-		$name = $title->textContent;
-		$name = str_replace('<<', ' - ', $name);
-		$fields = explode('-', $name);
-		$jobs[$i]['location'] = $location['partial'];
-		$jobs[$i]['info'] = array(
-			'date' => trim($fields[0]),
-			'field' =>  $fields[count($fields)-1],
-			'from' => $location['partial']
-		);
-	}
-	for ($i = 0; $i < $a_tags->length; $i++) {
-		$link = $a_tags->item($i);
-		$location = $link->getAttribute('href');
-		$name = $link->textContent;
-		$name = substr($name, 0, strlen($name)-1);
-		$jobs[$i]['info']['url']   = $location;
-		$jobs[$i]['info']['title'] = $name;
-	}
-	//echo "<pre>".print_r($jobs,true)."</pre>"; return;
-
-	return $jobs;
-}
-
-function jobs($locations, $find = 'php', $include = '')
-{
-	$jobs = array();
-	replace_query($locations,$find);
-	foreach($locations as $place)
-	{
-		if(preg_match("/({$include})/", $place['url']))
-		{
-			$list = getJobs($place);
-			$jobs = array_merge($jobs,$list);
-		}
-	}
-	$new_list = array();
-	foreach($jobs as $job)
-	{
-		$date = $job['info']['date'];
-		unset($job['info']['date']);
-		$uniqu_group_hash = strtotime($date." ". date('Y'));
-		$new_list[$uniqu_group_hash]['date'] = $date;
-		$new_list[$uniqu_group_hash]['records'][] = $job;
-	}
-	function mySort($a,$b)
-	{
-		if($a > $b)
-			return 1;
-		else
-			return -1;
-	}
-	uksort($new_list, 'mySort');
-	return array_reverse($new_list);
-}
+$cl_scraper = new CraigListScraper('cljobs/locations.xml');
 
 if(isset($_POST['s']) && strlen($_POST['s']))
 {
 	$include = $_POST['include'];
 	$include = implode('|', $include);
 	$include = str_replace('.', '\\.', $include);
-	$jobs = jobs($locations,$_POST['s'],$include);
-	$json_output = json_encode($jobs);
-//	echo '<!--'.memory_get_usage().' -->';
-	echo $json_output;
-
+	$cl_scraper->initialize($_POST['s'],$include);
+	echo $cl_scraper;
 }
 else
 {
@@ -158,8 +53,8 @@ else
 				<input type="text" id="search_term" name="s" value="" />
 				<cite>Ex: php, C#, .NET, ASP.NET, Linux</cite>
 				Region:<br />
-				<?php echo implode("\n\t", $regions); ?>
-				Areas: <br /><?php echo implode("\n\t", $areas); ?>
+				<?php echo implode("\n\t", $cl_scraper->getRegions()); ?>
+				Areas: <br /><?php echo implode("\n\t", $cl_scraper->getAreas()); ?>
 				<a href="#submit" id="search_btn">Search</a>
 				<div><a id="donate" href="http://www.compubomb.net/pages/payme" target="_blank">Donate To Author</a></div>
 				<img alt="loader" id="loader" style="display:none; position: absolute; bottom: 0; right: 0; margin:10px; margin-bottom: 35px;" src="/img/loading.gif" />

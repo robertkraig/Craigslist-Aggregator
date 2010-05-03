@@ -18,56 +18,56 @@
 		<location>
 			<state>CA</state>
 			<type>socal</type>
-			<url><![CDATA[http://losangeles.craigslist.org/search/?areaID=7&amp;subAreaID=&query={find}&catAbbreviation=jjj]]></url>
+			<url><![CDATA[http://losangeles.craigslist.org/search?query={find}&catAbb=jjj]]></url>
 			<partial>losangeles.craigslist.org</partial>
 			<name>Los Angeles</name>
 		</location>
 		<location>
 			<state>CA</state>
 			<type>socal</type>
-			<url><![CDATA[http://losangeles.craigslist.org/search/?areaID=7&subAreaID=&query={find}&catAbbreviation=ggg&addThree=forpay]]></url>
+			<url><![CDATA[http://losangeles.craigslist.org/search/cpg?query={find}&addThree=forpay]]></url>
 			<partial>losangeles.craigslist.org</partial>
 			<name>Los Angeles</name>
 		</location>
 		<location>
 			<state>CA</state>
 			<type>socal</type>
-			<url><![CDATA[http://sandiego.craigslist.org/search/jjj?query={find}&catAbbreviation=jjj]]></url>
+			<url><![CDATA[http://sandiego.craigslist.org/search?query={find}&catAbb=jjj]]></url>
 			<partial>sandiego.craigslist.org</partial>
 			<name>San Diego</name>
 		</location>
 		<location>
 			<state>CA</state>
 			<type>socal</type>
-			<url><![CDATA[http://sandiego.craigslist.org/search/?areaID=8&subAreaID=&query={find}&catAbbreviation=ggg&addThree=forpay]]></url>
+			<url><![CDATA[http://sandiego.craigslist.org/search/cpg?query={find}&addThree=forpay]]></url>
 			<partial>sandiego.craigslist.org</partial>
 			<name>San Diego</name>
 		</location>
 		<location>
 			<state>CA</state>
 			<type>socal</type>
-			<url><![CDATA[http://orangecounty.craigslist.org/search/?areaID=103&subAreaID=&query={find}&catAbbreviation=jjj]]></url>
+			<url><![CDATA[http://orangecounty.craigslist.org/search?query={find}&catAbb=jjj]]></url>
 			<partial>orangecounty.craigslist.org</partial>
 			<name>Orange</name>
 		</location>
 		<location>
 			<state>CA</state>
 			<type>socal</type>
-			<url><![CDATA[http://orangecounty.craigslist.org/search/?areaID=103&subAreaID=&query={find}&catAbbreviation=ggg&addThree=forpay]]></url>
+			<url><![CDATA[http://orangecounty.craigslist.org/search/cpg?query=php&addThree=forpay]]></url>
 			<partial>orangecounty.craigslist.org</partial>
 			<name>Orange</name>
 		</location>
 		<location>
 			<state>CA</state>
 			<type>socal</type>
-			<url><![CDATA[http://inlandempire.craigslist.org/search/?areaID=104&subAreaID=&query={find}&catAbbreviation=jjj]]></url>
+			<url><![CDATA[http://inlandempire.craigslist.org/search?query={find}&catAbb=jjj]]></url>
 			<partial>inlandempire.craigslist.org</partial>
 			<name>Inland Empire</name>
 		</location>
 		<location>
 			<state>CA</state>
 			<type>socal</type>
-			<url><![CDATA[http://inlandempire.craigslist.org/search/jjj?query={find}&catAbbreviation=ggg&addThree=forpay]]></url>
+			<url><![CDATA[http://inlandempire.craigslist.org/search/cpg?query=php&addThree=forpay]]></url>
 			<partial>inlandempire.craigslist.org</partial>
 			<name>Inland Empire</name>
 		</location>
