@@ -145,8 +145,12 @@ class CraigListScraper {
 		return $jobs;
 	}
 
-	public function initialize($find = 'php', $include = '')
+	public function initialize(array $include, $find = 'php')
 	{
+
+		$include = implode('|', $include);
+		$include = str_replace('.', '\\.', $include);
+
 		if(!count($this->locations))
 			throw new Exception('Something is wrong');
 
