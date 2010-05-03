@@ -15,17 +15,14 @@ require 'lib/CraigListScraper.class.php';
 
 $cl_scraper = new CraigListScraper('cljobs/locations.xml');
 
-if(isset($_POST['s']) && strlen($_POST['s']))
-{
+if(isset($_POST['s']) && strlen($_POST['s'])):
 	$include = $_POST['include'];
 	$include = implode('|', $include);
 	$include = str_replace('.', '\\.', $include);
 	$cl_scraper->initialize($_POST['s'],$include);
 	echo $cl_scraper;
-}
-else
-{
-?>
+else: ?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 	<head>
@@ -73,6 +70,4 @@ else
 		<script type="text/javascript" src="/js/jquery.simplemodal-1.3.4.min.js"></script>
 	</body>
 </html>
-<?php
-}
-?>
+<?php endif; ?>
