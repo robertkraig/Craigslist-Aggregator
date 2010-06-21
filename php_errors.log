@@ -1,0 +1,3 @@
+[20-Jun-2010 18:29:30] PHP Fatal error:  Class 'CraigListScrapr' not found in C:\xampp\vhost\findjobs\index.php on line 18
+[20-Jun-2010 18:29:30] PHP Stack trace:
+[20-Jun-2010 18:29:30] PHP   1. {main}() C:\xampp\vhost\findjobs\index.php:0

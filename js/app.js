@@ -140,28 +140,28 @@ $(document).ready(function(){
 
 	var content_size = function()
 	{
-		$('#content-container').css('left',$('#find_jobs').innerWidth(true));
+		$('#content-container').css('left',$('#find_items').innerWidth(true));
 		$('#content')
 			.css('height',$(window).height()-40)
-			.css('width',$(window).width() - $('#find_jobs').innerWidth(true)-15)
+			.css('width',$(window).width() - $('#find_items').innerWidth(true)-15)
 			.css('margin-left','10px');
 	}
 
 	$('#search_btn').live('click',function(){
-		$('#find_jobs').submit();
+		$('#find_items').submit();
 		return false;
 	});
 	$('#change_size').live('click',function(){
 		if($('#change_size_container').css('display') == 'block')
 		{
 			$('#change_size_container').css('display','none');
-			$('#find_jobs').animate({width:'25px'},'fast',function(){
+			$('#find_items').animate({width:'25px'},'fast',function(){
 				$('#change_size').text('[+]');
 				content_size();
 			});
 
 		}else{
-			$('#find_jobs').animate({width:'250px'},'fast',function(){
+			$('#find_items').animate({width:'250px'},'fast',function(){
 				$('#change_size_container').css('display','block');
 				content_size();
 				$('#change_size').text('[-]');
@@ -182,7 +182,7 @@ $(document).ready(function(){
 			$regions.removeAttr('checked');
 		}
 	});
-	$('#find_jobs').submit(function(){
+	$('#find_items').submit(function(){
 		if(!$('input[name="include[]"]:checked').length)
 		{
 			$('input[value="socal"]').attr('checked','checked');
@@ -203,7 +203,7 @@ $(document).ready(function(){
 		$.ajax({
 			type: "POST",
 			url: window.PHP_SELF,
-			data: $('#find_jobs').serialize(),
+			data: $('#find_items').serialize(),
 			dataType: 'json',
 			success: function(json){
 				$('#content').html(process_data(json));

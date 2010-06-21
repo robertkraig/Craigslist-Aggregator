@@ -9,11 +9,13 @@
  * me improve it make a suggestion to my email or IM me.
  */
 
+ini_set('error_log', './php_errors.log');
+
 error_reporting(E_ALL);
 
 require 'lib/CraigListScraper.class.php';
 try{
-	$cl_scraper = new CraigListScraper('cljobs/locations.xml');
+	$cl_scraper = new CraigListScraper('clrepo/locations.xml');
 
 	if(isset($_POST['s']) && strlen($_POST['s']))
 	{
@@ -27,7 +29,7 @@ try{
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-		<title>Job Search via Craigslist</title>
+		<title><?php echo $cl_scraper->getInfo()->title; ?></title>
 		<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
 		<script type="text/javascript">
 			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
@@ -42,13 +44,13 @@ try{
 		<link rel="stylesheet" type="text/css" href="/css/body.css" />
 	</head>
 	<body>
-		<form action="" method="post" id="find_jobs">
+		<form action="" method="post" id="find_items">
 			<div><a id="change_size" href="#">[-]</a></div>
 			<div id="change_size_container">
-				<div style="font-size: 24px;">Find yourself a Job</div>
-				<cite>I wrote this App because I found myself going back and forth between different areas of Craigslist so I could look up jobs. This is an aggregate of all the sites that you select in <strong>Areas</strong></cite>
+				<div style="font-size: 24px;"><?php echo $cl_scraper->getInfo()->pagetitle; ?></div>
+				<cite><?php echo $cl_scraper->getInfo()->pagedesc; ?></cite>
 				<input type="text" id="search_term" name="s" value="" />
-				<cite>Ex: php, C#, .NET, ASP.NET, Linux</cite>
+				<cite><?php echo $cl_scraper->getInfo()->pagesearchexample; ?></cite>
 				Region:<br />
 				<?php echo implode("\n\t", $cl_scraper->getRegions()); ?>
 				Areas: <br /><?php echo implode("\n\t", $cl_scraper->getAreas()); ?>

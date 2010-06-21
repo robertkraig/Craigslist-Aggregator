@@ -7,6 +7,8 @@
  */
 class CraigListScraper {
 
+	static $cl_info = null;
+
 	private $xml_url_token = '{find}';
 
 	private $post_var_array_name = 'include';
@@ -41,11 +43,20 @@ class CraigListScraper {
 		$this->init();
 	}
 
+	public function getInfo()
+	{
+		if(is_null(self::$cl_info))
+		{
+			self::$cl_info = $this->xml->xpath('/clrepo/info');
+		}
+		return self::$cl_info[0];
+	}
+
 	public function buildAreas()
 	{
 		$this->locations = array();
 		$this->areas = array();
-		foreach($this->xml->xpath('/cljobs/locations/location') as $location)
+		foreach($this->xml->xpath('/clrepo/locations/location') as $location)
 		{
 			$loc = get_object_vars($location);
 			$this->locations[] = $loc;
@@ -64,7 +75,7 @@ class CraigListScraper {
 	public function buildRegions()
 	{
 		$this->regions = array();
-		foreach($this->xml->xpath('/cljobs/regions/region') as $region)
+		foreach($this->xml->xpath('/clrepo/regions/region') as $region)
 		{
 			$reg = get_object_vars($region);
 			extract($reg);
@@ -136,14 +147,14 @@ class CraigListScraper {
 		$p_tags = $xpath->evaluate("/html/body//blockquote//p");
 		$a_tags = $xpath->evaluate("/html/body//blockquote//p/a");
 
-		$jobs = array();
+		$search_items = array();
 		for ($i = 0; $i < $p_tags->length; $i++) {
 			$title = $p_tags->item($i);
 			$name = $title->textContent;
 			$name = str_replace('<<', ' - ', $name);
 			$fields = explode('-', $name);
-			$jobs[$i]['location'] = $location['partial'];
-			$jobs[$i]['info'] = array(
+			$search_items[$i]['location'] = $location['partial'];
+			$search_items[$i]['info'] = array(
 				'date' => trim($fields[0]),
 				'field' =>  $fields[count($fields)-1],
 				'from' => $location['partial']
@@ -154,11 +165,11 @@ class CraigListScraper {
 			$location = $link->getAttribute('href');
 			$name = $link->textContent;
 			//$name = substr($name, 0, strlen($name)-1);
-			$jobs[$i]['info']['url']   = $location;
-			$jobs[$i]['info']['title'] = $name;
+			$search_items[$i]['info']['url']   = $location;
+			$search_items[$i]['info']['title'] = $name;
 		}
 
-		return $jobs;
+		return $search_items;
 	}
 
 	public function initialize(array $include, $find = 'php')
@@ -170,24 +181,24 @@ class CraigListScraper {
 		if(!count($this->locations))
 			throw new Exception('Something is wrong');
 
-		$jobs = array();
+		$search_items = array();
 		self::replace_query($this->locations,$find);
 		foreach($this->locations as $place)
 		{
 			if(preg_match("/({$include})/", $place['url']))
 			{
 				$list = self::getRecords($place);
-				$jobs = array_merge($jobs,$list);
+				$search_items = array_merge($search_items,$list);
 			}
 		}
 		$new_list = array();
-		foreach($jobs as $job)
+		foreach($search_items as $item)
 		{
-			$date = $job['info']['date'];
-			unset($job['info']['date']);
+			$date = $item['info']['date'];
+			unset($item['info']['date']);
 			$uniqu_group_hash = strtotime($date." ". date('Y'));
 			$new_list[$uniqu_group_hash]['date'] = $date;
-			$new_list[$uniqu_group_hash]['records'][] = $job;
+			$new_list[$uniqu_group_hash]['records'][] = $item;
 		}
 		function mySort($a,$b)
 		{
