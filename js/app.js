@@ -80,7 +80,9 @@
 					);
 			})
 			.mouseover(function(){$(tooltip()).show().wait(250).animate({opacity: 1}, {duration: 250}, 'linear');})
-			.mouseout(function(){$(tooltip()).animate({opacity: 0}, {duration: 100, queue: false}, 'linear',function(){$(tooltip()).remove();});});
+			.mouseout(function(){
+				$(tooltip()).stop().remove();
+			});
 		});
 	};
 })(jQuery);

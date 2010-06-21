@@ -7,11 +7,25 @@
  */
 class CraigListScraper {
 
+	private $xml_url_token = '{find}';
+
+	private $post_var_array_name = 'include';
+
 	private $xml = null;
 	private $locations = null;
 	private $areas = null;
 	private $regions = null;
 	private $record_list = null;
+
+	public function setXMLUrlToken($token)
+	{
+		$this->xml_url_token = "{{$token}}";
+	}
+
+	public function setPostVarArrayName($var)
+	{
+		$this->post_var_array_name = $var;
+	}
 
 	function  __construct($fileLocation = null)
 	{
@@ -36,7 +50,10 @@ class CraigListScraper {
 			$loc = get_object_vars($location);
 			$this->locations[] = $loc;
 			extract($loc);
-			$this->areas[$partial] = '<label for="'.$partial.'"><input class="region '.$type.'" type="checkbox" id="'.$partial.'" name="include[]" value="'.$partial.'" />'.$name.', '.$state.'</label>';
+			$this->areas[$partial] = ''.
+				'<label for="'.$partial.'">'.
+				'<input class="region '.$type.'" type="checkbox" id="'.$partial.'" name="'.$this->post_var_array_name.'[]" value="'.$partial.'" />'.$name.', '.$state.
+				'</label>';
 			unset($name);
 			unset($url);
 			unset($partial);
