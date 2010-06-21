@@ -42,7 +42,8 @@
 					.css('-moz-box-shadow','0px 0px 2px #000')
 					.css('-webkit-box-shadow','0px 0px 2px #000')
 					.css('padding','5px')
-					.css('z-index','100');
+					.css('z-index','100')
+					.css('opacity','0');
 				$tooltip.mouseover(function(){
 					$(this).remove();
 				});
@@ -79,7 +80,7 @@
 						$self.attr(config.attr)
 					);
 			})
-			.mouseover(function(){$(tooltip()).show().wait(250).animate({opacity: 1}, {duration: 250}, 'linear');})
+			.mouseover(function(){$(tooltip()).show().wait(250).animate({opacity: 1}, {duration: 550}, 'linear');})
 			.mouseout(function(){
 				$(tooltip()).stop().remove();
 			});
