@@ -19,6 +19,17 @@ class CraigListScraper {
 	private $regions = null;
 	private $record_list = null;
 
+	static function poop()
+	{
+		$debug = '';
+		foreach(func_get_args() as $arg)
+		{
+			$debug.= is_string($arg)?$arg:print_r($arg,true);
+			$debug.="\n".'-------------------------'."\n";
+		}
+		error_log($debug);
+	}
+
 	public function setXMLUrlToken($token)
 	{
 		$this->xml_url_token = "{{$token}}";
@@ -126,8 +137,16 @@ class CraigListScraper {
 		$find = urlencode($find);
 		foreach($array as $key=>$val)
 		{
-			$array[$key]['url'] = str_replace($replace_tag, $find, $array[$key]['url']);
+				$array[$key]['url'] = str_replace($replace_tag, $find, $array[$key]['url']);
+			}
 		}
+
+	private function stripData(array $str)
+	{
+		foreach($str as $key=>$seg)
+			if(preg_match('/\s+/', $seg) || empty($seg))
+				unset($str[$key]);
+		return implode(' ',$str);
 	}
 
 	/**
@@ -154,10 +173,11 @@ class CraigListScraper {
 			$name = str_replace('<<', ' - ', $name);
 			$fields = explode('-', $name);
 			$search_items[$i]['location'] = $location['partial'];
+			$date = self::stripData(explode(' ',$fields[0]));
 			$search_items[$i]['info'] = array(
-				'date' => trim($fields[0]),
-				'field' =>  $fields[count($fields)-1],
-				'from' => $location['partial']
+				'date'  => $date,
+				'field' => $fields[count($fields)-1],
+				'from'  => $location['partial']
 			);
 		}
 		for ($i = 0; $i < $a_tags->length; $i++) {
@@ -168,7 +188,6 @@ class CraigListScraper {
 			$search_items[$i]['info']['url']   = $location;
 			$search_items[$i]['info']['title'] = $name;
 		}
-
 		return $search_items;
 	}
 
