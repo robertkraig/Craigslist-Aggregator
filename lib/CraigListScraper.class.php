@@ -153,11 +153,10 @@ class CraigListScraper {
 			$link = $a_tags->item($i);
 			$location = $link->getAttribute('href');
 			$name = $link->textContent;
-			$name = substr($name, 0, strlen($name)-1);
+			//$name = substr($name, 0, strlen($name)-1);
 			$jobs[$i]['info']['url']   = $location;
 			$jobs[$i]['info']['title'] = $name;
 		}
-		//echo "<pre>".print_r($jobs,true)."</pre>"; return;
 
 		return $jobs;
 	}

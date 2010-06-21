@@ -80,9 +80,16 @@
 						$self.attr(config.attr)
 					);
 			})
-			.mouseover(function(){$(tooltip()).show().wait(250).animate({opacity: 1}, {duration: 550}, 'linear');})
+			.mouseover(function(){
+				$(tooltip())
+					.show()
+					.wait(250)
+					.animate({opacity: 1}, {duration: 550}, 'linear');
+			})
 			.mouseout(function(){
-				$(tooltip()).stop().remove();
+				$(tooltip())
+					.stop()
+					.remove();
 			});
 		});
 	};
