@@ -55,42 +55,49 @@
 
 		var topCord, leftCord;
 
+		var adjust_location = function($self,event,_topCord,_leftCord)
+		{
+			_topCord = event.clientY+15;
+			if(($(tooltip()).innerHeight()+_topCord) > ($(window).height()-$(tooltip()).innerHeight()))
+			{
+				_topCord-=$(tooltip()).innerHeight()+25;
+			}
+
+			_leftCord = event.clientX+15;
+			if(($(tooltip()).innerWidth()+_leftCord) > ($(window).width()))
+			{
+				_leftCord-=$(tooltip()).innerWidth()+25;
+			}
+
+			$(tooltip())
+				.css('top',_topCord)
+				.css('left',_leftCord)
+				.html(
+					(config.prepend.length?config.prepend:'<strong>' + $self.text() + '</strong>' + '<br />') +
+					$self.attr(config.attr)
+				);
+		}
+
 		this.each(function(i){
 
 			var $self = $(this);
-			$self.mousemove(function(event)
-			{
-				topCord = event.clientY+15;
-				if(($(tooltip()).innerHeight()+topCord) > ($(window).height()-$(tooltip()).innerHeight()))
+			$self
+				.mousemove(function(event)
 				{
-					topCord-=$(tooltip()).innerHeight()+25;
-				}
-
-				leftCord = event.clientX+15;
-				if(($(tooltip()).innerWidth()+leftCord) > ($(window).width()))
-				{
-					leftCord-=$(tooltip()).innerWidth()+25;
-				}
-
-				$(tooltip())
-					.css('top',topCord)
-					.css('left',leftCord)
-					.html(
-						(config.prepend.length?config.prepend:'<strong>' + $self.text() + '</strong>' + '<br />') +
-						$self.attr(config.attr)
-					);
-			})
-			.mouseover(function(){
-				$(tooltip())
-					.show()
-					.wait(250)
-					.animate({opacity: 1}, {duration: 550}, 'linear');
-			})
-			.mouseout(function(){
-				$(tooltip())
-					.stop()
-					.remove();
-			});
+					adjust_location($self,event,topCord,leftCord);
+				})
+				.mouseover(function(event){
+					adjust_location($self,event,topCord,leftCord);
+					$(tooltip())
+						.show()
+						.wait(250)
+						.animate({opacity: 1}, {duration: 550}, 'linear');
+				})
+				.mouseout(function(){
+					$(tooltip())
+						.stop()
+						.remove();
+				});
 		});
 	};
 })(jQuery);
