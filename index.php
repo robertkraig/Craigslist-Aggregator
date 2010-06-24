@@ -54,11 +54,34 @@ try
 			<div id="change_size_container">
 				<div style="font-size: 24px;"><?php echo $cl_scraper->getInfo()->pagetitle; ?></div>
 				<cite><?php echo $cl_scraper->getInfo()->pagedesc; ?></cite>
-				<?php foreach($cl_scraper->getFields() as $field): ?>
+<?php
+	foreach($cl_scraper->getFields() as $field)
+	{
+		if(preg_match('/(string|int)/', $field['argType']))
+		{
+?>
 				<label class="fields" for="<?php echo $field['argId']; ?>"><?php echo $field['argTitle']; ?></label>
 				<input class="fields" type="text" name="<?php echo $field['argName']; ?>" id="<?php echo $field['argId']; ?>" />
 				<br style="margin:0;padding:0; height:1px; clear: left;" />
-				<?php endforeach; ?>
+<?php
+		}
+		elseif($field['argType'] == 'radio')
+		{
+			$argList = explode(':', $field['argTitle']);
+			$titles = explode('|', $argList[0]);
+			$args = explode('|', $argList[1]);
+			for($i = 0; $i < count($titles); $i++)
+			{
+				$arg_name = str_replace(' ', '_', $titles[$i]);
+?>
+				<label class="fields" for="<?php echo $arg_name; ?>"><?php echo $titles[$i]; ?></label>
+				<input class="fields" type="radio" name="<?php echo $field['argName']; ?>" value="<?php echo $args[$i]; ?>" id="<?php echo $arg_name; ?>" />
+				<br style="margin:0;padding:0; height:1px; clear: left;" />
+<?php
+			}
+		}
+	}
+?>
 				<cite><?php echo $cl_scraper->getInfo()->pagesearchexample; ?></cite>
 				Region:<br />
 				<?php echo implode("\n\t", $cl_scraper->getRegions()); ?>
