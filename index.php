@@ -14,12 +14,16 @@ ini_set('error_log', './php_errors.log');
 error_reporting(E_ALL);
 
 require 'lib/CraigListScraper.class.php';
-try{
+try
+{
 	$cl_scraper = new CraigListScraper('clrepo/locations.xml');
 
-	if(isset($_POST['s']) && strlen($_POST['s']))
+	$search_field = $cl_scraper->getFields();
+	$search_field_name = $search_field[0]['argName'];
+
+	if(isset($_POST[$search_field_name]) && strlen($_POST[$search_field_name]))
 	{
-		$cl_scraper->initialize($_POST['include'],$_POST['s']);
+		$cl_scraper->initialize($_POST['include']);
 		echo $cl_scraper;
 	}
 	else
@@ -32,14 +36,15 @@ try{
 		<title><?php echo $cl_scraper->getInfo()->title; ?></title>
 		<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
 		<script type="text/javascript">
-			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-		</script>
-		<script type="text/javascript">
-			try {
-				var pageTracker = _gat._getTracker("UA-12896175-2");
-				pageTracker._trackPageview();
-			} catch(err) {}
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-12896175-3']);
+		  _gaq.push(['_trackPageview']);
+
+		  (function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
 		</script>
 		<link rel="stylesheet" type="text/css" href="/css/body.css" />
 	</head>
@@ -49,12 +54,17 @@ try{
 			<div id="change_size_container">
 				<div style="font-size: 24px;"><?php echo $cl_scraper->getInfo()->pagetitle; ?></div>
 				<cite><?php echo $cl_scraper->getInfo()->pagedesc; ?></cite>
-				<input type="text" id="search_term" name="s" value="" />
+				<?php foreach($cl_scraper->getFields() as $field): ?>
+				<label class="fields" for="<?php echo $field['argId']; ?>"><?php echo $field['argTitle']; ?></label>
+				<input class="fields" type="text" name="<?php echo $field['argName']; ?>" id="<?php echo $field['argId']; ?>" />
+				<br style="margin:0;padding:0; height:1px; clear: left;" />
+				<?php endforeach; ?>
 				<cite><?php echo $cl_scraper->getInfo()->pagesearchexample; ?></cite>
 				Region:<br />
 				<?php echo implode("\n\t", $cl_scraper->getRegions()); ?>
 				Areas: <br /><?php echo implode("\n\t", $cl_scraper->getAreas()); ?>
 				<a href="#submit" id="search_btn">Search</a>
+				<input type="submit" style="display:none;" />
 				<div><a id="donate" href="http://www.compubomb.net/pages/payme" target="_blank">Donate To Author</a></div>
 				<img alt="loader" id="loader" style="display:none; position: absolute; bottom: 0; right: 0; margin:10px; margin-bottom: 35px;" src="/img/loading.gif" />
 			</div>

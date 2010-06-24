@@ -11,8 +11,10 @@ ul {margin-bottom:10px; margin-left:25px;}
 ul li {list-style-type:none; margin:0px; padding:0px; display:block; margin-bottom: 5px;}
 ul li,ul li a { font-size: 16px; line-height:25px;}
 form label {display:block;}
+form label.fields {width:60px;float: left; line-height: 20px; text-align: right; margin-right: 10px;}
+form input.fields {float:left; width: 120px; line-height: 20px;}
 form input,
-form button {margin:5px; padding:2px; color:red; border:solid 1px gray; background-color:white;}
+form button {margin:5px; padding:2px; color:red; border:solid 1px gray; background-color:white; margin-top: 0px;}
 span.near {margin-left:10px; text-transform:uppercase; font-weight:bold;}
 form button, form input[type="text"]{
 	-moz-box-shadow: 0px 0px 2px #000;

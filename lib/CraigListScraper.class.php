@@ -9,10 +9,6 @@ class CraigListScraper {
 
 	static $cl_info = null;
 
-	private $xml_url_token = '{find}';
-
-	private $post_var_array_name = 'include';
-
 	private $xml = null;
 	private $locations = null;
 	private $areas = null;
@@ -28,16 +24,6 @@ class CraigListScraper {
 			$debug.="\n".'-------------------------'."\n";
 		}
 		error_log($debug);
-	}
-
-	public function setXMLUrlToken($token)
-	{
-		$this->xml_url_token = "{{$token}}";
-	}
-
-	public function setPostVarArrayName($var)
-	{
-		$this->post_var_array_name = $var;
 	}
 
 	function  __construct($fileLocation = null)
@@ -63,6 +49,17 @@ class CraigListScraper {
 		return self::$cl_info[0];
 	}
 
+	public function getFields()
+	{
+		$fields = $this->xml->xpath('/clrepo/info/fields/argField');
+		$field_array = array();
+		foreach($fields as $field)
+		{
+			$field_array[] = get_object_vars($field);
+		}
+		return $field_array;
+	}
+
 	public function buildAreas()
 	{
 		$this->locations = array();
@@ -74,7 +71,7 @@ class CraigListScraper {
 			extract($loc);
 			$this->areas[$partial] = ''.
 				'<label for="'.$partial.'">'.
-				'<input class="region '.$type.'" type="checkbox" id="'.$partial.'" name="'.$this->post_var_array_name.'[]" value="'.$partial.'" />'.$name.', '.$state.
+				'<input class="region '.$type.'" type="checkbox" id="'.$partial.'" name="include[]" value="'.$partial.'" />'.$name.', '.$state.
 				'</label>';
 			unset($name);
 			unset($url);
@@ -132,14 +129,22 @@ class CraigListScraper {
 	 * @param string $find inserts the search term being looked up
 	 * @param string $replace_tag the token which is to be replaced in the xml document
 	 */
-	private static function replace_query(&$array,$find,$replace_tag='{find}')
+	private function replace_query(&$array)
 	{
-		$find = urlencode($find);
+		$fields = $this->getFields();
+		$tmp_arr = array();
+		foreach($fields as $field)
+		{
+			$tmp_arr[$field['argName']] = $_POST[$field['argName']];
+		}
+
+		$args = http_build_query($tmp_arr);
 		foreach($array as $key=>$val)
 		{
-				$array[$key]['url'] = str_replace($replace_tag, $find, $array[$key]['url']);
-			}
+			$array[$key]['url'].='&amp;'.$args;
 		}
+		$this->poop($array);
+	}
 
 	private function stripData(array $str)
 	{
@@ -191,17 +196,17 @@ class CraigListScraper {
 		return $search_items;
 	}
 
-	public function initialize(array $include, $find = 'php')
+	public function initialize()
 	{
 
-		$include = implode('|', $include);
+		$include = implode('|', $_POST['include']);
 		$include = str_replace('.', '\\.', $include);
 
 		if(!count($this->locations))
 			throw new Exception('Something is wrong');
 
 		$search_items = array();
-		self::replace_query($this->locations,$find);
+		$this->replace_query($this->locations);
 		foreach($this->locations as $place)
 		{
 			if(preg_match("/({$include})/", $place['url']))
