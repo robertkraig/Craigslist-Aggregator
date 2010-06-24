@@ -52,7 +52,7 @@ try
 		<form action="" method="post" id="find_items">
 			<div><a id="change_size" href="#">[-]</a></div>
 			<div id="change_size_container">
-				<div style="font-size: 24px;"><?php echo $cl_scraper->getInfo()->pagetitle; ?></div>
+				<div style="font-size: 20px;"><?php echo $cl_scraper->getInfo()->pagetitle; ?></div>
 				<cite><?php echo $cl_scraper->getInfo()->pagedesc; ?></cite>
 <?php
 	foreach($cl_scraper->getFields() as $field)
@@ -70,12 +70,16 @@ try
 			$argList = explode(':', $field['argTitle']);
 			$titles = explode('|', $argList[0]);
 			$args = explode('|', $argList[1]);
+			$select = explode('|', $argList[2]);
 			for($i = 0; $i < count($titles); $i++)
 			{
+				$checked = '';
+				if($select[$i] == '1')
+					$checked = 'checked="checked"';
 				$arg_name = str_replace(' ', '_', $titles[$i]);
 ?>
 				<label class="fields" for="<?php echo $arg_name; ?>"><?php echo $titles[$i]; ?></label>
-				<input class="fields" type="radio" name="<?php echo $field['argName']; ?>" value="<?php echo $args[$i]; ?>" id="<?php echo $arg_name; ?>" />
+				<input <?php echo $checked; ?> class="fields" type="radio" name="<?php echo $field['argName']; ?>" value="<?php echo $args[$i]; ?>" id="<?php echo $arg_name; ?>" />
 				<br style="margin:0;padding:0; height:1px; clear: left;" />
 <?php
 			}
@@ -83,9 +87,11 @@ try
 	}
 ?>
 				<cite><?php echo $cl_scraper->getInfo()->pagesearchexample; ?></cite>
-				Region:<br />
-				<?php echo implode("\n\t", $cl_scraper->getRegions()); ?>
-				Areas: <br /><?php echo implode("\n\t", $cl_scraper->getAreas()); ?>
+				<div id="locations_container">
+					Region:<br />
+					<?php echo implode("\n\t", $cl_scraper->getRegions()); ?>
+					Areas: <br /><?php echo implode("\n\t", $cl_scraper->getAreas()); ?>
+				</div>
 				<a href="#submit" id="search_btn">Search</a>
 				<input type="submit" style="display:none;" />
 				<div><a id="donate" href="http://www.compubomb.net/pages/payme" target="_blank">Donate To Author</a></div>

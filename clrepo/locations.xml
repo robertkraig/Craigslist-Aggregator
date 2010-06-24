@@ -11,6 +11,14 @@
 				<argTitle>Search</argTitle>
 				<argName>query</argName>
 				<argKey>{query}</argKey>
+				<argType>string</argType>
+			</argField>
+			<argField>
+				<argId>search_term_type</argId>
+				<argTitle>Use Title|Use Post:T|A:1|0</argTitle>
+				<argName>srchType</argName>
+				<argKey>{srchType}</argKey>
+				<argType>radio</argType>
 			</argField>
 		</fields>
 	</info>

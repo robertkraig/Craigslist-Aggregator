@@ -10,7 +10,7 @@ div.date {}
 ul {margin-bottom:10px; margin-left:25px;}
 ul li {list-style-type:none; margin:0px; padding:0px; display:block; margin-bottom: 5px;}
 ul li,ul li a { font-size: 16px; line-height:25px;}
-form label {display:block;}
+form label {display:block; font-size: 12px;}
 form label.fields {width:80px;float: left; line-height: 20px; text-align: right; margin-right: 10px;}
 form input[type="text"].fields {float:left; width: 120px; line-height: 20px;}
 form input[type="radio"].fields {float:left; line-height: 20px;}
@@ -42,6 +42,7 @@ form select:focus,
 form textarea:focus,
 a#search_btn:focus,
 a#search_btn:hover{ background-color: #FFF;	border: 1px solid #508FCF; -moz-box-shadow: 0px 0px 2px #999; -webkit-box-shadow: 0px 0px 2px #999;}
+#locations_container {height:250px; overflow: auto; -moz-box-shadow:0 1px 3px #000000;padding:2px;margin:0px; margin-bottom: 10px;}
 #content-container {position: absolute; top: 0px; left: 286px; right: 0px; bottom: 0px;padding-top: 10px; }
 #content {overflow-y: scroll; display:block;}
 #find_items {position: relative; width: 250px; background-color: #fff; border: solid 1px #999; padding:10px; border-left: none; border-top: none; margin: 0px; -moz-box-shadow:0px 1px 3px #000; -webkit-box-shadow:0px 1px 3px #000;}
