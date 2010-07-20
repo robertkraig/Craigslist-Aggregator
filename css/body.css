@@ -43,28 +43,39 @@ form textarea:focus,
 a#search_btn:focus,
 a#search_btn:hover{ background-color: #FFF;	border: 1px solid #508FCF; -moz-box-shadow: 0px 0px 2px #999; -webkit-box-shadow: 0px 0px 2px #999;}
 #locations_container {height:250px; overflow: auto; -moz-box-shadow:0 1px 3px #000000;padding:2px;margin:0px; margin-bottom: 10px;}
-#content-container {position: absolute; top: 30px; left: 286px; right: 0px; bottom: 0px;padding-top: 10px; }
+#content-container {position: absolute; top: 25px; left: 286px; right: 0px; bottom: 0px;padding-top: 10px; }
 #content {overflow-y: scroll; display:block;}
-#find_items {position: relative; width: 250px; background-color: #fff; border: solid 1px #999; padding:10px; border-left: none; border-top: none; margin: 0px; -moz-box-shadow:0px 1px 3px #000; -webkit-box-shadow:0px 1px 3px #000;}
+#find_items {position: relative; top: 25px; left:0px; width: 250px; background-color: #fff; border: solid 1px #999; padding:10px; border-left: none; border-top: none; margin: 0px; -moz-box-shadow:0px 1px 3px #000; -webkit-box-shadow:0px 1px 3px #000;}
 #change_size_container {display:block;}
 a#donate {text-decoration: none; display:block; border-top: solid 1px #999; margin:-10px; margin-top: 0px; line-height: 30px; text-align: center;}
 a#donate:hover{background-color: #F4FDFF;}
 a#donate:focus{color: red;}
-a#change_size,a#change_size:visited{text-decoration: none; margin:-10px;display:block; margin-bottom: 0px; padding: 5px; font-family: monospace; line-height: 20px; font-size: 20px;}
 .linkhover {color:red; font-weight: bold;}
 #header {
-	padding-left: 10px;
-	line-height: 30px;
-	height: 30px;
-	font-size: 14px;
+
     background-color: #d8ebec;
+	position: absolute;
+	top:0px;
+	left:0px;
+	right:0px;
+	z-index: 1000;
 }
 #header ul {
 	display: block;
 	margin:0px;
 	padding:0px;
-	height: 30px;
 }
-#header ul li {float: left; height: 30px; line-height: 30px;}
-#header ul li a {padding: 0px 5px; height: 27px; display:block; text-decoration: none;}
-#header ul li a:hover {color:red;border-bottom: solid 2px white;}
+
+#header,
+#header ul,
+#header ul li,
+#header ul li a{
+	line-height: 25px;
+	height: 25px;
+	font-size: 14px;
+}
+
+#header ul li {float: left;}
+#header ul li a {padding: 0px 5px; font-weight: bold; display:block; text-decoration: none;}
+#header ul li a:hover {color:red;}
+

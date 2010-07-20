@@ -142,31 +142,13 @@ $(document).ready(function(){
 	{
 		$('#content-container').css('left',$('#find_items').innerWidth(true));
 		$('#content')
-			.css('height',$(window).height()-40)
-			.css('width',$(window).width() - $('#find_items').innerWidth(true)-15)
+			.css('height',$(window).height()-60)
+			.css('width',$(window).width() - ($('#find_items').innerWidth(true)+25))
 			.css('margin-left','10px');
 	}
 
 	$('#search_btn').live('click',function(){
 		$('#find_items').submit();
-		return false;
-	});
-	$('#change_size').live('click',function(){
-		if($('#change_size_container').css('display') == 'block')
-		{
-			$('#change_size_container').css('display','none');
-			$('#find_items').animate({width:'25px'},'fast',function(){
-				$('#change_size').text('[+]');
-				content_size();
-			});
-
-		}else{
-			$('#find_items').animate({width:'250px'},'fast',function(){
-				$('#change_size_container').css('display','block');
-				content_size();
-				$('#change_size').text('[-]');
-			});
-		}
 		return false;
 	});
 	$('input[type="checkbox"].regions').live('click',function(){
