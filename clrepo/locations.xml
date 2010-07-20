@@ -3,7 +3,6 @@
 	<info>
 		<title><![CDATA[Job Search Via Craigslist]]></title>
 		<pagetitle><![CDATA[Find yourself a Job]]></pagetitle>
-		<pagedesc><![CDATA[I wrote this App because I found myself going back and forth between different areas of Craigslist so I could look up jobs. This is an aggregate of all the sites that you select in <strong>Areas</strong>]]></pagedesc>
 		<pagesearchexample><![CDATA[Ex: php, C#, .NET, ASP.NET, Linux]]></pagesearchexample>
 		<fields>
 			<argField>

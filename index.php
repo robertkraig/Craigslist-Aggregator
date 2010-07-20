@@ -49,11 +49,19 @@ try
 		<link rel="stylesheet" type="text/css" href="/css/body.css" />
 	</head>
 	<body>
+		<div id="header">
+			<ul>
+				<li><a href="http://www.compubomb.net">Home</a></li>
+				<li><a href="http://findstuff.compubomb.net">Stuff</a></li>
+				<li><a href="http://findjobs.compubomb.net">Jobs</a></li>
+				<li><a href="http://findplaces.compubomb.net">Places</a></li>
+			</ul>
+			<div style="clear: both;"></div>
+		</div>
 		<form action="" method="post" id="find_items">
 			<div><a id="change_size" href="#">[-]</a></div>
 			<div id="change_size_container">
 				<div style="font-size: 20px;"><?php echo $cl_scraper->getInfo()->pagetitle; ?></div>
-				<cite><?php echo $cl_scraper->getInfo()->pagedesc; ?></cite>
 <?php
 	foreach($cl_scraper->getFields() as $field)
 	{
