@@ -339,4 +339,3 @@ $(document).ready(function(){
 //		$load.fadeIn(2000);
 	})
 });
-
