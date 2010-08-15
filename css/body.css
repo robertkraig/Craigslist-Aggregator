@@ -44,7 +44,7 @@ a#search_btn:focus,
 a#search_btn:hover{ background-color: #FFF;	border: 1px solid #508FCF; -moz-box-shadow: 0px 0px 2px #999; -webkit-box-shadow: 0px 0px 2px #999;}
 #locations_container {height:250px; overflow: auto; -moz-box-shadow:0 1px 3px #000000;padding:2px;margin:0px; margin-bottom: 10px;}
 #content-container {position: absolute; top: 25px; left: 286px; right: 0px; bottom: 0px;padding-top: 10px; }
-#content {overflow-y: scroll; display:block;}
+#link_content, #content {overflow-y: scroll; display:block;}
 #find_items {position: relative; top: 25px; left:0px; width: 250px; background-color: #fff; border: solid 1px #999; padding:10px; border-left: none; border-top: none; margin: 0px; -moz-box-shadow:0px 1px 3px #000; -webkit-box-shadow:0px 1px 3px #000;}
 #change_size_container {display:block;}
 a#donate {text-decoration: none; display:block; border-top: solid 1px #999; margin:-10px; margin-top: 0px; line-height: 30px; text-align: center;}
@@ -79,3 +79,25 @@ a#donate:focus{color: red;}
 #header ul li a {padding: 0px 5px; font-weight: bold; display:block; text-decoration: none;}
 #header ul li a:hover {color:red;}
 
+#open_windows {
+	display:inline-block;
+}
+
+#open_windows a.windowLink,
+#show_search{
+	text-decoration: none;
+	color:black;
+}
+
+#open_windows a.windowLink span {
+	color:red;
+	font-weight: bold;
+}
+
+#open_windows a.windowLink.hover {
+	text-decoration: underline;
+}
+
+#link_content iframe {
+	margin-top: 20px;
+}

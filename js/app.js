@@ -104,6 +104,61 @@
 
 $(document).ready(function(){
 
+	var createDialog = function(_title,_url)
+	{
+		$('#open_windows').show();
+		var count = $('.window').length;
+		var incrementor = count+1;
+		var div = document.createElement('div');
+		$(div).hide();
+		$(div).addClass('window');
+		$(div).attr('id','window_'+incrementor);
+		$('#link_content').prepend(div);
+		var iframe = document.createElement('iframe');
+		$(iframe).attr('border','0');
+		$(iframe).attr('id','iframe_'+incrementor);
+		$(iframe).attr('src',_url);
+		$(div).append(iframe);
+		$('#open_windows').prepend('&nbsp;<a class="windowLink" href="#" rel="'+incrementor+'" id="link_'+incrementor+'">Window&nbsp;'+ incrementor +'&nbsp;<span>X</span></a>')
+	}
+
+	$('.windowLink').live('click',function(){
+		$('#open_windows').css('display','inline-block');
+		$('#link_content').show();
+		$('#content').hide();
+		$('.window').hide();
+		$('.windowLink').removeClass('hover');
+		$(this).addClass('hover');
+		var id = $(this).attr('rel');
+		var $iframe = $('#iframe_'+id);
+		var _w = parseInt($('#link_content').css('width').replace('px', '')) - 50 + 'px';
+		var _h = parseInt($('#link_content').css('height').replace('px', '')) - 50 + 'px';
+		$iframe.css('width',_w);
+		$iframe.css('height',_h);
+		$('#window_'+id).show();
+		return false;
+	});
+
+	$('#show_search').click(function(){
+		$('.windowLink').removeClass('hover');
+		$('#link_content').hide();
+		$('#content').show();
+		return false;
+	});
+
+	$('a.jobsite').live('click',function(){
+		createDialog($(this).text(),$(this).attr('href'));
+		return false;
+	});
+
+	$('#open_windows a.windowLink span').live('click',function(){
+		var $parent = $(this).parent();
+		var id = $parent.attr('rel');
+		$('#window_'+id).remove();
+		$parent.remove();
+		return false;
+	});
+
 	var process_data = function(json)
 	{
 		var output = '';
@@ -141,7 +196,7 @@ $(document).ready(function(){
 	var content_size = function()
 	{
 		$('#content-container').css('left',$('#find_items').innerWidth(true));
-		$('#content')
+		$('#content,#link_content')
 			.css('height',$(window).height()-60)
 			.css('width',$(window).width() - ($('#find_items').innerWidth(true)+25))
 			.css('margin-left','10px');
@@ -179,6 +234,7 @@ $(document).ready(function(){
 			return false;
 		}
 		$('#loader').show();
+		$('#link_content').hide();
 		$('#content').show().html('Loading...');
 		$('#search_btn').val('searching');
 		$('#toggle_disp').hide();
@@ -189,7 +245,7 @@ $(document).ready(function(){
 			dataType: 'json',
 			success: function(json){
 				$('#content').html(process_data(json));
-				$('#toggle_disp').show();
+				$('#toggle_disp').css('display','inline-block');
 				$('#search_btn').val('Search Craigslist');
 				$('#loader').hide();
 				$.getScript('/js/nav.js');

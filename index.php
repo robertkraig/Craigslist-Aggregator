@@ -35,9 +35,10 @@ try
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 		<title><?php echo $cl_scraper->getInfo()->title; ?></title>
 		<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/jquery-ui.min.js"></script>
 		<script type="text/javascript">
 		  var _gaq = _gaq || [];
-		  _gaq.push(['_setAccount', 'UA-12896175-3']);
+		  _gaq.push(['_setAccount', 'UA-12896175-2']);
 		  _gaq.push(['_trackPageview']);
 
 		  (function() {
@@ -47,6 +48,7 @@ try
 		  })();
 		</script>
 		<link rel="stylesheet" type="text/css" href="/css/body.css" />
+		<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/flick/jquery-ui.css" />
 	</head>
 	<body>
 		<div id="header">
@@ -125,6 +127,10 @@ try
 			<div style="display:none; margin-left: 10px;" id="toggle_disp">
 				<a style="display:inline-block; text-decoration: none;" href="#" rel="open">Close All</a>
 			</div>
+			<div style="display:inline-block; display:none;" id="open_windows">
+				<a id="show_search" href="#">Show Search</a>
+			</div>
+			<div style="display:none;" id="link_content"></div>
 			<div style="display:none;" id="content"></div>
 		</div>
 		<script type="text/javascript" src="/js/jquery.simplemodal-1.3.4.min.js"></script>
