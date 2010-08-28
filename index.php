@@ -124,11 +124,11 @@ try
 		</script>
 		<script type="text/javascript" src="js/app.js"></script>
 		<div id="content-container">
-			<div style="display:none; margin-left: 10px;" id="toggle_disp">
-				<a style="display:inline-block; text-decoration: none;" href="#" rel="open">Close All</a>
-			</div>
-			<div style="display:inline-block; display:none;" id="open_windows">
-				<a id="show_search" href="#">Show Search</a>
+			<div id="buttons">
+				<a id="toggle_disp" class="button" href="#" rel="open">Close All</a>
+				<a id="show_search" class="button" href="#">Show Search</a>
+				<span id="open_windows"></span>
+				<div style="clear: left; height: 0px;"></div>
 			</div>
 			<div style="display:none;" id="link_content"></div>
 			<div style="display:none;" id="content"></div>

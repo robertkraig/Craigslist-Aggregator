@@ -102,111 +102,150 @@
 	};
 })(jQuery);
 
-$(document).ready(function(){
+function createDialog(_title,_url)
+{
+	var count = $('.window').length;
+	var incrementor = count+1;
+	var div = document.createElement('div');
+	$(div).hide();
+	$(div).addClass('window');
+	$(div).attr('id','window_'+incrementor);
+	$('#link_content').prepend(div);
+	var iframe = document.createElement('iframe');
+	$(iframe).attr('border','0');
+	$(iframe).attr('id','iframe_'+incrementor);
+	$(iframe).attr('src',_url);
+	$(iframe).attr('title',_title);
+	$(div).append(iframe);
+	$('#open_windows').prepend('<a class="windowLink button" title="'+_title+'" href="#" rel="'+incrementor+'" id="link_'+incrementor+'">Window&nbsp;'+ incrementor +'&nbsp;<span>X</span></a>')
+}
 
-	var createDialog = function(_title,_url)
+function process_data(json)
+{
+	var output = '';
+	var date;
+	var location;
+	var info,link,not_near;
+	for(var i in json)
 	{
-		$('#open_windows').show();
-		var count = $('.window').length;
-		var incrementor = count+1;
-		var div = document.createElement('div');
-		$(div).hide();
-		$(div).addClass('window');
-		$(div).attr('id','window_'+incrementor);
-		$('#link_content').prepend(div);
-		var iframe = document.createElement('iframe');
-		$(iframe).attr('border','0');
-		$(iframe).attr('id','iframe_'+incrementor);
-		$(iframe).attr('src',_url);
-		$(div).append(iframe);
-		$('#open_windows').prepend('&nbsp;<a class="windowLink" href="#" rel="'+incrementor+'" id="link_'+incrementor+'">Window&nbsp;'+ incrementor +'&nbsp;<span>X</span></a>')
-	}
+		date = json[i].date;
+		output += '<h1>' + date + '</h1>';
+		output += '<div class="date">';
+		var tmp_location = '';
+		for(var j in json[i].records)
+		{
+			location = json[i].records[j].location.split('.')[0];
+			if(tmp_location != location)
+			{
+				if(tmp_location != '') // first iteration
+					output+='</ul>';
 
-	$('.windowLink').live('click',function(){
-		$('#open_windows').css('display','inline-block');
-		$('#link_content').show();
-		$('#content').hide();
-		$('.window').hide();
-		$('.windowLink').removeClass('hover');
-		$(this).addClass('hover');
-		var id = $(this).attr('rel');
-		var $iframe = $('#iframe_'+id);
-		var _w = parseInt($('#link_content').css('width').replace('px', '')) - 50 + 'px';
-		var _h = parseInt($('#link_content').css('height').replace('px', '')) - 50 + 'px';
-		$iframe.css('width',_w);
-		$iframe.css('height',_h);
-		$('#window_'+id).show();
-		return false;
-	});
+				output+='<h2>' + location + '</h2>';
+				output+='<ul>';
+			}
+			tmp_location = location;
+			info = json[i].records[j].info;
+			not_near = info.url.replace('http://', '').split('.')[0] != location?'<span class="near"></span>':'';
+			link = info.url.match(/http:\/\//)?info.url:'http://'+info.from+info.url;
+			output+='<li><a href="' + link + '" class="jobsite" target="_blank"><span>' + info.title + ' : <span style="color:black;">' + info.field + '</span></span></a>' + not_near + '</li>';
+		}
+		output+='</div>';
+	}
+	return output;
+}
+
+function content_size()
+{
+	$('#content-container').css('left',$('#find_items').innerWidth(true));
+	$('#content,#link_content')
+		.css('height',$(window).height()-60)
+		.css('width',$(window).width() - ($('#find_items').innerWidth(true)+25))
+		.css('margin-left','10px');
+}
+
+$('#content h1').live('click',function(){
+	$(this).next('div.date').toggle();
+});
+
+$('#content h2').live('click',function(){
+	$(this).next('ul').toggle();
+});
+
+function hoverReset(){
+	$('#buttons a.button, #open_windows a.button').removeClass('hover');
+	$(this).addClass('hover');
+	return false;
+}
+
+$('.windowLink').live('click',function(){
+	hoverReset();
+	$(this).addClass('hover');
+	$('#open_windows').show();
+	$('#link_content').show();
+	$('#content').hide();
+	$('.window').hide();
+	var id = $(this).attr('rel');
+	var $iframe = $('#iframe_'+id);
+	var _w = parseInt($('#link_content').css('width').replace('px', '')) - 50 + 'px';
+	var _h = parseInt($('#link_content').css('height').replace('px', '')) - 50 + 'px';
+	$iframe.css('width',_w);
+	$iframe.css('height',_h);
+	$('#window_'+id).show();
+	$('#toggle_disp').hide();
+	$('#show_search').show();
+	return false;
+});
+
+$('a.jobsite').live('click',function(){
+	createDialog($(this).text(),$(this).attr('href'));
+	return false;
+});
+
+$('#open_windows a.windowLink span').live('click',function(){
+	var $parent = $(this).parent();
+	var id = $parent.attr('rel');
+	$('#window_'+id).remove();
+	$parent.remove();
+	return false;
+});
+
+$(function(){
+
+	$('#buttons a.button').click(hoverReset);
 
 	$('#show_search').click(function(){
-		$('.windowLink').removeClass('hover');
 		$('#link_content').hide();
 		$('#content').show();
+		$('#toggle_disp').show();
+		$(this).hide();
 		return false;
 	});
 
-	$('a.jobsite').live('click',function(){
-		createDialog($(this).text(),$(this).attr('href'));
-		return false;
-	});
-
-	$('#open_windows a.windowLink span').live('click',function(){
-		var $parent = $(this).parent();
-		var id = $parent.attr('rel');
-		$('#window_'+id).remove();
-		$parent.remove();
-		return false;
-	});
-
-	var process_data = function(json)
-	{
-		var output = '';
-		var date;
-		var location;
-		var info,link,not_near;
-		for(var i in json)
+	$('#toggle_disp').click(function(){
+		if($(this).attr('rel') == 'open')
 		{
-			date = json[i].date;
-			output += '<h1>' + date + '</h1>';
-			output += '<div class="date">';
-			var tmp_location = '';
-			for(var j in json[i].records)
-			{
-				location = json[i].records[j].location.split('.')[0];
-				if(tmp_location != location)
-				{
-					if(tmp_location != '') // first iteration
-						output+='</ul>';
-
-					output+='<h2>' + location + '</h2>';
-					output+='<ul>';
-				}
-				tmp_location = location;
-				info = json[i].records[j].info;
-				not_near = info.url.replace('http://', '').split('.')[0] != location?'<span class="near"></span>':'';
-				link = info.url.match(/http:\/\//)?info.url:'http://'+info.from+info.url;
-				output+='<li><a href="' + link + '" class="jobsite" target="_blank"><span>' + info.title + ' : <span style="color:black;">' + info.field + '</span></span></a>' + not_near + '</li>';
-			}
-			output+='</div>';
+			$(this).text('Expand All');
+			$('#content div.date').hide();
+			$('#content div.date ul').css('display','none');
+			$(this).attr('rel', 'close');
 		}
-		return output;
-	}
+		else
+		{
+			$('#content div.date').show();
+			$('#content div.date ul').css('display','block');
+			$(this).attr('rel', 'open');
+			$(this).text('Close All');
+		}
+		$('#show_search').hide();
+		return false;
+	});
 
-	var content_size = function()
-	{
-		$('#content-container').css('left',$('#find_items').innerWidth(true));
-		$('#content,#link_content')
-			.css('height',$(window).height()-60)
-			.css('width',$(window).width() - ($('#find_items').innerWidth(true)+25))
-			.css('margin-left','10px');
-	}
-
-	$('#search_btn').live('click',function(){
+	$('#search_btn').click(function(){
 		$('#find_items').submit();
 		return false;
 	});
-	$('input[type="checkbox"].regions').live('click',function(){
+
+	$('input[type="checkbox"].regions').click(function(){
 		var region = $(this).val();
 		var str = 'input[name="include[]"].'+region;
 		var $regions = $(str);
@@ -219,6 +258,7 @@ $(document).ready(function(){
 			$regions.removeAttr('checked');
 		}
 	});
+
 	$('#find_items').submit(function(){
 		if(!$('input[name="include[]"]:checked').length)
 		{
@@ -237,7 +277,7 @@ $(document).ready(function(){
 		$('#link_content').hide();
 		$('#content').show().html('Loading...');
 		$('#search_btn').val('searching');
-		$('#toggle_disp').hide();
+		$('#buttons').hide();
 		$.ajax({
 			type: "POST",
 			url: window.PHP_SELF,
@@ -245,7 +285,7 @@ $(document).ready(function(){
 			dataType: 'json',
 			success: function(json){
 				$('#content').html(process_data(json));
-				$('#toggle_disp').css('display','inline-block');
+				$('#buttons').show();
 				$('#search_btn').val('Search Craigslist');
 				$('#loader').hide();
 				$.getScript('/js/nav.js');
@@ -256,17 +296,10 @@ $(document).ready(function(){
 		});
 		return false;
 	});
-	$('#content h1').live('click',function(){
-		$(this).next('div.date').toggle();
-	});
-	$('#content h2').live('click',function(){
-		$(this).next('ul').toggle();
-	});
+
 	content_size();
 	$(window).resize(content_size);
 	$('#donate').click(function(e){
-		e.preventDefault();
-
 		var form = ' \
 		<form action="https://www.paypal.com/cgi-bin/webscr" method="post"> \
 			<input name="cmd" value="_xclick" type="hidden" /> \
@@ -337,5 +370,6 @@ $(document).ready(function(){
 
 		//transition effect
 //		$load.fadeIn(2000);
-	})
+		return false;
+	});
 });

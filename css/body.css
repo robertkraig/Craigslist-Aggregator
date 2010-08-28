@@ -79,25 +79,56 @@ a#donate:focus{color: red;}
 #header ul li a {padding: 0px 5px; font-weight: bold; display:block; text-decoration: none;}
 #header ul li a:hover {color:red;}
 
-#open_windows {
-	display:inline-block;
-}
-
 #open_windows a.windowLink,
 #show_search{
 	text-decoration: none;
 	color:black;
 }
-
-#open_windows a.windowLink span {
-	color:red;
-	font-weight: bold;
+#open_windows a.windowLink {
+	position: relative;
+	padding-right: 20px;
 }
-
-#open_windows a.windowLink.hover {
-	text-decoration: underline;
+#open_windows a.windowLink span {
+	color:white;
+	font-weight: bold;
+	text-decoration: none;
+	position: absolute;
+	top:0px;
+	right:0px;
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	border:none;
+	border-bottom: solid 4px black;
+	border-right: solid 1px black;
+	background-color: black;
+}
+#open_windows a.windowLink:hover span {
+	color:red;
+}
+#show_search{
+	display:none;
+}
+a.button.hover {
+	border-bottom: solid 4px red;
 }
 
 #link_content iframe {
 	margin-top: 20px;
+}
+
+#buttons {
+	display:none;
+}
+a.button {
+	margin: 0px;
+	padding:0px 4px;
+	outline:none;
+	border: solid 1px black;
+	float:left;
+	font-size: 14px;
+	line-height: 20px;
+	height: 20px;
+	border-bottom: solid 4px black;
+	text-decoration: none;
 }
