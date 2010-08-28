@@ -108,7 +108,9 @@ a#donate:focus{color: red;}
 #open_windows a.windowLink:hover span {
 	color:red;
 }
-
+#open_windows a.windowLink:hover span:hover {
+	color:black;
+}
 #show_search{
 	display:none;
 }
