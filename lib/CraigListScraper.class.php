@@ -143,7 +143,7 @@ class CraigListScraper {
 		{
 			$array[$key]['url'].='&amp;'.$args;
 		}
-		$this->poop($array);
+//		$this->poop($array);
 	}
 
 	private function stripData(array $str)
