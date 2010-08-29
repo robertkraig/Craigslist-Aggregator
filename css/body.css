@@ -87,6 +87,7 @@ a#donate:focus{color: red;}
 #open_windows a.windowLink {
 	position: relative;
 	padding-right: 40px;
+	text-align: center;
 }
 #open_windows a.windowLink span {
 	color:white;
@@ -102,6 +103,8 @@ a#donate:focus{color: red;}
 	border-bottom: solid 4px #D8EBEC;
 	border-right: solid 1px #D8EBEC;
 	background-color: #D8EBEC;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
 }
 
 #open_windows a.windowLink:hover,
@@ -127,6 +130,7 @@ a.button.hover {
 }
 a.button {
 	margin: 0px;
+	margin-right: 5px;
 	padding:0px 4px;
 	outline:none;
 	border: solid 1px #D8EBEC;
@@ -137,4 +141,7 @@ a.button {
 	border-bottom: solid 4px #D8EBEC;
 	text-decoration: none;
 	background-color: white;
+	text-align: center;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
 }
