@@ -14,6 +14,7 @@
 
 		var config = {
 			'attr': 'href',
+			'disabletext':false,
 			'prepend':'',
 			'width':'',
 			'height':'',
@@ -73,8 +74,12 @@
 				.css('top',_topCord)
 				.css('left',_leftCord)
 				.html(
-					(config.prepend.length?config.prepend:'<strong>' + $self.text() + '</strong>' + '<br />') +
-					$self.attr(config.attr)
+					(
+					!config.disabletext
+						? (config.prepend.length?config.prepend:'<strong>' + $self.text() + '</strong>' + '<br />') + 
+							$self.attr(config.attr)
+						: (config.prepend.length?config.prepend:'<strong>' + $self.attr(config.attr) + '</strong>')
+					)
 				);
 		}
 
@@ -102,10 +107,11 @@
 	};
 })(jQuery);
 
+$(document).data('counter',0);
+
 function createDialog(_title,_url)
 {
-	var count = $('.window').length;
-	var incrementor = count+1;
+	var incrementor = ($(document).data().counter++)+1;
 	var div = document.createElement('div');
 	$(div).hide();
 	$(div).addClass('window');
@@ -117,7 +123,12 @@ function createDialog(_title,_url)
 	$(iframe).attr('src',_url);
 	$(iframe).attr('title',_title);
 	$(div).append(iframe);
-	$('#open_windows').prepend('<a class="windowLink button" title="'+_title+'" href="#" rel="'+incrementor+'" id="link_'+incrementor+'">Window&nbsp;'+ incrementor +'&nbsp;<span>X</span></a>')
+	$('#open_windows').prepend('<a class="windowLink button" info="'+_title+'" href="#" rel="'+incrementor+'" id="link_'+incrementor+'">Window&nbsp;'+ incrementor +'&nbsp;<span>X</span></a>');
+	$('#link_'+incrementor).hoverWindow({
+		'attr':'info',
+		'disabletext':true,
+		'width':'500px'
+	});
 }
 
 function process_data(json)
@@ -147,7 +158,7 @@ function process_data(json)
 			info = json[i].records[j].info;
 			not_near = info.url.replace('http://', '').split('.')[0] != location?'<span class="near"></span>':'';
 			link = info.url.match(/http:\/\//)?info.url:'http://'+info.from+info.url;
-			output+='<li><a href="' + link + '" class="jobsite" target="_blank"><span>' + info.title + ' : <span style="color:black;">' + info.field + '</span></span></a>' + not_near + '</li>';
+			output+='<li><a href="' + link + '" class="jobsite" info="'+info.title+'" target="_blank"><span>' + info.title + ' : <span style="color:black;">' + info.field + '</span></span></a>' + not_near + '</li>';
 		}
 		output+='</div>';
 	}
@@ -193,6 +204,7 @@ $('.windowLink').live('click',function(){
 	$('#window_'+id).show();
 	$('#toggle_disp').hide();
 	$('#show_search').show();
+	$('title').text($(document).data().title+' : '+$(this).attr('info'));
 	return false;
 });
 
@@ -210,6 +222,7 @@ $('#open_windows a.windowLink span').live('click',function(){
 });
 
 $(function(){
+	$(document).data('title',$('title').text());
 
 	$('#buttons a.button').click(hoverReset);
 
@@ -218,6 +231,7 @@ $(function(){
 		$('#content').show();
 		$('#toggle_disp').show();
 		$(this).hide();
+		$('title').text($(document).data().title);
 		return false;
 	});
 

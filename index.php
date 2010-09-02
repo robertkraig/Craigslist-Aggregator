@@ -34,21 +34,16 @@ try
 	<head>
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 		<title><?php echo $cl_scraper->getInfo()->title; ?></title>
-		<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/jquery-ui.min.js"></script>
-		<script type="text/javascript">
-		  var _gaq = _gaq || [];
-		  _gaq.push(['_setAccount', 'UA-12896175-2']);
-		  _gaq.push(['_trackPageview']);
-
-		  (function() {
-			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		  })();
-		</script>
+		<script type="text/javascript" src="js/app.js"></script>
 		<link rel="stylesheet" type="text/css" href="/css/body.css" />
 		<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/flick/jquery-ui.css" />
+		<!--[if IE]>
+		<script type="text/javascript">
+			$(document).html('This Website Curretly does not work in IE Browsers, Please choose a newer one ie: Mozilla Firefox, Opera, Chrome, Safari, etc.');
+		</script>
+		<![endif]-->
 	</head>
 	<body>
 		<div id="header">
@@ -122,7 +117,7 @@ try
 		<script type="text/javascript">
 			window.PHP_SELF = "<?php echo $_SERVER['PHP_SELF']; ?>";
 		</script>
-		<script type="text/javascript" src="js/app.js"></script>
+		
 		<div id="content-container">
 			<div id="buttons">
 				<a id="toggle_disp" class="button" href="#" rel="open">Close All</a>
@@ -133,7 +128,17 @@ try
 			<div style="display:none;" id="link_content"></div>
 			<div style="display:none;" id="content"></div>
 		</div>
-		<script type="text/javascript" src="/js/jquery.simplemodal-1.3.4.min.js"></script>
+		<script type="text/javascript">
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-12896175-2']);
+		  _gaq.push(['_trackPageview']);
+
+		  (function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+		</script>
 	</body>
 </html>
 <?php
