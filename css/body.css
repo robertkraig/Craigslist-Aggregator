@@ -14,34 +14,12 @@ form label {display:block; font-size: 12px;}
 form label.fields {width:80px;float: left; line-height: 20px; text-align: right; margin-right: 10px;}
 form input[type="text"].fields {float:left; width: 120px; line-height: 20px;}
 form input[type="radio"].fields {float:left; line-height: 20px;}
-form input,
-form button {margin:5px; padding:2px; color:red; border:solid 1px gray; background-color:white; margin-top: 0px;}
+form input,form button {margin:5px; padding:2px; color:red; border:solid 1px gray; background-color:white; margin-top: 0px;}
 span.near {margin-left:10px; text-transform:uppercase; font-weight:bold;}
-form button, form input[type="text"]{
-	-moz-box-shadow: 0px 0px 2px #000;
-	-webkit-box-shadow: 0px 0px 2px #000;
-}
+form button, form input[type="text"]{-moz-box-shadow: 0px 0px 2px #000;-webkit-box-shadow: 0px 0px 2px #000;}
 cite {display:block;font-size: 10px; font-style: italic;margin:5px; margin-top: 0px; padding:2px;}
-a#search_btn {
-	margin:5px;
-	padding:2px;
-	color:red;
-	border:solid 1px gray;
-	background-color:white;
-	-moz-box-shadow: 0px 0px 2px #000;
-	-webkit-box-shadow: 0px 0px 2px #000;
-	text-decoration: none;
-	padding:5px;
-	display:inline-block;
-}
-form button:focus,
-form input[type="text"]:focus,
-form input[type="password"]:focus,
-form input[type="file"]:focus,
-form select:focus,
-form textarea:focus,
-a#search_btn:focus,
-a#search_btn:hover{ background-color: #FFF;	border: 1px solid #508FCF; -moz-box-shadow: 0px 0px 2px #999; -webkit-box-shadow: 0px 0px 2px #999;}
+a#search_btn {margin:5px;padding:2px;color:red;border:solid 1px gray;background-color:white;-moz-box-shadow: 0px 0px 2px #000;-webkit-box-shadow: 0px 0px 2px #000;text-decoration: none;padding:5px;display:inline-block;}
+form button:focus,form input[type="text"]:focus,form input[type="password"]:focus,form input[type="file"]:focus,form select:focus,form textarea:focus,a#search_btn:focus,a#search_btn:hover{ background-color: #FFF;border: 1px solid #508FCF; -moz-box-shadow: 0px 0px 2px #999; -webkit-box-shadow: 0px 0px 2px #999;}
 #locations_container {height:250px; overflow: auto; -moz-box-shadow:0 1px 3px #000000;padding:2px;margin:0px; margin-bottom: 10px;}
 #content-container {position: absolute; top: 25px; left: 286px; right: 0px; bottom: 0px;padding-top: 10px; }
 #link_content, #content {overflow-y: scroll; display:block;}
@@ -51,97 +29,19 @@ a#donate {text-decoration: none; display:block; border-top: solid 1px #999; marg
 a#donate:hover{background-color: #F4FDFF;}
 a#donate:focus{color: red;}
 .linkhover {color:red; font-weight: bold;}
-#header {
-
-    background-color: #d8ebec;
-	position: absolute;
-	top:0px;
-	left:0px;
-	right:0px;
-	z-index: 1000;
-}
-#header ul {
-	display: block;
-	margin:0px;
-	padding:0px;
-}
-
-#header,
-#header ul,
-#header ul li,
-#header ul li a{
-	line-height: 25px;
-	height: 25px;
-	font-size: 14px;
-}
-
+#header {    background-color: #d8ebec;position: absolute;top:0px;left:0px;right:0px;z-index: 1000;}
+#header ul {display: block;margin:0px;padding:0px;}
+#header,#header ul,#header ul li,#header ul li a{line-height: 25px;height: 25px;font-size: 14px;}
 #header ul li {float: left;}
 #header ul li a {padding: 0px 5px; font-weight: bold; display:block; text-decoration: none;}
 #header ul li a:hover {color:red;}
-
-#open_windows a.windowLink,
-#show_search{
-	text-decoration: none;
-	color:black;
-}
-#open_windows a.windowLink {
-	position: relative;
-	padding-right: 40px;
-	text-align: center;
-}
-#open_windows a.windowLink span {
-	color:white;
-	font-weight: bold;
-	text-decoration: none;
-	position: absolute;
-	top:0px;
-	right:-1px;
-	width: 20px;
-	height: 20px;
-	text-align: center;
-	border:none;
-	border-bottom: solid 4px #D8EBEC;
-	border-right: solid 1px #D8EBEC;
-	background-color: #D8EBEC;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-}
-
-#open_windows a.windowLink:hover,
-#open_windows a.windowLink:hover span {
-	color:red;
-}
-#open_windows a.windowLink:hover span:hover {
-	color:black;
-}
-#show_search{
-	display:none;
-}
-a.button.hover {
-	border-bottom: solid 4px red;
-}
-
-#link_content iframe {
-	margin-top: 20px;
-}
-
-#buttons {
-	display:none;
-}
-a.button {
-	margin: 0px;
-	margin-right: 5px;
-	padding:0px 4px;
-	outline:none;
-	border: solid 1px #D8EBEC;
-	float:left;
-	font-size: 14px;
-	line-height: 20px;
-	height: 20px;
-	border-bottom: solid 4px #D8EBEC;
-	text-decoration: none;
-	background-color: white;
-	text-align: center;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-}
+#open_windows a.windowLink,#show_search{text-decoration: none;color:black;}
+#open_windows a.windowLink {position: relative;padding-right: 40px;text-align: center;}
+#open_windows a.windowLink span {color:white;font-weight: bold;text-decoration: none;position: absolute;top:0px;right:-2px;width: 20px;height: 20px;text-align: center;border:none;border-bottom: solid 4px #D8EBEC;border-right: solid 1px #D8EBEC;background-color: #D8EBEC;-webkit-border-radius: 4px;-moz-border-radius: 4px;}
+#open_windows a.windowLink:hover,#open_windows a.windowLink:hover span {color:red;}
+#open_windows a.windowLink:hover span:hover {color:black;}
+#show_search{display:none;}
+a.button.hover {border-bottom: solid 4px red;}
+#link_content iframe {margin-top: 20px;}
+#buttons {display:none;}
+a.button {margin: 0px;margin-right: 5px;padding:0px 4px;outline:none;border: solid 1px #D8EBEC;float:left;font-size: 14px;line-height: 20px;height: 20px;border-bottom: solid 4px #D8EBEC;text-decoration: none;background-color: white;text-align: center;-webkit-border-radius: 4px;-moz-border-radius: 4px;}

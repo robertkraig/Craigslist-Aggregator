@@ -135,7 +135,10 @@ class CraigListScraper {
 		$tmp_arr = array();
 		foreach($fields as $field)
 		{
-			$tmp_arr[$field['argName']] = $_POST[$field['argName']];
+			if(array_key_exists($field['argName'], $_POST))
+			{
+				$tmp_arr[$field['argName']] = $_POST[$field['argName']];
+			}
 		}
 
 		$args = http_build_query($tmp_arr);
