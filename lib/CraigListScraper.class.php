@@ -246,5 +246,3 @@ class CraigListScraper {
 		return json_encode($this->record_list);
 	}
 }
-
-?>

@@ -30,12 +30,15 @@
 		</region>
 		<region>
 			<name>Central California</name>
-
 			<type>cencal</type>
 		</region>
 		<region>
 			<name>Northern California</name>
 			<type>norcal</type>
+		</region>
+		<region>
+			<name>Maryland</name>
+			<type>maryland</type>
 		</region>
 	</regions>
 	<locations>
@@ -128,6 +131,62 @@
 			<url><![CDATA[http://lasvegas.craigslist.org/search/jjj?]]></url>
 			<partial>lasvegas.craigslist.org</partial>
 			<name>Las Vegas</name>
+		</location>
+		<location>
+			<state>MD</state>
+			<type></type>
+			<url><![CDATA[http://annapolis.craigslist.org/search/jjj?]]></url>
+			<partial>annapolis.craigslist.org</partial>
+			<name>Annapolis</name>
+		</location>
+		<location>
+			<state>MD</state>
+			<type>maryland</type>
+			<url><![CDATA[http://washingtondc.craigslist.org/search/jjj?]]></url>
+			<partial>washingtondc.craigslist.org</partial>
+			<name>Washington D.C.</name>
+		</location>
+		<location>
+			<state>MD</state>
+			<type>maryland</type>
+			<url><![CDATA[http://westmd.craigslist.org/search/jjj?]]></url>
+			<partial>westmd.craigslist.org</partial>
+			<name>West Maryland</name>
+		</location>
+		<location>
+			<state>MD</state>
+			<type>maryland</type>
+			<url><![CDATA[http://smd.craigslist.org/search/jjj?]]></url>
+			<partial>smd.craigslist.org</partial>
+			<name>South Maryland</name>
+		</location>
+		<location>
+			<state>MD</state>
+			<type>maryland</type>
+			<url><![CDATA[http://frederick.craigslist.org/search/jjj?]]></url>
+			<partial>frederick.craigslist.org</partial>
+			<name>Frederick</name>
+		</location>
+		<location>
+			<state>MD</state>
+			<type>maryland</type>
+			<url><![CDATA[http://easternshore.craigslist.org/search/jjj?]]></url>
+			<partial>easternshore.craigslist.org</partial>
+			<name>Eastern Shore Maryland</name>
+		</location>
+		<location>
+			<state>MD</state>
+			<type>maryland</type>
+			<url><![CDATA[http://chambersburg.craigslist.org/search/jjj?]]></url>
+			<partial>chambersburg.craigslist.org</partial>
+			<name>Chambersburg</name>
+		</location>
+		<location>
+			<state>MD</state>
+			<type>maryland</type>
+			<url><![CDATA[http://baltimore.craigslist.org/search/jjj?]]></url>
+			<partial>baltimore.craigslist.org</partial>
+			<name>Baltimore Maryland</name>
 		</location>
 	</locations>
 </clrepo>
