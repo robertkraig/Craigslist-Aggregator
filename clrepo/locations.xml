@@ -40,153 +40,353 @@
 			<name>Maryland</name>
 			<type>maryland</type>
 		</region>
+		<region>
+			<name>Texas</name>
+			<type>texas</type>
+		</region>
 	</regions>
 	<locations>
 		<location>
 			<state>CA</state>
 			<type>socal</type>
-			<url><![CDATA[http://losangeles.craigslist.org/search/jjj?]]></url>
+			<url><![CDATA[http:/losangeles.craigslist.org/search/jjj?]]></url>
 			<partial>losangeles.craigslist.org</partial>
 			<name>Los Angeles</name>
 		</location>
 		<location>
 			<state>CA</state>
 			<type>socal</type>
-			<url><![CDATA[http://sandiego.craigslist.org/search/jjj?]]></url>
+			<url><![CDATA[http:/sandiego.craigslist.org/search/jjj?]]></url>
 			<partial>sandiego.craigslist.org</partial>
 			<name>San Diego</name>
 		</location>
 		<location>
 			<state>CA</state>
 			<type>socal</type>
-			<url><![CDATA[http://orangecounty.craigslist.org/search/jjj?]]></url>
+			<url><![CDATA[http:/orangecounty.craigslist.org/search/jjj?]]></url>
 			<partial>orangecounty.craigslist.org</partial>
 			<name>Orange</name>
 		</location>
 		<location>
 			<state>CA</state>
 			<type>socal</type>
-			<url><![CDATA[http://inlandempire.craigslist.org/search/jjj?]]></url>
+			<url><![CDATA[http:/inlandempire.craigslist.org/search/jjj?]]></url>
 			<partial>inlandempire.craigslist.org</partial>
 			<name>Inland Empire</name>
 		</location>
 		<location>
 			<state>CA</state>
 			<type>norcal</type>
-			<url><![CDATA[http://sacramento.craigslist.org/search/jjj?]]></url>
+			<url><![CDATA[http:/sacramento.craigslist.org/search/jjj?]]></url>
 			<partial>sacramento.craigslist.org</partial>
 			<name>Sacramento</name>
 		</location>
 		<location>
 			<state>CA</state>
 			<type>norcal</type>
-			<url><![CDATA[http://sfbay.craigslist.org/search/jjj?]]></url>
+			<url><![CDATA[http:/sfbay.craigslist.org/search/jjj?]]></url>
 			<partial>sfbay.craigslist.org</partial>
 			<name>San Francisco / Bay Area</name>
 		</location>
 		<location>
 			<state>CA</state>
 			<type>norcal</type>
-			<url><![CDATA[http://monterey.craigslist.org/search/jjj?]]></url>
+			<url><![CDATA[http:/monterey.craigslist.org/search/jjj?]]></url>
 			<partial>monterey.craigslist.org</partial>
 			<name>Monterey Bay</name>
 		</location>
 		<location>
 			<state>CA</state>
 			<type>cencal</type>
-			<url><![CDATA[http://fresno.craigslist.org/search/jjj?]]></url>
+			<url><![CDATA[http:/fresno.craigslist.org/search/jjj?]]></url>
 			<partial>fresno.craigslist.org</partial>
 			<name>Fresno</name>
 		</location>
 		<location>
 			<state>CA</state>
 			<type>cencal</type>
-			<url><![CDATA[http://slo.craigslist.org/search/jjj?]]></url>
+			<url><![CDATA[http:/slo.craigslist.org/search/jjj?]]></url>
 			<partial>slo.craigslist.org</partial>
 			<name>San Luis Obispo</name>
 		</location>
 		<location>
 			<state>CA</state>
 			<type>cencal</type>
-			<url><![CDATA[http://santabarbara.craigslist.org/search/jjj?]]></url>
+			<url><![CDATA[http:/santabarbara.craigslist.org/search/jjj?]]></url>
 			<partial>santabarbara.craigslist.org</partial>
 			<name>Santa Barbara</name>
 		</location>
 		<location>
 			<state>CA</state>
 			<type>cencal</type>
-			<url><![CDATA[http://ventura.craigslist.org/search/jjj?]]></url>
+			<url><![CDATA[http:/ventura.craigslist.org/search/jjj?]]></url>
 			<partial>ventura.craigslist.org</partial>
 			<name>Ventura</name>
 		</location>
 		<location>
 			<type>cencal</type>
-			<url><![CDATA[http://bakersfield.craigslist.org/search/jjj?]]></url>
+			<url><![CDATA[http:/bakersfield.craigslist.org/search/jjj?]]></url>
 			<partial>bakersfield.craigslist.org</partial>
 			<name>Bakersfield</name>
 		</location>
 		<location>
 			<state>NV</state>
 			<type></type>
-			<url><![CDATA[http://lasvegas.craigslist.org/search/jjj?]]></url>
+			<url><![CDATA[http:/lasvegas.craigslist.org/search/jjj?]]></url>
 			<partial>lasvegas.craigslist.org</partial>
 			<name>Las Vegas</name>
 		</location>
 		<location>
 			<state>MD</state>
 			<type></type>
-			<url><![CDATA[http://annapolis.craigslist.org/search/jjj?]]></url>
+			<url><![CDATA[http:/annapolis.craigslist.org/search/jjj?]]></url>
 			<partial>annapolis.craigslist.org</partial>
 			<name>Annapolis</name>
 		</location>
 		<location>
 			<state>MD</state>
 			<type>maryland</type>
-			<url><![CDATA[http://washingtondc.craigslist.org/search/jjj?]]></url>
+			<url><![CDATA[http:/washingtondc.craigslist.org/search/jjj?]]></url>
 			<partial>washingtondc.craigslist.org</partial>
 			<name>Washington D.C.</name>
 		</location>
 		<location>
 			<state>MD</state>
 			<type>maryland</type>
-			<url><![CDATA[http://westmd.craigslist.org/search/jjj?]]></url>
+			<url><![CDATA[http:/westmd.craigslist.org/search/jjj?]]></url>
 			<partial>westmd.craigslist.org</partial>
 			<name>West Maryland</name>
 		</location>
 		<location>
 			<state>MD</state>
 			<type>maryland</type>
-			<url><![CDATA[http://smd.craigslist.org/search/jjj?]]></url>
+			<url><![CDATA[http:/smd.craigslist.org/search/jjj?]]></url>
 			<partial>smd.craigslist.org</partial>
 			<name>South Maryland</name>
 		</location>
 		<location>
 			<state>MD</state>
 			<type>maryland</type>
-			<url><![CDATA[http://frederick.craigslist.org/search/jjj?]]></url>
+			<url><![CDATA[http:/frederick.craigslist.org/search/jjj?]]></url>
 			<partial>frederick.craigslist.org</partial>
 			<name>Frederick</name>
 		</location>
 		<location>
 			<state>MD</state>
 			<type>maryland</type>
-			<url><![CDATA[http://easternshore.craigslist.org/search/jjj?]]></url>
+			<url><![CDATA[http:/easternshore.craigslist.org/search/jjj?]]></url>
 			<partial>easternshore.craigslist.org</partial>
 			<name>Eastern Shore Maryland</name>
 		</location>
 		<location>
 			<state>MD</state>
 			<type>maryland</type>
-			<url><![CDATA[http://chambersburg.craigslist.org/search/jjj?]]></url>
+			<url><![CDATA[http:/chambersburg.craigslist.org/search/jjj?]]></url>
 			<partial>chambersburg.craigslist.org</partial>
 			<name>Chambersburg</name>
 		</location>
 		<location>
 			<state>MD</state>
 			<type>maryland</type>
-			<url><![CDATA[http://baltimore.craigslist.org/search/jjj?]]></url>
+			<url><![CDATA[http:/baltimore.craigslist.org/search/jjj?]]></url>
 			<partial>baltimore.craigslist.org</partial>
 			<name>Baltimore Maryland</name>
+		</location>
+		<location>
+			<state>TX</state>
+			<type>texas</type>
+			<url><![CDATA[http:/abilene.craigslist.org/search/jjj?]]></url>
+			<partial>abilene.craigslist.org</partial>
+			<name>abilene</name>
+		</location>
+		<location>
+			<state>TX</state>
+			<type>texas</type>
+			<url><![CDATA[http:/amarillo.craigslist.org/search/jjj?]]></url>
+			<partial>amarillo.craigslist.org</partial>
+			<name>amarillo</name>
+		</location>
+		<location>
+			<state>TX</state>
+			<type>texas</type>
+			<url><![CDATA[http:/austin.craigslist.org/search/jjj?]]></url>
+			<partial>austin.craigslist.org</partial>
+			<name>austin</name>
+		</location>
+		<location>
+			<state>TX</state>
+			<type>texas</type>
+			<url><![CDATA[http:/beaumont.craigslist.org/search/jjj?]]></url>
+			<partial>beaumont.craigslist.org</partial>
+			<name>beaumont / port arthur</name>
+		</location>
+		<location>
+			<state>TX</state>
+			<type>texas</type>
+			<url><![CDATA[http:/brownsville.craigslist.org/search/jjj?]]></url>
+			<partial>brownsville.craigslist.org</partial>
+			<name>brownsville</name>
+		</location>
+		<location>
+			<state>TX</state>
+			<type>texas</type>
+			<url><![CDATA[http:/collegestation.craigslist.org/search/jjj?]]></url>
+			<partial>collegestation.craigslist.org</partial>
+			<name>college station</name>
+		</location>
+		<location>
+			<state>TX</state>
+			<type>texas</type>
+			<url><![CDATA[http:/corpuschristi.craigslist.org/search/jjj?]]></url>
+			<partial>corpuschristi.craigslist.org</partial>
+			<name>corpus christi</name>
+		</location>
+		<location>
+			<state>TX</state>
+			<type>texas</type>
+			<url><![CDATA[http:/dallas.craigslist.org/search/jjj?]]></url>
+			<partial>dallas.craigslist.org</partial>
+			<name>dallas / fort worth</name>
+		</location>
+		<location>
+			<state>TX</state>
+			<type>texas</type>
+			<url><![CDATA[http:/nacogdoches.craigslist.org/search/jjj?]]></url>
+			<partial>nacogdoches.craigslist.org</partial>
+			<name>deep east texas</name>
+		</location>
+		<location>
+			<state>TX</state>
+			<type>texas</type>
+			<url><![CDATA[http:/delrio.craigslist.org/search/jjj?]]></url>
+			<partial>delrio.craigslist.org</partial>
+			<name>del rio / eagle pass</name>
+		</location>
+		<location>
+			<state>TX</state>
+			<type>texas</type>
+			<url><![CDATA[http:/elpaso.craigslist.org/search/jjj?]]></url>
+			<partial>elpaso.craigslist.org</partial>
+			<name>el paso</name>
+		</location>
+		<location>
+			<state>TX</state>
+			<type>texas</type>
+			<url><![CDATA[http:/galveston.craigslist.org/search/jjj?]]></url>
+			<partial>galveston.craigslist.org</partial>
+			<name>galveston</name>
+		</location>
+		<location>
+			<state>TX</state>
+			<type>texas</type>
+			<url><![CDATA[http:/houston.craigslist.org/search/jjj?]]></url>
+			<partial>houston.craigslist.org</partial>
+			<name>houston</name>
+		</location>
+		<location>
+			<state>TX</state>
+			<type>texas</type>
+			<url><![CDATA[http:/killeen.craigslist.org/search/jjj?]]></url>
+			<partial>killeen.craigslist.org</partial>
+			<name>killeen / temple / ft hood</name>
+		</location>
+		<location>
+			<state>TX</state>
+			<type>texas</type>
+			<url><![CDATA[http:/laredo.craigslist.org/search/jjj?]]></url>
+			<partial>laredo.craigslist.org</partial>
+			<name>laredo</name>
+		</location>
+		<location>
+			<state>TX</state>
+			<type>texas</type>
+			<url><![CDATA[http:/lubbock.craigslist.org/search/jjj?]]></url>
+			<partial>lubbock.craigslist.org</partial>
+			<name>lubbock</name>
+		</location>
+		<location>
+			<state>TX</state>
+			<type>texas</type>
+			<url><![CDATA[http:/mcallen.craigslist.org/search/jjj?]]></url>
+			<partial>mcallen.craigslist.org</partial>
+			<name>mcallen / edinburg</name>
+		</location>
+		<location>
+			<state>TX</state>
+			<type>texas</type>
+			<url><![CDATA[http:/odessa.craigslist.org/search/jjj?]]></url>
+			<partial>odessa.craigslist.org</partial>
+			<name>odessa / midland</name>
+		</location>
+		<location>
+			<state>TX</state>
+			<type>texas</type>
+			<url><![CDATA[http:/sanangelo.craigslist.org/search/jjj?]]></url>
+			<partial>sanangelo.craigslist.org</partial>
+			<name>san angelo</name>
+		</location>
+		<location>
+			<state>TX</state>
+			<type>texas</type>
+			<url><![CDATA[http:/sanantonio.craigslist.org/search/jjj?]]></url>
+			<partial>sanantonio.craigslist.org</partial>
+			<name>san antonio</name>
+		</location>
+		<location>
+			<state>TX</state>
+			<type>texas</type>
+			<url><![CDATA[http:/sanmarcos.craigslist.org/search/jjj?]]></url>
+			<partial>sanmarcos.craigslist.org</partial>
+			<name>san marcos</name>
+		</location>
+		<location>
+			<state>TX</state>
+			<type>texas</type>
+			<url><![CDATA[http:/bigbend.craigslist.org/search/jjj?]]></url>
+			<partial>bigbend.craigslist.org</partial>
+			<name>southwest TX</name>
+		</location>
+		<location>
+			<state>TX</state>
+			<type>texas</type>
+			<url><![CDATA[http:/texarkana.craigslist.org/search/jjj?]]></url>
+			<partial>texarkana.craigslist.org</partial>
+			<name>texarkana</name>
+		</location>
+		<location>
+			<state>TX</state>
+			<type>texas</type>
+			<url><![CDATA[http:/texoma.craigslist.org/search/jjj?]]></url>
+			<partial>texoma.craigslist.org</partial>
+			<name>texoma</name>
+		</location>
+		<location>
+			<state>TX</state>
+			<type>texas</type>
+			<url><![CDATA[http:/easttexas.craigslist.org/search/jjj?]]></url>
+			<partial>easttexas.craigslist.org</partial>
+			<name>tyler / east TX</name>
+		</location>
+		<location>
+			<state>TX</state>
+			<type>texas</type>
+			<url><![CDATA[http:/victoriatx.craigslist.org/search/jjj?]]></url>
+			<partial>victoriatx.craigslist.org</partial>
+			<name>victoria</name>
+		</location>
+		<location>
+			<state>TX</state>
+			<type>texas</type>
+			<url><![CDATA[http:/waco.craigslist.org/search/jjj?]]></url>
+			<partial>waco.craigslist.org</partial>
+			<name>waco</name>
+		</location>
+		<location>
+			<state>TX</state>
+			<type>texas</type>
+			<url><![CDATA[http:/wichitafalls.craigslist.org/search/jjj?]]></url>
+			<partial>wichitafalls.craigslist.org</partial>
+			<name>wichita falls</name>
 		</location>
 	</locations>
 </clrepo>
