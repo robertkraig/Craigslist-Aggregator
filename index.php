@@ -37,7 +37,7 @@ try
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="js/app.js"></script>
-		<link rel="stylesheet" type="text/css" href="/css/body.css" />
+		<link rel="stylesheet" type="text/css" href="css/body.css" />
 		<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/flick/jquery-ui.css" />
 		<!--[if IE]>
 		<script type="text/javascript">
