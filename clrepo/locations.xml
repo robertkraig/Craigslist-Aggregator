@@ -44,6 +44,10 @@
 			<name><![CDATA[Texas]]></name>
 			<type>texas</type>
 		</region>
+		<region>
+			<name><![CDATA[Washington]]></name>
+			<type>washington</type>
+		</region>
 	</regions>
 	<locations>
 		<location>
@@ -330,63 +334,143 @@
 			<type>texas</type>
 			<url><![CDATA[http://sanantonio.craigslist.org/search/jjj?]]></url>
 			<partial>sanantonio.craigslist.org</partial>
-			<name><![CDATA[san antonio]]></name>
+			<name><![CDATA[San Antonio]]></name>
 		</location>
 		<location>
 			<state>TX</state>
 			<type>texas</type>
 			<url><![CDATA[http://sanmarcos.craigslist.org/search/jjj?]]></url>
 			<partial>sanmarcos.craigslist.org</partial>
-			<name><![CDATA[san marcos]]></name>
+			<name><![CDATA[San Marcos]]></name>
 		</location>
 		<location>
 			<state>TX</state>
 			<type>texas</type>
 			<url><![CDATA[http://bigbend.craigslist.org/search/jjj?]]></url>
 			<partial>bigbend.craigslist.org</partial>
-			<name><![CDATA[southwest TX]]></name>
+			<name><![CDATA[Southwest Texas]]></name>
 		</location>
 		<location>
 			<state>TX</state>
 			<type>texas</type>
 			<url><![CDATA[http://texarkana.craigslist.org/search/jjj?]]></url>
 			<partial>texarkana.craigslist.org</partial>
-			<name><![CDATA[texarkana]]></name>
+			<name><![CDATA[Texarkana]]></name>
 		</location>
 		<location>
 			<state>TX</state>
 			<type>texas</type>
 			<url><![CDATA[http://texoma.craigslist.org/search/jjj?]]></url>
 			<partial>texoma.craigslist.org</partial>
-			<name><![CDATA[texoma]]></name>
+			<name><![CDATA[Texoma]]></name>
 		</location>
 		<location>
 			<state>TX</state>
 			<type>texas</type>
 			<url><![CDATA[http://easttexas.craigslist.org/search/jjj?]]></url>
 			<partial>easttexas.craigslist.org</partial>
-			<name><![CDATA[tyler / east TX]]></name>
+			<name><![CDATA[Tyler / east Texas]]></name>
 		</location>
 		<location>
 			<state>TX</state>
 			<type>texas</type>
 			<url><![CDATA[http://victoriatx.craigslist.org/search/jjj?]]></url>
 			<partial>victoriatx.craigslist.org</partial>
-			<name><![CDATA[victoria]]></name>
+			<name><![CDATA[Victoria]]></name>
 		</location>
 		<location>
 			<state>TX</state>
 			<type>texas</type>
 			<url><![CDATA[http://waco.craigslist.org/search/jjj?]]></url>
 			<partial>waco.craigslist.org</partial>
-			<name><![CDATA[waco]]></name>
+			<name><![CDATA[Waco]]></name>
 		</location>
 		<location>
 			<state>TX</state>
 			<type>texas</type>
 			<url><![CDATA[http://wichitafalls.craigslist.org/search/jjj?]]></url>
 			<partial>wichitafalls.craigslist.org</partial>
-			<name><![CDATA[wichita falls]]></name>
+			<name><![CDATA[Wichita Falls]]></name>
+		</location>
+		<location>
+			<state>WA</state>
+			<type>washington</type>
+			<url><![CDATA[http://bend.craigslist.org//search/jjj?]]></url>
+			<partial>bend.craigslist.org</partial>
+			<name><![CDATA[Bend]]>
+			</name>
+		</location>
+		<location>
+			<state>WA</state>
+			<type>washington</type>
+			<url><![CDATA[http://corvallis.craigslist.org//search/jjj?]]></url>
+			<partial>corvallis.craigslist.org</partial>
+			<name><![CDATA[Corvallis/albany]]>
+			</name>
+		</location>
+		<location>
+			<state>WA</state>
+			<type>washington</type>
+			<url><![CDATA[http://eastoregon.craigslist.org//search/jjj?]]></url>
+			<partial>eastoregon.craigslist.org</partial>
+			<name><![CDATA[East oregon]]>
+			</name>
+		</location>
+		<location>
+			<state>WA</state>
+			<type>washington</type>
+			<url><![CDATA[http://eugene.craigslist.org//search/jjj?]]></url>
+			<partial>eugene.craigslist.org</partial>
+			<name><![CDATA[Eugene]]>
+			</name>
+		</location>
+		<location>
+			<state>WA</state>
+			<type>washington</type>
+			<url><![CDATA[http://klamath.craigslist.org//search/jjj?]]></url>
+			<partial>klamath.craigslist.org</partial>
+			<name><![CDATA[Klamath falls]]>
+			</name>
+		</location>
+		<location>
+			<state>WA</state>
+			<type>washington</type>
+			<url><![CDATA[http://medford.craigslist.org//search/jjj?]]></url>
+			<partial>medford.craigslist.org</partial>
+			<name><![CDATA[Medford-ashland]]>
+			</name>
+		</location>
+		<location>
+			<state>WA</state>
+			<type>washington</type>
+			<url><![CDATA[http://oregoncoast.craigslist.org//search/jjj?]]></url>
+			<partial>oregoncoast.craigslist.org</partial>
+			<name><![CDATA[Oregon coast]]>
+			</name>
+		</location>
+		<location>
+			<state>WA</state>
+			<type>washington</type>
+			<url><![CDATA[http://portland.craigslist.org//search/jjj?]]></url>
+			<partial>portland.craigslist.org</partial>
+			<name><![CDATA[Portland]]>
+			</name>
+		</location>
+		<location>
+			<state>WA</state>
+			<type>washington</type>
+			<url><![CDATA[http://roseburg.craigslist.org//search/jjj?]]></url>
+			<partial>roseburg.craigslist.org</partial>
+			<name><![CDATA[Roseburg]]>
+			</name>
+		</location>
+		<location>  
+			<state>WA</state>
+			<type>washington</type>
+			<url><![CDATA[http://salem.craigslist.org//search/jjj?]]></url>
+			<partial>salem.craigslist.org</partial>
+			<name><![CDATA[Salem]]>
+			</name>
 		</location>
 	</locations>
 </clrepo>
