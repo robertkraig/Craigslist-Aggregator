@@ -52,6 +52,10 @@
 			<name><![CDATA[Washington]]></name>
 			<type>washington</type>
 		</region>
+		<region>
+			<name><![CDATA[Illinois]]></name>
+			<type>lllinois</type>
+		</region>
 	</regions>
 	<locations>
 		<location>
@@ -467,88 +471,181 @@
 			<name><![CDATA[Salem]]></name>
 		</location>
 		<location>
-			<state>WA</state>
-			<type>washington</type>
+			<state>IL</state>
+			<type>lllinois</type>
 			<url><![CDATA[http://bellingham.craigslist.org/search/jjj?]]></url>
 			<partial>bellingham.craigslist.org</partial>
 			<name><![CDATA[Bellingham]]></name>
 		</location>
 		<location>
-			<state>WA</state>
-			<type>washington</type>
+			<state>IL</state>
+			<type>lllinois</type>
 			<url><![CDATA[http://kpr.craigslist.org/search/jjj?]]></url>
 			<partial>kpr.craigslist.org</partial>
 			<name><![CDATA[Kennewick-Pasco-Richland]]></name>
 		</location>
 		<location>
-			<state>WA</state>
-			<type>washington</type>
+			<state>IL</state>
+			<type>lllinois</type>
 			<url><![CDATA[http://lewiston.craigslist.org/search/jjj?]]></url>
 			<partial>lewiston.craigslist.org</partial>
 			<name><![CDATA[Lewiston / Clarkston]]></name>
 		</location>
 		<location>
-			<state>WA</state>
-			<type>washington</type>
+			<state>IL</state>
+			<type>lllinois</type>
 			<url><![CDATA[http://moseslake.craigslist.org/search/jjj?]]></url>
 			<partial>moseslake.craigslist.org</partial>
 			<name><![CDATA[Moses Lake]]></name>
 		</location>
 		<location>
-			<state>WA</state>
-			<type>washington</type>
+			<state>IL</state>
+			<type>lllinois</type>
 			<url><![CDATA[http://olympic.craigslist.org/search/jjj?]]></url>
 			<partial>olympic.craigslist.org</partial>
 			<name><![CDATA[Olympic Peninsula]]></name>
 		</location>
 		<location>
-			<state>WA</state>
-			<type>washington</type>
+			<state>IL</state>
+			<type>lllinois</type>
 			<url><![CDATA[http://pullman.craigslist.org/search/jjj?]]></url>
 			<partial>pullman.craigslist.org</partial>
 			<name><![CDATA[Pullman / Moscow]]></name>
 		</location>
 		<location>
-			<state>WA</state>
-			<type>washington</type>
+			<state>IL</state>
+			<type>lllinois</type>
 			<url><![CDATA[http://seattle.craigslist.org/search/jjj?]]></url>
 			<partial>seattle.craigslist.org</partial>
 			<name><![CDATA[Seattle - Tacoma]]></name>
 		</location>
 		<location>
-			<state>WA</state>
-			<type>washington</type>
+			<state>IL</state>
+			<type>lllinois</type>
 			<url><![CDATA[http://skagit.craigslist.org/search/jjj?]]></url>
 			<partial>skagit.craigslist.org</partial>
 			<name><![CDATA[Skagit / Island / SJI]]></name>
 		</location>
 		<location>
-			<state>WA</state>
-			<type>washington</type>
+			<state>IL</state>
+			<type>lllinois</type>
 			<url><![CDATA[http://spokane.craigslist.org/search/jjj?]]></url>
 			<partial>spokane.craigslist.org</partial>
 			<name><![CDATA[Spokane / coeur d'alene]]></name>
 		</location>
 		<location>
-			<state>WA</state>
-			<type>washington</type>
+			<state>IL</state>
+			<type>lllinois</type>
 			<url><![CDATA[http://wenatchee.craigslist.org/search/jjj?]]></url>
 			<partial>wenatchee.craigslist.org</partial>
 			<name><![CDATA[Wenatchee]]></name>
 		</location>
 		<location>
-			<state>WA</state>
-			<type>washington</type>
+			<state>IL</state>
+			<type>lllinois</type>
 			<url><![CDATA[http://yakima.craigslist.org/search/jjj?]]></url>
 			<partial>yakima.craigslist.org</partial>
 			<name><![CDATA[Yakima]]></name>
 		</location>
 		<location>  
-			<state>WA</state>
-			<type>washington</type>
+			<state>IL</state>
+			<type>lllinois</type>
 			<url><![CDATA[http://portland.craigslist.org/clk/search/jjj?]]></url>
 			<partial>portland.craigslist.org</partial>
 			<name><![CDATA[Clark Co / SW WA]]></name>
 		</location>
+
+		<location>
+			<state>IL</state>
+			<type>lllinois</type>
+			<url><![CDATA[http://bn.craigslist.org/search/jjj?]]></url>
+			<partial>bn.craigslist.org</partial>
+			<name><![CDATA[Bloomington - Normal]]></name>
+		</location>
+		<location>
+			<state>IL</state>
+			<type>lllinois</type>
+			<url><![CDATA[http://chambana.craigslist.org/search/jjj?]]></url>
+			<partial>chambana.craigslist.org</partial>
+			<name><![CDATA[Champaign Urbana]]></name>
+		</location>
+		<location>
+			<state>IL</state>
+			<type>lllinois</type>
+			<url><![CDATA[http://chicago.craigslist.org/search/jjj?]]></url>
+			<partial>chicago.craigslist.org</partial>
+			<name><![CDATA[Chicago]]></name>
+		</location>
+		<location>
+			<state>IL</state>
+			<type>lllinois</type>
+			<url><![CDATA[http://decatur.craigslist.org/search/jjj?]]></url>
+			<partial>decatur.craigslist.org</partial>
+			<name><![CDATA[Decatur]]></name>
+		</location>
+		<location>
+			<state>IL</state>
+			<type>lllinois</type>
+			<url><![CDATA[http://lasalle.craigslist.org/search/jjj?]]></url>
+			<partial>lasalle.craigslist.org</partial>
+			<name><![CDATA[La Salle Co]]></name>
+		</location>
+		<location>
+			<state>IL</state>
+			<type>lllinois</type>
+			<url><![CDATA[http://mattoon.craigslist.org/search/jjj?]]></url>
+			<partial>mattoon.craigslist.org</partial>
+			<name><![CDATA[Mattoon - Charleston]]></name>
+		</location>
+		<location>
+			<state>IL</state>
+			<type>lllinois</type>
+			<url><![CDATA[http://peoria.craigslist.org/search/jjj?]]></url>
+			<partial>peoria.craigslist.org</partial>
+			<name><![CDATA[Peoria]]></name>
+		</location>
+		<location>
+			<state>IL</state>
+			<type>lllinois</type>
+			<url><![CDATA[http://quadcities.craigslist.org/search/jjj?]]></url>
+			<partial>quadcities.craigslist.org</partial>
+			<name><![CDATA[Quad cities, IA/IL]]></name>
+		</location>
+		<location>
+			<state>IL</state>
+			<type>lllinois</type>
+			<url><![CDATA[http://rockford.craigslist.org/search/jjj?]]></url>
+			<partial>rockford.craigslist.org</partial>
+			<name><![CDATA[Rockford]]></name>
+		</location>
+		<location>
+			<state>IL</state>
+			<type>lllinois</type>
+			<url><![CDATA[http://carbondale.craigslist.org/search/jjj?]]></url>
+			<partial>carbondale.craigslist.org</partial>
+			<name><![CDATA[Southern Illinois]]></name>
+		</location>
+		<location>
+			<state>IL</state>
+			<type>lllinois</type>
+			<url><![CDATA[http://springfieldil.craigslist.org/search/jjj?]]></url>
+			<partial>springfieldil.craigslist.org</partial>
+			<name><![CDATA[Springfield]]></name>
+		</location>
+		<location>
+			<state>IL</state>
+			<type>lllinois</type>
+			<url><![CDATA[http://stlouis.craigslist.org/search/jjj?]]></url>
+			<partial>stlouis.craigslist.org</partial>
+			<name><![CDATA[St louis, MO]]></name>
+		</location>
+		<location>
+			<state>IL</state>
+			<type>lllinois</type>
+			<url><![CDATA[http://quincy.craigslist.org/search/jjj?]]></url>
+			<partial>quincy.craigslist.org</partial>
+			<name><![CDATA[western IL]]></name>
+		</location>
+
 	</locations>
 </clrepo>
