@@ -36,7 +36,7 @@ class CraigListScraper {
 
 		$xmlstr = file_get_contents($fileLocation);
 		$this->xml = simplexml_load_string($xmlstr, 'SimpleXMLElement', LIBXML_NOCDATA);
-
+		
 		$this->init();
 	}
 

@@ -9,4 +9,4 @@ $('#list a').each(function(){
 			"\t<name><![CDATA["+$(this).text()+"]]></name>\n" +
 		"</location>\n";
 });
-console.log($('#list a').data().body)
+$('body').append('<textarea style="width:800px; height:400px;">'+$('#list a').data().body+'</textarea>');
