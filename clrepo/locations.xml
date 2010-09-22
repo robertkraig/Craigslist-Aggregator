@@ -56,6 +56,11 @@
 			<name><![CDATA[Illinois]]></name>
 			<type>lllinois</type>
 		</region>
+		<region>
+			<name><![CDATA[New York]]></name>
+			<type>newyork</type>
+		</region>
+
 	</regions>
 	<locations>
 		<location>
@@ -648,6 +653,147 @@
 			<url><![CDATA[http://quincy.craigslist.org/search/jjj?]]></url>
 			<partial>quincy.craigslist.org</partial>
 			<name><![CDATA[western IL]]></name>
+		</location>
+
+		<location>
+			<state>NY</state>
+			<type>newyork</type>
+			<url><![CDATA[http://albany.craigslist.org/search/jjj?]]></url>
+			<partial>albany.craigslist.org</partial>
+			<name><![CDATA[albany]]></name>
+		</location>
+		<location>
+			<state>NY</state>
+			<type>newyork</type>
+			<url><![CDATA[http://binghamton.craigslist.org/search/jjj?]]></url>
+			<partial>binghamton.craigslist.org</partial>
+			<name><![CDATA[binghamton]]></name>
+		</location>
+		<location>
+			<state>NY</state>
+			<type>newyork</type>
+			<url><![CDATA[http://buffalo.craigslist.org/search/jjj?]]></url>
+			<partial>buffalo.craigslist.org</partial>
+			<name><![CDATA[buffalo]]></name>
+		</location>
+		<location>
+			<state>NY</state>
+			<type>newyork</type>
+			<url><![CDATA[http://catskills.craigslist.org/search/jjj?]]></url>
+			<partial>catskills.craigslist.org</partial>
+			<name><![CDATA[catskills]]></name>
+		</location>
+		<location>
+			<state>NY</state>
+			<type>newyork</type>
+			<url><![CDATA[http://chautauqua.craigslist.org/search/jjj?]]></url>
+			<partial>chautauqua.craigslist.org</partial>
+			<name><![CDATA[chautauqua]]></name>
+		</location>
+		<location>
+			<state>NY</state>
+			<type>newyork</type>
+			<url><![CDATA[http://elmira.craigslist.org/search/jjj?]]></url>
+			<partial>elmira.craigslist.org</partial>
+			<name><![CDATA[elmira-corning]]></name>
+		</location>
+		<location>
+			<state>NY</state>
+			<type>newyork</type>
+			<url><![CDATA[http://fingerlakes.craigslist.org/search/jjj?]]></url>
+			<partial>fingerlakes.craigslist.org</partial>
+			<name><![CDATA[finger lakes]]></name>
+		</location>
+		<location>
+			<state>NY</state>
+			<type>newyork</type>
+			<url><![CDATA[http://glensfalls.craigslist.org/search/jjj?]]></url>
+			<partial>glensfalls.craigslist.org</partial>
+			<name><![CDATA[glens falls]]></name>
+		</location>
+		<location>
+			<state>NY</state>
+			<type>newyork</type>
+			<url><![CDATA[http://hudsonvalley.craigslist.org/search/jjj?]]></url>
+			<partial>hudsonvalley.craigslist.org</partial>
+			<name><![CDATA[hudson valley]]></name>
+		</location>
+		<location>
+			<state>NY</state>
+			<type>newyork</type>
+			<url><![CDATA[http://ithaca.craigslist.org/search/jjj?]]></url>
+			<partial>ithaca.craigslist.org</partial>
+			<name><![CDATA[ithaca]]></name>
+		</location>
+		<location>
+			<state>NY</state>
+			<type>newyork</type>
+			<url><![CDATA[http://longisland.craigslist.org/search/jjj?]]></url>
+			<partial>longisland.craigslist.org</partial>
+			<name><![CDATA[long island]]></name>
+		</location>
+		<location>
+			<state>NY</state>
+			<type>newyork</type>
+			<url><![CDATA[http://newyork.craigslist.org/search/jjj?]]></url>
+			<partial>newyork.craigslist.org</partial>
+			<name><![CDATA[new york city]]></name>
+		</location>
+		<location>
+			<state>NY</state>
+			<type>newyork</type>
+			<url><![CDATA[http://oneonta.craigslist.org/search/jjj?]]></url>
+			<partial>oneonta.craigslist.org</partial>
+			<name><![CDATA[oneonta]]></name>
+		</location>
+		<location>
+			<state>NY</state>
+			<type>newyork</type>
+			<url><![CDATA[http://plattsburgh.craigslist.org/search/jjj?]]></url>
+			<partial>plattsburgh.craigslist.org</partial>
+			<name><![CDATA[plattsburgh-adirondacks]]></name>
+		</location>
+		<location>
+			<state>NY</state>
+			<type>newyork</type>
+			<url><![CDATA[http://potsdam.craigslist.org/search/jjj?]]></url>
+			<partial>potsdam.craigslist.org</partial>
+			<name><![CDATA[potsdam-canton-massena]]></name>
+		</location>
+		<location>
+			<state>NY</state>
+			<type>newyork</type>
+			<url><![CDATA[http://rochester.craigslist.org/search/jjj?]]></url>
+			<partial>rochester.craigslist.org</partial>
+			<name><![CDATA[rochester]]></name>
+		</location>
+		<location>
+			<state>NY</state>
+			<type>newyork</type>
+			<url><![CDATA[http://syracuse.craigslist.org/search/jjj?]]></url>
+			<partial>syracuse.craigslist.org</partial>
+			<name><![CDATA[syracuse]]></name>
+		</location>
+		<location>
+			<state>NY</state>
+			<type>newyork</type>
+			<url><![CDATA[http://twintiers.craigslist.org/search/jjj?]]></url>
+			<partial>twintiers.craigslist.org</partial>
+			<name><![CDATA[twin tiers NY/PA]]></name>
+		</location>
+		<location>
+			<state>NY</state>
+			<type>newyork</type>
+			<url><![CDATA[http://utica.craigslist.org/search/jjj?]]></url>
+			<partial>utica.craigslist.org</partial>
+			<name><![CDATA[utica-rome-oneida]]></name>
+		</location>
+		<location>
+			<state>NY</state>
+			<type>newyork</type>
+			<url><![CDATA[http://watertown.craigslist.org/search/jjj?]]></url>
+			<partial>watertown.craigslist.org</partial>
+			<name><![CDATA[watertown]]></name>
 		</location>
 
 	</locations>
