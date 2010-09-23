@@ -80,6 +80,14 @@
 			<name><![CDATA[Colorado]]></name>
 			<type>colorado</type>
 		</region>
+		<region>
+			<name><![CDATA[New Jersey]]></name>
+			<type>newjersey</type>
+		</region>
+		<region>
+			<name><![CDATA[Ohio]]></name>
+			<type>ohio</type>
+		</region>
 
 	</regions>
 	<locations>
@@ -1127,6 +1135,169 @@
 			<url><![CDATA[http://westslope.craigslist.org/search/jjj?]]></url>
 			<partial>westslope.craigslist.org</partial>
 			<name><![CDATA[western slope]]></name>
+		</location>
+
+		<location>
+			<state>NJ</state>
+			<type>newjersey</type>
+			<url><![CDATA[http://cnj.craigslist.org/search/jjj?]]></url>
+			<partial>cnj.craigslist.org</partial>
+			<name><![CDATA[central NJ]]></name>
+		</location>
+		<location>
+			<state>NJ</state>
+			<type>newjersey</type>
+			<url><![CDATA[http://jerseyshore.craigslist.org/search/jjj?]]></url>
+			<partial>jerseyshore.craigslist.org</partial>
+			<name><![CDATA[jersey shore]]></name>
+		</location>
+		<location>
+			<state>NJ</state>
+			<type>newjersey</type>
+			<url><![CDATA[http://newjersey.craigslist.org/search/jjj?]]></url>
+			<partial>newjersey.craigslist.org</partial>
+			<name><![CDATA[north jersey]]></name>
+		</location>
+		<location>
+			<state>NJ</state>
+			<type>newjersey</type>
+			<url><![CDATA[http://southjersey.craigslist.org/search/jjj?]]></url>
+			<partial>southjersey.craigslist.org</partial>
+			<name><![CDATA[south jersey]]></name>
+		</location>
+		<location>
+			<state>NJ</state>
+			<type>newjersey</type>
+			<url><![CDATA[http://newyork.craigslist.org/jsy/search/jjj?]]></url>
+			<partial>newyork.craigslist.org</partial>
+			<name><![CDATA[NJ suburbs of NYC]]></name>
+		</location>
+
+		<location>
+			<state>OH</state>
+			<type>ohio</type>
+			<url><![CDATA[http://akroncanton.craigslist.org/search/jjj?]]></url>
+			<partial>akroncanton.craigslist.org</partial>
+			<name><![CDATA[akron / canton]]></name>
+		</location>
+		<location>
+			<state>OH</state>
+			<type>ohio</type>
+			<url><![CDATA[http://ashtabula.craigslist.org/search/jjj?]]></url>
+			<partial>ashtabula.craigslist.org</partial>
+			<name><![CDATA[ashtabula]]></name>
+		</location>
+		<location>
+			<state>OH</state>
+			<type>ohio</type>
+			<url><![CDATA[http://athensohio.craigslist.org/search/jjj?]]></url>
+			<partial>athensohio.craigslist.org</partial>
+			<name><![CDATA[athens]]></name>
+		</location>
+		<location>
+			<state>OH</state>
+			<type>ohio</type>
+			<url><![CDATA[http://chillicothe.craigslist.org/search/jjj?]]></url>
+			<partial>chillicothe.craigslist.org</partial>
+			<name><![CDATA[chillicothe]]></name>
+		</location>
+		<location>
+			<state>OH</state>
+			<type>ohio</type>
+			<url><![CDATA[http://cincinnati.craigslist.org/search/jjj?]]></url>
+			<partial>cincinnati.craigslist.org</partial>
+			<name><![CDATA[cincinnati]]></name>
+		</location>
+		<location>
+			<state>OH</state>
+			<type>ohio</type>
+			<url><![CDATA[http://cleveland.craigslist.org/search/jjj?]]></url>
+			<partial>cleveland.craigslist.org</partial>
+			<name><![CDATA[cleveland]]></name>
+		</location>
+		<location>
+			<state>OH</state>
+			<type>ohio</type>
+			<url><![CDATA[http://columbus.craigslist.org/search/jjj?]]></url>
+			<partial>columbus.craigslist.org</partial>
+			<name><![CDATA[columbus]]></name>
+		</location>
+		<location>
+			<state>OH</state>
+			<type>ohio</type>
+			<url><![CDATA[http://dayton.craigslist.org/search/jjj?]]></url>
+			<partial>dayton.craigslist.org</partial>
+			<name><![CDATA[dayton / springfield]]></name>
+		</location>
+		<location>
+			<state>OH</state>
+			<type>ohio</type>
+			<url><![CDATA[http://huntington.craigslist.org/search/jjj?]]></url>
+			<partial>huntington.craigslist.org</partial>
+			<name><![CDATA[huntington-ashland]]></name>
+		</location>
+		<location>
+			<state>OH</state>
+			<type>ohio</type>
+			<url><![CDATA[http://limaohio.craigslist.org/search/jjj?]]></url>
+			<partial>limaohio.craigslist.org</partial>
+			<name><![CDATA[lima / findlay]]></name>
+		</location>
+		<location>
+			<state>OH</state>
+			<type>ohio</type>
+			<url><![CDATA[http://mansfield.craigslist.org/search/jjj?]]></url>
+			<partial>mansfield.craigslist.org</partial>
+			<name><![CDATA[mansfield]]></name>
+		</location>
+		<location>
+			<state>OH</state>
+			<type>ohio</type>
+			<url><![CDATA[http://wheeling.craigslist.org/search/jjj?]]></url>
+			<partial>wheeling.craigslist.org</partial>
+			<name><![CDATA[northern panhandle]]></name>
+		</location>
+		<location>
+			<state>OH</state>
+			<type>ohio</type>
+			<url><![CDATA[http://parkersburg.craigslist.org/search/jjj?]]></url>
+			<partial>parkersburg.craigslist.org</partial>
+			<name><![CDATA[parkersburg-marietta]]></name>
+		</location>
+		<location>
+			<state>OH</state>
+			<type>ohio</type>
+			<url><![CDATA[http://sandusky.craigslist.org/search/jjj?]]></url>
+			<partial>sandusky.craigslist.org</partial>
+			<name><![CDATA[sandusky]]></name>
+		</location>
+		<location>
+			<state>OH</state>
+			<type>ohio</type>
+			<url><![CDATA[http://toledo.craigslist.org/search/jjj?]]></url>
+			<partial>toledo.craigslist.org</partial>
+			<name><![CDATA[toledo]]></name>
+		</location>
+		<location>
+			<state>OH</state>
+			<type>ohio</type>
+			<url><![CDATA[http://tuscarawas.craigslist.org/search/jjj?]]></url>
+			<partial>tuscarawas.craigslist.org</partial>
+			<name><![CDATA[tuscarawas co]]></name>
+		</location>
+		<location>
+			<state>OH</state>
+			<type>ohio</type>
+			<url><![CDATA[http://youngstown.craigslist.org/search/jjj?]]></url>
+			<partial>youngstown.craigslist.org</partial>
+			<name><![CDATA[youngstown]]></name>
+		</location>
+		<location>
+			<state>OH</state>
+			<type>ohio</type>
+			<url><![CDATA[http://zanesville.craigslist.org/search/jjj?]]></url>
+			<partial>zanesville.craigslist.org</partial>
+			<name><![CDATA[zanesville / cambridge]]></name>
 		</location>
 
 
