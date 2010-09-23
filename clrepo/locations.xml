@@ -60,6 +60,14 @@
 			<name><![CDATA[New York]]></name>
 			<type>newyork</type>
 		</region>
+		<region>
+			<name><![CDATA[North Carolina]]></name>
+			<type>northcarolina</type>
+		</region>
+		<region>
+			<name><![CDATA[Indiana]]></name>
+			<type>indiana</type>
+		</region>
 
 	</regions>
 	<locations>
@@ -795,6 +803,170 @@
 			<partial>watertown.craigslist.org</partial>
 			<name><![CDATA[watertown]]></name>
 		</location>
+
+		<location>
+			<state>NC</state>
+			<type>northcarolina</type>
+			<url><![CDATA[http://asheville.craigslist.org/search/jjj?]]></url>
+			<partial>asheville.craigslist.org</partial>
+			<name><![CDATA[asheville]]></name>
+		</location>
+		<location>
+			<state>NC</state>
+			<type>northcarolina</type>
+			<url><![CDATA[http://boone.craigslist.org/search/jjj?]]></url>
+			<partial>boone.craigslist.org</partial>
+			<name><![CDATA[boone]]></name>
+		</location>
+		<location>
+			<state>NC</state>
+			<type>northcarolina</type>
+			<url><![CDATA[http://charlotte.craigslist.org/search/jjj?]]></url>
+			<partial>charlotte.craigslist.org</partial>
+			<name><![CDATA[charlotte]]></name>
+		</location>
+		<location>
+			<state>NC</state>
+			<type>northcarolina</type>
+			<url><![CDATA[http://eastnc.craigslist.org/search/jjj?]]></url>
+			<partial>eastnc.craigslist.org</partial>
+			<name><![CDATA[eastern NC]]></name>
+		</location>
+		<location>
+			<state>NC</state>
+			<type>northcarolina</type>
+			<url><![CDATA[http://fayetteville.craigslist.org/search/jjj?]]></url>
+			<partial>fayetteville.craigslist.org</partial>
+			<name><![CDATA[fayetteville]]></name>
+		</location>
+		<location>
+			<state>NC</state>
+			<type>northcarolina</type>
+			<url><![CDATA[http://greensboro.craigslist.org/search/jjj?]]></url>
+			<partial>greensboro.craigslist.org</partial>
+			<name><![CDATA[greensboro]]></name>
+		</location>
+		<location>
+			<state>NC</state>
+			<type>northcarolina</type>
+			<url><![CDATA[http://hickory.craigslist.org/search/jjj?]]></url>
+			<partial>hickory.craigslist.org</partial>
+			<name><![CDATA[hickory / lenoir]]></name>
+		</location>
+		<location>
+			<state>NC</state>
+			<type>northcarolina</type>
+			<url><![CDATA[http://onslow.craigslist.org/search/jjj?]]></url>
+			<partial>onslow.craigslist.org</partial>
+			<name><![CDATA[jacksonville]]></name>
+		</location>
+		<location>
+			<state>NC</state>
+			<type>northcarolina</type>
+			<url><![CDATA[http://outerbanks.craigslist.org/search/jjj?]]></url>
+			<partial>outerbanks.craigslist.org</partial>
+			<name><![CDATA[outer banks]]></name>
+		</location>
+		<location>
+			<state>NC</state>
+			<type>northcarolina</type>
+			<url><![CDATA[http://raleigh.craigslist.org/search/jjj?]]></url>
+			<partial>raleigh.craigslist.org</partial>
+			<name><![CDATA[raleigh / durham / CH]]></name>
+		</location>
+		<location>
+			<state>NC</state>
+			<type>northcarolina</type>
+			<url><![CDATA[http://wilmington.craigslist.org/search/jjj?]]></url>
+			<partial>wilmington.craigslist.org</partial>
+			<name><![CDATA[wilmington]]></name>
+		</location>
+		<location>
+			<state>NC</state>
+			<type>northcarolina</type>
+			<url><![CDATA[http://winstonsalem.craigslist.org/search/jjj?]]></url>
+			<partial>winstonsalem.craigslist.org</partial>
+			<name><![CDATA[winston-salem]]></name>
+		</location>
+
+		<location>
+			<state>IN</state>
+			<type>indiana</type>
+			<url><![CDATA[http://bloomington.craigslist.org/search/jjj?]]></url>
+			<partial>bloomington.craigslist.org</partial>
+			<name><![CDATA[bloomington]]></name>
+		</location>
+		<location>
+			<state>IN</state>
+			<type>indiana</type>
+			<url><![CDATA[http://evansville.craigslist.org/search/jjj?]]></url>
+			<partial>evansville.craigslist.org</partial>
+			<name><![CDATA[evansville]]></name>
+		</location>
+		<location>
+			<state>IN</state>
+			<type>indiana</type>
+			<url><![CDATA[http://fortwayne.craigslist.org/search/jjj?]]></url>
+			<partial>fortwayne.craigslist.org</partial>
+			<name><![CDATA[fort wayne]]></name>
+		</location>
+		<location>
+			<state>IN</state>
+			<type>indiana</type>
+			<url><![CDATA[http://indianapolis.craigslist.org/search/jjj?]]></url>
+			<partial>indianapolis.craigslist.org</partial>
+			<name><![CDATA[indianapolis]]></name>
+		</location>
+		<location>
+			<state>IN</state>
+			<type>indiana</type>
+			<url><![CDATA[http://kokomo.craigslist.org/search/jjj?]]></url>
+			<partial>kokomo.craigslist.org</partial>
+			<name><![CDATA[kokomo]]></name>
+		</location>
+		<location>
+			<state>IN</state>
+			<type>indiana</type>
+			<url><![CDATA[http://tippecanoe.craigslist.org/search/jjj?]]></url>
+			<partial>tippecanoe.craigslist.org</partial>
+			<name><![CDATA[lafayette / west lafayette]]></name>
+		</location>
+		<location>
+			<state>IN</state>
+			<type>indiana</type>
+			<url><![CDATA[http://muncie.craigslist.org/search/jjj?]]></url>
+			<partial>muncie.craigslist.org</partial>
+			<name><![CDATA[muncie / anderson]]></name>
+		</location>
+		<location>
+			<state>IN</state>
+			<type>indiana</type>
+			<url><![CDATA[http://richmondin.craigslist.org/search/jjj?]]></url>
+			<partial>richmondin.craigslist.org</partial>
+			<name><![CDATA[richmond]]></name>
+		</location>
+		<location>
+			<state>IN</state>
+			<type>indiana</type>
+			<url><![CDATA[http://southbend.craigslist.org/search/jjj?]]></url>
+			<partial>southbend.craigslist.org</partial>
+			<name><![CDATA[south bend / michiana]]></name>
+		</location>
+		<location>
+			<state>IN</state>
+			<type>indiana</type>
+			<url><![CDATA[http://terrehaute.craigslist.org/search/jjj?]]></url>
+			<partial>terrehaute.craigslist.org</partial>
+			<name><![CDATA[terre haute]]></name>
+		</location>
+		<location>
+			<state>IN</state>
+			<type>indiana</type>
+			<url><![CDATA[http://chicago.craigslist.org/nwi/search/jjj?]]></url>
+			<partial>chicago.craigslist.orgnwi/</partial>
+			<name><![CDATA[northwest indiana]]></name>
+		</location>
+
 
 	</locations>
 </clrepo>
