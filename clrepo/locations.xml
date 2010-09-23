@@ -567,7 +567,7 @@
 			<state>WA</state>
 			<type>washington</type>
 			<url><![CDATA[http://portland.craigslist.org/clk/search/jjj?]]></url>
-			<partial>portland.craigslist.org/clk/</partial>
+			<partial>portland.craigslist.org</partial>
 			<name><![CDATA[Clark Co / SW WA]]></name>
 		</location>
 
@@ -963,7 +963,7 @@
 			<state>IN</state>
 			<type>indiana</type>
 			<url><![CDATA[http://chicago.craigslist.org/nwi/search/jjj?]]></url>
-			<partial>chicago.craigslist.org/nwi/</partial>
+			<partial>chicago.craigslist.org</partial>
 			<name><![CDATA[northwest indiana]]></name>
 		</location>
 
