@@ -68,6 +68,18 @@
 			<name><![CDATA[Indiana]]></name>
 			<type>indiana</type>
 		</region>
+		<region>
+			<name><![CDATA[Arizona]]></name>
+			<type>arizona</type>
+		</region>
+		<region>
+			<name><![CDATA[Connecticut]]></name>
+			<type>connecticut</type>
+		</region>
+		<region>
+			<name><![CDATA[Colorado]]></name>
+			<type>colorado</type>
+		</region>
 
 	</regions>
 	<locations>
@@ -965,6 +977,156 @@
 			<url><![CDATA[http://chicago.craigslist.org/nwi/search/jjj?]]></url>
 			<partial>chicago.craigslist.org</partial>
 			<name><![CDATA[northwest indiana]]></name>
+		</location>
+
+		<location>
+			<state>AZ</state>
+			<type>arizona</type>
+			<url><![CDATA[http://flagstaff.craigslist.org/search/jjj?]]></url>
+			<partial>flagstaff.craigslist.org</partial>
+			<name><![CDATA[flagstaff / sedona]]></name>
+		</location>
+		<location>
+			<state>AZ</state>
+			<type>arizona</type>
+			<url><![CDATA[http://mohave.craigslist.org/search/jjj?]]></url>
+			<partial>mohave.craigslist.org</partial>
+			<name><![CDATA[mohave county]]></name>
+		</location>
+		<location>
+			<state>AZ</state>
+			<type>arizona</type>
+			<url><![CDATA[http://phoenix.craigslist.org/search/jjj?]]></url>
+			<partial>phoenix.craigslist.org</partial>
+			<name><![CDATA[phoenix]]></name>
+		</location>
+		<location>
+			<state>AZ</state>
+			<type>arizona</type>
+			<url><![CDATA[http://prescott.craigslist.org/search/jjj?]]></url>
+			<partial>prescott.craigslist.org</partial>
+			<name><![CDATA[prescott]]></name>
+		</location>
+		<location>
+			<state>AZ</state>
+			<type>arizona</type>
+			<url><![CDATA[http://showlow.craigslist.org/search/jjj?]]></url>
+			<partial>showlow.craigslist.org</partial>
+			<name><![CDATA[show low]]></name>
+		</location>
+		<location>
+			<state>AZ</state>
+			<type>arizona</type>
+			<url><![CDATA[http://sierravista.craigslist.org/search/jjj?]]></url>
+			<partial>sierravista.craigslist.org</partial>
+			<name><![CDATA[sierra vista]]></name>
+		</location>
+		<location>
+			<state>AZ</state>
+			<type>arizona</type>
+			<url><![CDATA[http://tucson.craigslist.org/search/jjj?]]></url>
+			<partial>tucson.craigslist.org</partial>
+			<name><![CDATA[tucson]]></name>
+		</location>
+		<location>
+			<state>AZ</state>
+			<type>arizona</type>
+			<url><![CDATA[http://yuma.craigslist.org/search/jjj?]]></url>
+			<partial>yuma.craigslist.org</partial>
+			<name><![CDATA[yuma]]></name>
+		</location>
+
+		<location>
+			<state>CT</state>
+			<type>connecticut</type>
+			<url><![CDATA[http://newlondon.craigslist.org/search/jjj?]]></url>
+			<partial>newlondon.craigslist.org</partial>
+			<name><![CDATA[eastern CT]]></name>
+		</location>
+		<location>
+			<state>CT</state>
+			<type>connecticut</type>
+			<url><![CDATA[http://hartford.craigslist.org/search/jjj?]]></url>
+			<partial>hartford.craigslist.org</partial>
+			<name><![CDATA[hartford]]></name>
+		</location>
+		<location>
+			<state>CT</state>
+			<type>connecticut</type>
+			<url><![CDATA[http://newhaven.craigslist.org/search/jjj?]]></url>
+			<partial>newhaven.craigslist.org</partial>
+			<name><![CDATA[new haven]]></name>
+		</location>
+		<location>
+			<state>CT</state>
+			<type>connecticut</type>
+			<url><![CDATA[http://nwct.craigslist.org/search/jjj?]]></url>
+			<partial>nwct.craigslist.org</partial>
+			<name><![CDATA[northwest CT]]></name>
+		</location>
+		<location>
+			<state>CT</state>
+			<type>connecticut</type>
+			<url><![CDATA[http://newyork.craigslist.org/fct/search/jjj?]]></url>
+			<partial>newyork.craigslist.org</partial>
+			<name><![CDATA[fairfield county]]></name>
+		</location>
+
+		<location>
+			<state>CO</state>
+			<type>colorado</type>
+			<url><![CDATA[http://boulder.craigslist.org/search/jjj?]]></url>
+			<partial>boulder.craigslist.org</partial>
+			<name><![CDATA[boulder]]></name>
+		</location>
+		<location>
+			<state>CO</state>
+			<type>colorado</type>
+			<url><![CDATA[http://cosprings.craigslist.org/search/jjj?]]></url>
+			<partial>cosprings.craigslist.org</partial>
+			<name><![CDATA[colorado springs]]></name>
+		</location>
+		<location>
+			<state>CO</state>
+			<type>colorado</type>
+			<url><![CDATA[http://denver.craigslist.org/search/jjj?]]></url>
+			<partial>denver.craigslist.org</partial>
+			<name><![CDATA[denver]]></name>
+		</location>
+		<location>
+			<state>CO</state>
+			<type>colorado</type>
+			<url><![CDATA[http://eastco.craigslist.org/search/jjj?]]></url>
+			<partial>eastco.craigslist.org</partial>
+			<name><![CDATA[eastern CO]]></name>
+		</location>
+		<location>
+			<state>CO</state>
+			<type>colorado</type>
+			<url><![CDATA[http://fortcollins.craigslist.org/search/jjj?]]></url>
+			<partial>fortcollins.craigslist.org</partial>
+			<name><![CDATA[fort collins / north CO]]></name>
+		</location>
+		<location>
+			<state>CO</state>
+			<type>colorado</type>
+			<url><![CDATA[http://rockies.craigslist.org/search/jjj?]]></url>
+			<partial>rockies.craigslist.org</partial>
+			<name><![CDATA[high rockies]]></name>
+		</location>
+		<location>
+			<state>CO</state>
+			<type>colorado</type>
+			<url><![CDATA[http://pueblo.craigslist.org/search/jjj?]]></url>
+			<partial>pueblo.craigslist.org</partial>
+			<name><![CDATA[pueblo]]></name>
+		</location>
+		<location>
+			<state>CO</state>
+			<type>colorado</type>
+			<url><![CDATA[http://westslope.craigslist.org/search/jjj?]]></url>
+			<partial>westslope.craigslist.org</partial>
+			<name><![CDATA[western slope]]></name>
 		</location>
 
 
