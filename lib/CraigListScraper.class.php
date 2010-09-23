@@ -204,6 +204,7 @@ class CraigListScraper {
 
 		$include = implode('|', $_POST['include']);
 		$include = str_replace('.', '\\.', $include);
+		$include = str_replace("/", "\\/", $include);
 
 		if(!count($this->locations))
 			throw new Exception('Something is wrong');
