@@ -88,6 +88,10 @@
 			<name><![CDATA[Ohio]]></name>
 			<type>ohio</type>
 		</region>
+		<region>
+			<name><![CDATA[Pennsylvania]]></name>
+			<type>pennsylvania</type>
+		</region>
 
 	</regions>
 	<locations>
@@ -1298,6 +1302,118 @@
 			<url><![CDATA[http://zanesville.craigslist.org/search/jjj?]]></url>
 			<partial><![CDATA[zanesville.craigslist.org]]></partial>
 			<name><![CDATA[zanesville / cambridge]]></name>
+		</location>
+		<location>
+			<state>PA</state>
+			<type>pennsylvania</type>
+			<url><![CDATA[http://altoona.craigslist.org//search/jjj?]]></url>
+			<partial>altoona.craigslist.org</partial>
+			<name><![CDATA[altoona-johnstown]]></name>
+		</location>
+		<location>
+			<state>PA</state>
+			<type>pennsylvania</type>
+			<url><![CDATA[http://chambersburg.craigslist.org/search/jjj?]]></url>
+			<partial>chambersburg.craigslist.org</partial>
+			<name><![CDATA[cumberland valley]]></name>
+		</location>
+		<location>
+			<state>PA</state>
+			<type>pennsylvania</type>
+			<url><![CDATA[http://erie.craigslist.org/search/jjj?]]></url>
+			<partial>erie.craigslist.org</partial>
+			<name><![CDATA[erie]]></name>
+		</location>
+		<location>
+			<state>PA</state>
+			<type>pennsylvania</type>
+			<url><![CDATA[http://harrisburg.craigslist.org/search/jjj?]]></url>
+			<partial>harrisburg.craigslist.org</partial>
+			<name><![CDATA[harrisburg]]></name>
+		</location>
+		<location>
+			<state>PA</state>
+			<type>pennsylvania</type>
+			<url><![CDATA[http://lancaster.craigslist.org/search/jjj?]]></url>
+			<partial>lancaster.craigslist.org</partial>
+			<name><![CDATA[lancaster]]></name>
+		</location>
+		<location>
+			<state>PA</state>
+			<type>pennsylvania</type>
+			<url><![CDATA[http://allentown.craigslist.org/search/jjj?]]></url>
+			<partial>allentown.craigslist.org</partial>
+			<name><![CDATA[lehigh valley]]></name>
+		</location>
+		<location>
+			<state>PA</state>
+			<type>pennsylvania</type>
+			<url><![CDATA[http://meadville.craigslist.org/search/jjj?]]></url>
+			<partial>meadville.craigslist.org</partial>
+			<name><![CDATA[meadville]]></name>
+		</location>
+		<location>
+			<state>PA</state>
+			<type>pennsylvania</type>
+			<url><![CDATA[http://philadelphia.craigslist.org/search/jjj?]]></url>
+			<partial>philadelphia.craigslist.org</partial>
+			<name><![CDATA[philadelphia]]></name>
+		</location>
+		<location>
+			<state>PA</state>
+			<type>pennsylvania</type>
+			<url><![CDATA[http://pittsburgh.craigslist.org/search/jjj?]]></url>
+			<partial>pittsburgh.craigslist.org</partial>
+			<name><![CDATA[pittsburgh]]></name>
+		</location>
+		<location>
+			<state>PA</state>
+			<type>pennsylvania</type>
+			<url><![CDATA[http://poconos.craigslist.org/search/jjj?]]></url>
+			<partial>poconos.craigslist.org</partial>
+			<name><![CDATA[poconos]]></name>
+		</location>
+		<location>
+			<state>PA</state>
+			<type>pennsylvania</type>
+			<url><![CDATA[http://reading.craigslist.org/search/jjj?]]></url>
+			<partial>reading.craigslist.org</partial>
+			<name><![CDATA[reading]]></name>
+		</location>
+		<location>
+			<state>PA</state>
+			<type>pennsylvania</type>
+			<url><![CDATA[http://scranton.craigslist.org/search/jjj?]]></url>
+			<partial>scranton.craigslist.org</partial>
+			<name><![CDATA[scranton / wilkes-barre]]></name>
+		</location>
+		<location>
+			<state>PA</state>
+			<type>pennsylvania</type>
+			<url><![CDATA[http://pennstate.craigslist.org/search/jjj?]]></url>
+			<partial>pennstate.craigslist.org</partial>
+			<name><![CDATA[state college]]></name>
+		</location>
+		<location>
+			<state>PA</state>
+			<type>pennsylvania</type>
+			<url><![CDATA[http://twintiers.craigslist.org/search/jjj?]]></url>
+			<partial>twintiers.craigslist.org</partial>
+			<name><![CDATA[twin tiers NY/PA]]></name>
+		</location>
+		<location>
+			<state>PA</state>
+			<type>pennsylvania</type>
+			<url><![CDATA[http://williamsport.craigslist.org/search/jjj?]]></url>
+			<partial>williamsport.craigslist.org</partial>
+			<name><![CDATA[williamsport]]></name>
+		</location>
+		<location>
+			<state>PA</state>
+			<type>pennsylvania</type>
+			<url><![CDATA[http://york.craigslist.org/search/jjj?]]></url>
+			<partial>york.craigslist.org</partial>
+			<name><![CDATA[york]]></name>
 		</location>
 	</locations>
 </clrepo>
