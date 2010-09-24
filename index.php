@@ -34,11 +34,9 @@ try
 	<head>
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 		<title><?php echo $cl_scraper->getInfo()->title; ?></title>
+		<link rel="stylesheet" type="text/css" href="/css/body.css" />
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/jquery-ui.min.js"></script>
-		<script type="text/javascript" src="js/app.js"></script>
-		<link rel="stylesheet" type="text/css" href="css/body.css" />
-		<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/flick/jquery-ui.css" />
+		<script type="text/javascript" src="/js/app.js"></script>
 		<!--[if IE]>
 		<script type="text/javascript">
 			$(document).html('This Website Curretly does not work in IE Browsers, Please choose a newer one ie: Mozilla Firefox, Opera, Chrome, Safari, etc.');
