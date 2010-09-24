@@ -47,9 +47,9 @@ try
 		<div id="header">
 			<ul>
 				<li><a href="http://www.compubomb.net">Home</a></li>
-				<li><a href="http://findstuff.compubomb.net">Stuff</a></li>
-				<li><a href="http://findjobs.compubomb.net">Jobs</a></li>
-				<li><a href="http://findplaces.compubomb.net">Places</a></li>
+				<li><a style="color:black;" href="http://findstuff.compubomb.net">Stuff</a></li>
+				<li><a style="color:red;" href="http://findjobs.compubomb.net">Jobs</a></li>
+				<li><a style="color:black;" href="http://findplaces.compubomb.net">Places</a></li>
 			</ul>
 			<div style="clear: both;"></div>
 		</div>
