@@ -9,9 +9,9 @@
  * me improve it make a suggestion to my email or IM me.
  */
 
-ini_set('error_log', './php_errors.log');
-
+set_time_limit(60*3);
 error_reporting(E_ALL);
+ini_set('error_log', './php_errors.log');
 
 require 'lib/CraigListScraper.class.php';
 try
