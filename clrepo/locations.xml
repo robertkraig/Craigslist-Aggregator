@@ -92,7 +92,10 @@
 			<name><![CDATA[Pennsylvania]]></name>
 			<type>pennsylvania</type>
 		</region>
-
+		<region>
+			<name><![CDATA[Florida]]></name>
+			<type>florida</type>
+		</region>
 	</regions>
 	<locations>
 		<location>
@@ -1306,7 +1309,7 @@
 		<location>
 			<state>PA</state>
 			<type>pennsylvania</type>
-			<url><![CDATA[http://altoona.craigslist.org//search/jjj?]]></url>
+			<url><![CDATA[http://altoona.craigslist.org/search/jjj?]]></url>
 			<partial>altoona.craigslist.org</partial>
 			<name><![CDATA[altoona-johnstown]]></name>
 		</location>
@@ -1415,5 +1418,147 @@
 			<partial>york.craigslist.org</partial>
 			<name><![CDATA[york]]></name>
 		</location>
+
+		<location>
+			<state>FL</state>
+			<type>florida</type>
+			<url><![CDATA[http://daytona.craigslist.org/search/jjj?]]></url>
+			<partial>daytona.craigslist.org</partial>
+			<name><![CDATA[daytona beach]]></name>
+		</location>
+		<location>
+			<state>FL</state>
+			<type>florida</type>
+			<url><![CDATA[http://keys.craigslist.org/search/jjj?]]></url>
+			<partial>keys.craigslist.org</partial>
+			<name><![CDATA[florida keys]]></name>
+		</location>
+		<location>
+			<state>FL</state>
+			<type>florida</type>
+			<url><![CDATA[http://fortmyers.craigslist.org/search/jjj?]]></url>
+			<partial>fortmyers.craigslist.org</partial>
+			<name><![CDATA[ft myers / SW florida]]></name>
+		</location>
+		<location>
+			<state>FL</state>
+			<type>florida</type>
+			<url><![CDATA[http://gainesville.craigslist.org/search/jjj?]]></url>
+			<partial>gainesville.craigslist.org</partial>
+			<name><![CDATA[gainesville]]></name>
+		</location>
+		<location>
+			<state>FL</state>
+			<type>florida</type>
+			<url><![CDATA[http://cfl.craigslist.org/search/jjj?]]></url>
+			<partial>cfl.craigslist.org</partial>
+			<name><![CDATA[heartland florida]]></name>
+		</location>
+		<location>
+			<state>FL</state>
+			<type>florida</type>
+			<url><![CDATA[http://jacksonville.craigslist.org/search/jjj?]]></url>
+			<partial>jacksonville.craigslist.org</partial>
+			<name><![CDATA[jacksonville]]></name>
+		</location>
+		<location>
+			<state>FL</state>
+			<type>florida</type>
+			<url><![CDATA[http://lakeland.craigslist.org/search/jjj?]]></url>
+			<partial>lakeland.craigslist.org</partial>
+			<name><![CDATA[lakeland]]></name>
+		</location>
+		<location>
+			<state>FL</state>
+			<type>florida</type>
+			<url><![CDATA[http://lakecity.craigslist.org/search/jjj?]]></url>
+			<partial>lakecity.craigslist.org</partial>
+			<name><![CDATA[north central FL]]></name>
+		</location>
+		<location>
+			<state>FL</state>
+			<type>florida</type>
+			<url><![CDATA[http://ocala.craigslist.org/search/jjj?]]></url>
+			<partial>ocala.craigslist.org</partial>
+			<name><![CDATA[ocala]]></name>
+		</location>
+		<location>
+			<state>FL</state>
+			<type>florida</type>
+			<url><![CDATA[http://okaloosa.craigslist.org/search/jjj?]]></url>
+			<partial>okaloosa.craigslist.org</partial>
+			<name><![CDATA[okaloosa / walton]]></name>
+		</location>
+		<location>
+			<state>FL</state>
+			<type>florida</type>
+			<url><![CDATA[http://orlando.craigslist.org/search/jjj?]]></url>
+			<partial>orlando.craigslist.org</partial>
+			<name><![CDATA[orlando]]></name>
+		</location>
+		<location>
+			<state>FL</state>
+			<type>florida</type>
+			<url><![CDATA[http://panamacity.craigslist.org/search/jjj?]]></url>
+			<partial>panamacity.craigslist.org</partial>
+			<name><![CDATA[panama city]]></name>
+		</location>
+		<location>
+			<state>FL</state>
+			<type>florida</type>
+			<url><![CDATA[http://pensacola.craigslist.org/search/jjj?]]></url>
+			<partial>pensacola.craigslist.org</partial>
+			<name><![CDATA[pensacola]]></name>
+		</location>
+		<location>
+			<state>FL</state>
+			<type>florida</type>
+			<url><![CDATA[http://sarasota.craigslist.org/search/jjj?]]></url>
+			<partial>sarasota.craigslist.org</partial>
+			<name><![CDATA[sarasota-bradenton]]></name>
+		</location>
+		<location>
+			<state>FL</state>
+			<type>florida</type>
+			<url><![CDATA[http://miami.craigslist.org/search/jjj?]]></url>
+			<partial>miami.craigslist.org</partial>
+			<name><![CDATA[south florida]]></name>
+		</location>
+		<location>
+			<state>FL</state>
+			<type>florida</type>
+			<url><![CDATA[http://spacecoast.craigslist.org/search/jjj?]]></url>
+			<partial>spacecoast.craigslist.org</partial>
+			<name><![CDATA[space coast]]></name>
+		</location>
+		<location>
+			<state>FL</state>
+			<type>florida</type>
+			<url><![CDATA[http://staugustine.craigslist.org/search/jjj?]]></url>
+			<partial>staugustine.craigslist.org</partial>
+			<name><![CDATA[st augustine]]></name>
+		</location>
+		<location>
+			<state>FL</state>
+			<type>florida</type>
+			<url><![CDATA[http://tallahassee.craigslist.org/search/jjj?]]></url>
+			<partial>tallahassee.craigslist.org</partial>
+			<name><![CDATA[tallahassee]]></name>
+		</location>
+		<location>
+			<state>FL</state>
+			<type>florida</type>
+			<url><![CDATA[http://tampa.craigslist.org/search/jjj?]]></url>
+			<partial>tampa.craigslist.org</partial>
+			<name><![CDATA[tampa bay area]]></name>
+		</location>
+		<location>
+			<state>FL</state>
+			<type>florida</type>
+			<url><![CDATA[http://treasure.craigslist.org/search/jjj?]]></url>
+			<partial>treasure.craigslist.org</partial>
+			<name><![CDATA[treasure coast]]></name>
+		</location>
+
 	</locations>
 </clrepo>
