@@ -36,7 +36,6 @@ class CraigListScraper {
 
 		$xmlstr = file_get_contents($fileLocation);
 		$this->xml = simplexml_load_string($xmlstr, 'SimpleXMLElement', LIBXML_NOCDATA);
-		
 		$this->init();
 	}
 
@@ -69,6 +68,7 @@ class CraigListScraper {
 			$loc = get_object_vars($location);
 			$this->locations[] = $loc;
 			extract($loc);
+
 			$this->areas[$partial] = ''.
 				'<label for="'.$partial.'">'.
 				'<input class="region '.$type.'" type="checkbox" id="'.$partial.'" name="include[]" value="'.$partial.'" />'.$name.', '.$state.
@@ -111,7 +111,6 @@ class CraigListScraper {
 	{
 		if(is_null($this->locations))
 			throw new Exception('init() has not been run');
-
 		return $this->locations;
 	}
 
@@ -201,11 +200,9 @@ class CraigListScraper {
 
 	public function initialize()
 	{
-
 		$include = implode('|', $_POST['include']);
 		$include = str_replace('.', '\\.', $include);
-		$include = str_replace("/", "\\/", $include);
-
+		$include = str_replace("+", "(.+)", $include);
 		if(!count($this->locations))
 			throw new Exception('Something is wrong');
 
@@ -213,6 +210,7 @@ class CraigListScraper {
 		$this->replace_query($this->locations);
 		foreach($this->locations as $place)
 		{
+//			echo "preg_match(\"/{$include}/\" , \"{$place['url']}\"); \n";
 			if(preg_match("/({$include})/", $place['url']))
 			{
 				$list = self::getRecords($place);
