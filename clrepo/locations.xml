@@ -586,8 +586,8 @@
 		<location>
 			<state>WA</state>
 			<type>washington</type>
-			<url><![CDATA[http://portland.craigslist.org/clk/search/jjj?]]></url>
-			<partial><![CDATA[portland.craigslist.org]]></partial>
+			<url><![CDATA[http://portland.craigslist.org/search/jjj/clk?]]></url>
+			<partial><![CDATA[portland.craigslist.org+clk]]></partial>
 			<name><![CDATA[Clark Co / SW WA]]></name>
 		</location>
 
