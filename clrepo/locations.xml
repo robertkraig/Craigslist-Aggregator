@@ -96,6 +96,10 @@
 			<name><![CDATA[Florida]]></name>
 			<type>florida</type>
 		</region>
+		<region>
+			<name><![CDATA[Michigan]]></name>
+			<type>michigan</type>
+		</region>
 	</regions>
 	<locations>
 		<location>
@@ -1559,6 +1563,143 @@
 			<partial>treasure.craigslist.org</partial>
 			<name><![CDATA[treasure coast]]></name>
 		</location>
+
+
+		<location>
+			<state>MI</state>
+			<type>michigan</type>
+			<url><![CDATA[http://annarbor.craigslist.org/search/jjj?]]></url>
+			<partial>annarbor.craigslist.org</partial>
+			<name><![CDATA[ann arbor]]></name>
+		</location>
+		<location>
+			<state>MI</state>
+			<type>michigan</type>
+			<url><![CDATA[http://battlecreek.craigslist.org/search/jjj?]]></url>
+			<partial>battlecreek.craigslist.org</partial>
+			<name><![CDATA[battle creek]]></name>
+		</location>
+		<location>
+			<state>MI</state>
+			<type>michigan</type>
+			<url><![CDATA[http://centralmich.craigslist.org/search/jjj?]]></url>
+			<partial>centralmich.craigslist.org</partial>
+			<name><![CDATA[central michigan]]></name>
+		</location>
+		<location>
+			<state>MI</state>
+			<type>michigan</type>
+			<url><![CDATA[http://detroit.craigslist.org/search/jjj?]]></url>
+			<partial>detroit.craigslist.org</partial>
+			<name><![CDATA[detroit metro]]></name>
+		</location>
+		<location>
+			<state>MI</state>
+			<type>michigan</type>
+			<url><![CDATA[http://flint.craigslist.org/search/jjj?]]></url>
+			<partial>flint.craigslist.org</partial>
+			<name><![CDATA[flint]]></name>
+		</location>
+		<location>
+			<state>MI</state>
+			<type>michigan</type>
+			<url><![CDATA[http://grandrapids.craigslist.org/search/jjj?]]></url>
+			<partial>grandrapids.craigslist.org</partial>
+			<name><![CDATA[grand rapids]]></name>
+		</location>
+		<location>
+			<state>MI</state>
+			<type>michigan</type>
+			<url><![CDATA[http://holland.craigslist.org/search/jjj?]]></url>
+			<partial>holland.craigslist.org</partial>
+			<name><![CDATA[holland]]></name>
+		</location>
+		<location>
+			<state>MI</state>
+			<type>michigan</type>
+			<url><![CDATA[http://jxn.craigslist.org/search/jjj?]]></url>
+			<partial>jxn.craigslist.org</partial>
+			<name><![CDATA[jackson]]></name>
+		</location>
+		<location>
+			<state>MI</state>
+			<type>michigan</type>
+			<url><![CDATA[http://kalamazoo.craigslist.org/search/jjj?]]></url>
+			<partial>kalamazoo.craigslist.org</partial>
+			<name><![CDATA[kalamazoo]]></name>
+		</location>
+		<location>
+			<state>MI</state>
+			<type>michigan</type>
+			<url><![CDATA[http://lansing.craigslist.org/search/jjj?]]></url>
+			<partial>lansing.craigslist.org</partial>
+			<name><![CDATA[lansing]]></name>
+		</location>
+		<location>
+			<state>MI</state>
+			<type>michigan</type>
+			<url><![CDATA[http://monroemi.craigslist.org/search/jjj?]]></url>
+			<partial>monroemi.craigslist.org</partial>
+			<name><![CDATA[monroe]]></name>
+		</location>
+		<location>
+			<state>MI</state>
+			<type>michigan</type>
+			<url><![CDATA[http://muskegon.craigslist.org/search/jjj?]]></url>
+			<partial>muskegon.craigslist.org</partial>
+			<name><![CDATA[muskegon]]></name>
+		</location>
+		<location>
+			<state>MI</state>
+			<type>michigan</type>
+			<url><![CDATA[http://nmi.craigslist.org/search/jjj?]]></url>
+			<partial>nmi.craigslist.org</partial>
+			<name><![CDATA[northern michigan]]></name>
+		</location>
+		<location>
+			<state>MI</state>
+			<type>michigan</type>
+			<url><![CDATA[http://porthuron.craigslist.org/search/jjj?]]></url>
+			<partial>porthuron.craigslist.org</partial>
+			<name><![CDATA[port huron]]></name>
+		</location>
+		<location>
+			<state>MI</state>
+			<type>michigan</type>
+			<url><![CDATA[http://saginaw.craigslist.org/search/jjj?]]></url>
+			<partial>saginaw.craigslist.org</partial>
+			<name><![CDATA[saginaw-midland-baycity]]></name>
+		</location>
+		<location>
+			<state>MI</state>
+			<type>michigan</type>
+			<url><![CDATA[http://southbend.craigslist.org/search/jjj?]]></url>
+			<partial>southbend.craigslist.org</partial>
+			<name><![CDATA[south bend / michiana]]></name>
+		</location>
+		<location>
+			<state>MI</state>
+			<type>michigan</type>
+			<url><![CDATA[http://swmi.craigslist.org/search/jjj?]]></url>
+			<partial>swmi.craigslist.org</partial>
+			<name><![CDATA[southwest michigan]]></name>
+		</location>
+		<location>
+			<state>MI</state>
+			<type>michigan</type>
+			<url><![CDATA[http://thumb.craigslist.org/search/jjj?]]></url>
+			<partial>thumb.craigslist.org</partial>
+			<name><![CDATA[the thumb]]></name>
+		</location>
+		<location>
+			<state>MI</state>
+			<type>michigan</type>
+			<url><![CDATA[http://up.craigslist.org/search/jjj?]]></url>
+			<partial>up.craigslist.org</partial>
+			<name><![CDATA[upper peninsula]]></name>
+		</location>
+
+
 
 	</locations>
 </clrepo>
