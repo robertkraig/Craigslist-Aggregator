@@ -100,6 +100,10 @@
 			<name><![CDATA[Michigan]]></name>
 			<type>michigan</type>
 		</region>
+		<region>
+			<name><![CDATA[Massachusetts]]></name>
+			<type>massachusetts</type>
+		</region>
 	</regions>
 	<locations>
 		<location>
@@ -1699,6 +1703,41 @@
 			<name><![CDATA[upper peninsula]]></name>
 		</location>
 
+		<location>
+			<state>MA</state>
+			<type>massachusetts</type>
+			<url><![CDATA[http://boston.craigslist.org/search/jjj?]]></url>
+			<partial>boston.craigslist.org</partial>
+			<name><![CDATA[boston]]></name>
+		</location>
+		<location>
+			<state>MA</state>
+			<type>massachusetts</type>
+			<url><![CDATA[http://capecod.craigslist.org/search/jjj?]]></url>
+			<partial>capecod.craigslist.org</partial>
+			<name><![CDATA[cape cod / islands]]></name>
+		</location>
+		<location>
+			<state>MA</state>
+			<type>massachusetts</type>
+			<url><![CDATA[http://southcoast.craigslist.org/search/jjj?]]></url>
+			<partial>southcoast.craigslist.org</partial>
+			<name><![CDATA[south coast]]></name>
+		</location>
+		<location>
+			<state>MA</state>
+			<type>massachusetts</type>
+			<url><![CDATA[http://westernmass.craigslist.org/search/jjj?]]></url>
+			<partial>westernmass.craigslist.org</partial>
+			<name><![CDATA[western massachusetts]]></name>
+		</location>
+		<location>
+			<state>MA</state>
+			<type>massachusetts</type>
+			<url><![CDATA[http://worcester.craigslist.org/search/jjj?]]></url>
+			<partial>worcester.craigslist.org</partial>
+			<name><![CDATA[worcester / central MA]]></name>
+		</location>
 
 
 	</locations>
