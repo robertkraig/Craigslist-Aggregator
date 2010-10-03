@@ -7,7 +7,6 @@
 		<fields>
 			<argField>
 				<argId>search_term</argId>
-
 				<argTitle>Search</argTitle>
 				<argName>query</argName>
 				<argKey>{query}</argKey>
@@ -15,7 +14,6 @@
 			</argField>
 			<argField>
 				<argId>search_term_type</argId>
-
 				<argTitle>Use Title|Use Post:T|A:1|0</argTitle>
 				<argName>srchType</argName>
 				<argKey>{srchType}</argKey>
@@ -256,7 +254,6 @@
 			<partial><![CDATA[baltimore.craigslist.org]]></partial>
 			<name><![CDATA[Baltimore Maryland]]></name>
 		</location>
-
 		<location>
 			<state>TX</state>
 			<type>texas</type>
@@ -609,7 +606,6 @@
 			<partial><![CDATA[portland.craigslist.org+clk]]></partial>
 			<name><![CDATA[Clark Co / SW WA]]></name>
 		</location>
-
 		<location>
 			<state>IL</state>
 			<type>lllinois</type>
@@ -701,7 +697,6 @@
 			<partial><![CDATA[quincy.craigslist.org]]></partial>
 			<name><![CDATA[western IL]]></name>
 		</location>
-
 		<location>
 			<state>NY</state>
 			<type>newyork</type>
@@ -842,7 +837,6 @@
 			<partial><![CDATA[watertown.craigslist.org]]></partial>
 			<name><![CDATA[watertown]]></name>
 		</location>
-
 		<location>
 			<state>NC</state>
 			<type>northcarolina</type>
@@ -927,7 +921,6 @@
 			<partial><![CDATA[winstonsalem.craigslist.org]]></partial>
 			<name><![CDATA[winston-salem]]></name>
 		</location>
-
 		<location>
 			<state>IN</state>
 			<type>indiana</type>
@@ -1005,7 +998,6 @@
 			<partial><![CDATA[chicago.craigslist.org+nwi]]></partial>
 			<name><![CDATA[northwest indiana]]></name>
 		</location>
-
 		<location>
 			<state>AZ</state>
 			<type>arizona</type>
@@ -1062,7 +1054,6 @@
 			<partial><![CDATA[yuma.craigslist.org]]></partial>
 			<name><![CDATA[yuma]]></name>
 		</location>
-
 		<location>
 			<state>CT</state>
 			<type>connecticut</type>
@@ -1155,7 +1146,6 @@
 			<partial><![CDATA[westslope.craigslist.org]]></partial>
 			<name><![CDATA[western slope]]></name>
 		</location>
-
 		<location>
 			<state>NJ</state>
 			<type>newjersey</type>
@@ -1191,7 +1181,6 @@
 			<partial><![CDATA[newyork.craigslist.org]]></partial>
 			<name><![CDATA[NJ suburbs of NYC]]></name>
 		</location>
-
 		<location>
 			<state>OH</state>
 			<type>ohio</type>
@@ -1430,7 +1419,6 @@
 			<partial>york.craigslist.org</partial>
 			<name><![CDATA[york]]></name>
 		</location>
-
 		<location>
 			<state>FL</state>
 			<type>florida</type>
@@ -1571,8 +1559,6 @@
 			<partial>treasure.craigslist.org</partial>
 			<name><![CDATA[treasure coast]]></name>
 		</location>
-
-
 		<location>
 			<state>MI</state>
 			<type>michigan</type>
@@ -1706,7 +1692,6 @@
 			<partial>up.craigslist.org</partial>
 			<name><![CDATA[upper peninsula]]></name>
 		</location>
-
 		<location>
 			<state>MA</state>
 			<type>massachusetts</type>
@@ -1742,7 +1727,6 @@
 			<partial>worcester.craigslist.org</partial>
 			<name><![CDATA[worcester / central MA]]></name>
 		</location>
-
 		<location>
 			<state>IA</state>
 			<type>iowa</type>
@@ -1827,7 +1811,5 @@
 			<partial>waterloo.craigslist.org</partial>
 			<name><![CDATA[waterloo / cedar falls]]></name>
 		</location>
-
-
 	</locations>
 </clrepo>
