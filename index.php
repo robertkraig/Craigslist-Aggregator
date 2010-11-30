@@ -39,7 +39,9 @@ try
 		<script type="text/javascript" src="/js/app.js"></script>
 		<!--[if IE]>
 		<script type="text/javascript">
-			$(document).html('This Website Curretly does not work in IE Browsers, Please choose a newer one ie: Mozilla Firefox, Opera, Chrome, Safari, etc.');
+			$(funcction(){
+				$(document).html('This Website Curretly does not work in IE Browsers, Please choose a newer one ie: Mozilla Firefox, Opera, Chrome, Safari, etc. You can thank me later ^_^');
+			});
 		</script>
 		<![endif]-->
 	</head>
@@ -47,9 +49,9 @@ try
 		<div id="header">
 			<ul>
 				<li><a href="http://www.compubomb.net">Home</a></li>
-				<li><a style="color:black;" href="http://findstuff.compubomb.net">Stuff</a></li>
-				<li><a style="color:red;" href="http://findjobs.compubomb.net">Jobs</a></li>
-				<li><a style="color:black;" href="http://findplaces.compubomb.net">Places</a></li>
+				<li><a style="color:black;" href="http://findstuff.mykraigslist.com">Stuff</a></li>
+				<li><a style="color:red;" href="http://findjobs.mykraigslist.com">Jobs</a></li>
+				<li><a style="color:black;" href="http://findplaces.mykraigslist.com">Places</a></li>
 			</ul>
 			<div style="clear: both;"></div>
 		</div>
