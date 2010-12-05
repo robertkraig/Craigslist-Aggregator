@@ -39,7 +39,7 @@ try
 		<script type="text/javascript" src="/js/app.js"></script>
 		<!--[if IE]>
 		<script type="text/javascript">
-			$(funcction(){
+			$(function(){
 				$(document).html('This Website Curretly does not work in IE Browsers, Please choose a newer one ie: Mozilla Firefox, Opera, Chrome, Safari, etc. You can thank me later ^_^');
 			});
 		</script>
@@ -119,7 +119,7 @@ try
 					<?php echo implode("\n\t", $cl_scraper->getRegions()); ?>
 					Areas: <br /><?php echo implode("\n\t", $cl_scraper->getAreas()); ?>
 				</div>
-				<a href="#submit" id="search_btn">Search</a>
+				<a id="search_btn">Search</a>
 				<input type="submit" style="display:none;" />
 				<div><a id="donate" href="http://www.compubomb.net/pages/payme" target="_blank">Donate To Author</a></div>
 				<img alt="loader" id="loader" style="display:none; position: absolute; bottom: 0; right: 0; margin:10px; margin-bottom: 35px;" src="/img/loading.gif" />
@@ -128,11 +128,10 @@ try
 		<script type="text/javascript">
 			window.PHP_SELF = "<?php echo $_SERVER['PHP_SELF']; ?>";
 		</script>
-		
 		<div id="content-container">
 			<div id="buttons">
-				<a id="toggle_disp" class="button" href="#" rel="open">Close All</a>
-				<a id="show_search" class="button" href="#">Show Search</a>
+				<a id="toggle_disp" class="button">Close All</a>
+				<a id="show_search" class="button">Show Search</a>
 				<span id="open_windows"></span>
 				<div style="clear: left; height: 0px;"></div>
 			</div>
