@@ -7,7 +7,7 @@ a {text-decoration:none; color:red; cursor: pointer;}
 a:visited{color:black;text-decoration: line-through;}
 a span {border-bottom:dashed 1px gray;}
 div.date {}
-ul.locationItems {margin:10px 10px 10px 25px;padding:0px; background-color: gainsboro; border: solid 1px gainsboro; border-left: none; border-right: none;}
+ul.locationItems {margin:10px 10px 10px 25px;padding:0px; -moz-box-shadow: 1px 1px 4px #000000; -webkit-box-shadow:1px 1px 4px #000000;box-shadow:1px 1px 4px #000000;}
 ul {list-style-type:none;}
 ul li {list-style-type:none; margin:0px; padding:0px;}
 ul.locationItems li {list-style-type:none; margin:1px; padding:0px;}
