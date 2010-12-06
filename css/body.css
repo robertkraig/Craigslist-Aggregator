@@ -21,6 +21,10 @@ ul.locationItems li a { font-size: 16px; line-height:25px;display:block;}
 ul.locationItems li.odd a:hover,
 ul.locationItems li.even a:hover {border: dashed 1px gainsboro; background-color: #EDF3F4;}
 
+ul.locationItems li a:visited ,
+ul.locationItems li.odd a:visited,
+ul.locationItems li.even a:visited {border: dashed 1px gray; background-color: #F7EAEA;}
+
 ul.locationItems, 
 ul.locationItems li,
 ul.locationItems li.odd,
