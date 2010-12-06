@@ -7,9 +7,13 @@ a {text-decoration:none; color:red; cursor: pointer;}
 a:visited{color:black;text-decoration: line-through;}
 a span {border-bottom:dashed 1px gray;}
 div.date {}
-ul {margin-bottom:10px; margin-left:25px;}
-ul li {list-style-type:none; margin:0px; padding:0px; display:block; margin-bottom: 5px;}
-ul li,ul li a { font-size: 16px; line-height:25px;}
+ul.locationItems {margin:10px 10px 10px 25px;padding:0px; background-color: gainsboro; border: solid 1px gainsboro; border-left: none; border-right: none;}
+ul.locationItems li {list-style-type:none; margin:1px; padding:0px;}
+ul.locationItems li.odd {background-color: #F7F7F7;}
+ul.locationItems li.even {background-color: white;}
+ul.locationItems li,
+ul.locationItems li a { font-size: 16px; line-height:25px;display:block;}
+ul.locationItems li a {padding:4px 10px;}
 form label {display:block; font-size: 12px;}
 form label.fields {width:80px;float: left; line-height: 20px; text-align: right; margin-right: 10px;}
 form input[type="text"].fields {float:left; width: 120px; line-height: 20px;}

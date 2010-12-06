@@ -242,7 +242,7 @@ function process_data(json)
 					output+='</ul>';
 
 				output+='<h2>' + location + '</h2>';
-				output+='<ul>';
+				output+='<ul class="locationItems">';
 			}
 			tmp_location = location;
 			info = json[i].records[j].info;
@@ -276,9 +276,8 @@ $('#content h2')
 		$(this).next('ul').toggle();
 	});
 
-function hoverReset(event)
+function hoverReset()
 {
-	event.preventDefault();
 	$('#buttons a.button, #open_windows a.button').removeClass('hover');
 	$(this).addClass('hover');
 }
@@ -286,7 +285,7 @@ function hoverReset(event)
 $('.windowLink')
 	.live('click',function(event){
 		event.preventDefault();
-		hoverReset(event);
+		hoverReset();
 		$(this).addClass('hover');
 		$('#open_windows').show();
 		$('#link_content').show();
@@ -456,6 +455,8 @@ $(function()
 					$('#search_btn').val('Search Craigslist');
 					$('#loader').hide();
 					$.getScript('/js/nav.js');
+					$('ul.locationItems li:odd').addClass('odd');
+					$('ul.locationItems li:even').addClass('even');
 				},
 				error: function(XMLHttpRequest, textStatus, errorThrown){
 					try{
