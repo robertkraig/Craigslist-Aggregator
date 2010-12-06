@@ -11,16 +11,21 @@ ul.locationItems {margin:10px 10px 10px 25px;padding:0px; -moz-box-shadow: 0px 0
 ul {list-style-type:none;}
 ul li {list-style-type:none; margin:0px; padding:0px;}
 ul.locationItems li {list-style-type:none; margin:1px; padding:0px;}
+ul.locationItems li a {padding:4px 10px;}
 ul.locationItems li.odd {background-color: #F7F7F7;}
+ul.locationItems li.odd a{border:dashed 1px #F7F7F7;}
 ul.locationItems li.even {background-color: white;}
+ul.locationItems li.even a{border:dashed 1px white;}
 ul.locationItems li,
 ul.locationItems li a { font-size: 16px; line-height:25px;display:block;}
-ul.locationItems li a {padding:4px 10px;}
+ul.locationItems li.odd a:hover,
+ul.locationItems li.even a:hover {border: dashed 1px gainsboro; background-color: #EDF3F4;}
 
 ul.locationItems, 
 ul.locationItems li,
 ul.locationItems li.odd,
-ul.locationItems li.even {-moz-border-radius:5px; -webkit-border-radius:5px; -o-border-radius:5px; border-radius:5px;}
+ul.locationItems li.even,
+ul.locationItems li a {-moz-border-radius:5px; -webkit-border-radius:5px; -o-border-radius:5px; border-radius:5px;}
 
 form label {display:block; font-size: 12px;}
 form label.fields {width:80px;float: left; line-height: 20px; text-align: right; margin-right: 10px;}
