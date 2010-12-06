@@ -42,10 +42,10 @@ try
 			$(function(){
 				$('html').html(
 					'This Website Curretly does not work in IE Browsers, '+
-					'Please choose a newer one ie: '+
+					'Please choose a newer browser ie: '+
 					'<a href="http://www.mozilla.com/firefox/">Mozilla Firefox</a>, '+
-					'<a href="http://www.opera.com/download/">Opera</a>Opera, '+
-					'<a href="http://www.google.com/chrome/">Chome</a>Chrome.'+
+					'<a href="http://www.opera.com/download/">Opera</a>, '+
+					'<a href="http://www.google.com/chrome/">Chome</a>. '+
 					' You can thank me later ^_^');
 			});
 		</script>
