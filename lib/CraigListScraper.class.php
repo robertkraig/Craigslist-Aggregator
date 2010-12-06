@@ -71,7 +71,7 @@ class CraigListScraper {
 
 			$this->areas[$partial] = ''.
 				'<label for="'.$partial.'">'.
-				'<input class="region '.$type.'" type="checkbox" id="'.$partial.'" name="include[]" value="'.$partial.'" />'.$name.', '.$state.
+				'<input class="region '.$type.' location" type="checkbox" id="'.$partial.'" name="include[]" value="'.$partial.'" />'.$name.', '.$state.
 				'</label>';
 			unset($name);
 			unset($url);
@@ -151,8 +151,12 @@ class CraigListScraper {
 	private function stripData(array $str)
 	{
 		foreach($str as $key=>$seg)
+		{
 			if(preg_match('/\s+/', $seg) || empty($seg))
+			{
 				unset($str[$key]);
+			}
+		}
 		return implode(' ',$str);
 	}
 
@@ -174,7 +178,8 @@ class CraigListScraper {
 		$a_tags = $xpath->evaluate("/html/body//blockquote//p/a");
 
 		$search_items = array();
-		for ($i = 0; $i < $p_tags->length; $i++) {
+		for ($i = 0; $i < $p_tags->length; $i++)
+		{
 			$title = $p_tags->item($i);
 			$name = $title->textContent;
 			$name = str_replace('<<', ' - ', $name);
@@ -187,7 +192,8 @@ class CraigListScraper {
 				'from'  => $location['partial']
 			);
 		}
-		for ($i = 0; $i < $a_tags->length; $i++) {
+		for ($i = 0; $i < $a_tags->length; $i++)
+		{
 			$link = $a_tags->item($i);
 			$location = $link->getAttribute('href');
 			$name = $link->textContent;

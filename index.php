@@ -137,9 +137,14 @@ switch($_SERVER['SERVER_NAME'])
 ?>
 				<cite><?php echo $cl_scraper->getInfo()->pagesearchexample; ?></cite>
 				<div id="locations_container">
-					Region:<br />
-					<?php echo implode("\n\t", $cl_scraper->getRegions()); ?>
-					Areas: <br /><?php echo implode("\n\t", $cl_scraper->getAreas()); ?>
+					Region:&nbsp;&nbsp;<a id="region_list_disp">open</a>
+					<div id="region_list">
+						<?php echo implode("\n\t", $cl_scraper->getRegions()); ?>						
+					</div><br />
+					Areas:&nbsp;&nbsp;<a id="areas_list_disp">open</a>
+					<div id="areas_list">
+						<?php echo implode("\n\t", $cl_scraper->getAreas()); ?>
+					</div>
 				</div>
 				<a id="search_btn">Search</a>
 				<input type="submit" style="display:none;" />
