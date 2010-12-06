@@ -56,13 +56,35 @@ try
 		  })();
 		</script>
 	</head>
+<?php
+$findstuff = $findjobs = $findplaces = false;
+$local = false;
+switch($_SERVER['SERVER_NAME'])
+{
+	case 'findstuff':
+		$local = true;
+	case 'findstuff.mykraigslist.com':
+		$findstuff = true;
+		break;
+	case 'findjobs':
+		$local = true;
+	case 'findjobs.mykraigslist.com':
+		$findjobs = true;
+		break;
+	case 'findplaces':
+		$local = true;
+	case 'findplaces.mykraigslist.com':
+		$findplaces = true;
+		break;
+}
+?>
 	<body>
 		<div id="header">
 			<ul>
 				<li><a href="http://www.compubomb.net">Home</a></li>
-				<li><a style="color:black;" href="http://findstuff.mykraigslist.com">Stuff</a></li>
-				<li><a style="color:red;" href="http://findjobs.mykraigslist.com">Jobs</a></li>
-				<li><a style="color:black;" href="http://findplaces.mykraigslist.com">Places</a></li>
+				<li><a <?php echo ($findstuff? 'style="color:red;"':'style="color:black;"'); ?> href="http://findstuff<?php echo ($local?'':'.mykraigslist.com'); ?>">Stuff</a></li>
+				<li><a <?php echo ($findjobs? 'style="color:red;"':'style="color:black;"'); ?> href="http://findjobs<?php echo ($local?'':'.mykraigslist.com'); ?>">Jobs</a></li>
+				<li><a <?php echo ($findplaces? 'style="color:red;"':'style="color:black;"'); ?> href="http://findplaces<?php echo ($local?'':'.mykraigslist.com'); ?>">Places</a></li>
 			</ul>
 			<div style="clear: both;"></div>
 		</div>

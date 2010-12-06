@@ -23,13 +23,15 @@
 
 		if (settings) $.extend(config, settings);
 
-		var tooltip = function ()
+		function tooltip()
 		{
 			if(!$('#tooltip').length)
 			{
-				var tooltip = document.createElement('div');
-				$(tooltip).attr('id','tooltip').hide().prependTo('body')
-				var $tooltip = $('#tooltip');
+				var $tooltip = 
+					$('<div/>')
+					.attr('id','tooltip')
+					.hide()
+					.prependTo('body');
 
 				if(config.width.length)
 					$tooltip.css('width',config.width);
@@ -44,13 +46,14 @@
 					.css('-webkit-box-shadow','0px 0px 2px #000')
 					.css('padding','5px')
 					.css('z-index','100')
-					.css('opacity','0');
-				$tooltip.mouseover(function(){
-					$(this).remove();
-				});
-				return tooltip;
+					.css('opacity','0')
+					.mouseover(function()
+					{
+						$(this).remove();
+					});
+				return $tooltip;
 			} else {
-				return document.getElementById('tooltip');
+				return $('#tooltip');
 			}
 		}
 
@@ -59,18 +62,18 @@
 		var adjust_location = function($self,event,_topCord,_leftCord)
 		{
 			_topCord = event.clientY+15;
-			if(($(tooltip()).innerHeight()+_topCord) > ($(window).height()-$(tooltip()).innerHeight()))
+			if((tooltip().innerHeight()+_topCord) > ($(window).height()-tooltip().innerHeight()))
 			{
-				_topCord-=$(tooltip()).innerHeight()+25;
+				_topCord-=tooltip().innerHeight()+25;
 			}
 
 			_leftCord = event.clientX+15;
-			if(($(tooltip()).innerWidth()+_leftCord) > ($(window).width()))
+			if((tooltip().innerWidth()+_leftCord) > ($(window).width()))
 			{
-				_leftCord-=$(tooltip()).innerWidth()+25;
+				_leftCord-=tooltip().innerWidth()+25;
 			}
 
-			$(tooltip())
+			tooltip()
 				.css('top',_topCord)
 				.css('left',_leftCord)
 				.html(
@@ -93,13 +96,13 @@
 				})
 				.mouseover(function(event){
 					adjust_location($self,event,topCord,leftCord);
-					$(tooltip())
+					tooltip()
 						.show()
 						.wait(250)
 						.animate({opacity: 1}, {duration: 550}, 'linear');
 				})
 				.mouseout(function(){
-					$(tooltip())
+					tooltip()
 						.stop()
 						.remove();
 				});
