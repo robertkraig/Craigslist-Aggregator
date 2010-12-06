@@ -40,7 +40,13 @@ try
 		<!--[if IE]>
 		<script type="text/javascript">
 			$(function(){
-				$(document).html('This Website Curretly does not work in IE Browsers, Please choose a newer one ie: Mozilla Firefox, Opera, Chrome, Safari, etc. You can thank me later ^_^');
+				$('html').html(
+					'This Website Curretly does not work in IE Browsers, '+
+					'Please choose a newer one ie: '+
+					'<a href="http://www.mozilla.com/firefox/">Mozilla Firefox</a>, '+
+					'<a href="http://www.opera.com/download/">Opera</a>Opera, '+
+					'<a href="http://www.google.com/chrome/">Chome</a>Chrome.'+
+					' You can thank me later ^_^');
 			});
 		</script>
 		<![endif]-->
