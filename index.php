@@ -41,13 +41,16 @@ try
 		<!--[if lte IE 8]>
 		<script type="text/javascript">
 			$(function(){
-				$('html').prepend(
+				$('#header ul').append(
+					'<li>'+
 					'This Website Curretly does not work in IE Browsers, '+
 					'Please choose a newer browser ie: '+
-					'<a href="http://www.mozilla.com/firefox/">Mozilla Firefox</a>, '+
-					'<a href="http://www.opera.com/download/">Opera</a>, '+
-					'<a href="http://www.google.com/chrome/">Chome</a>. '+
-					' You can thank me later ^_^');
+					'<a style="display:inline;" href="http://www.mozilla.com/firefox/">Mozilla Firefox</a>, '+
+					'<a style="display:inline;" href="http://www.opera.com/download/">Opera</a>, '+
+					'<a style="display:inline;" href="http://www.google.com/chrome/">Chome</a>. '+
+					' You can thank me later ^_^' +
+					'</li>'
+				);
 			});
 		</script>
 		<![endif]-->
