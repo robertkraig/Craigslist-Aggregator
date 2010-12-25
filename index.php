@@ -12,6 +12,7 @@
 set_time_limit(60*3);
 error_reporting(E_ALL);
 ini_set('error_log', './php_errors.log');
+date_default_timezone_set('America/Los_Angeles');
 
 require 'lib/CraigListScraper.class.php';
 try
@@ -40,7 +41,7 @@ try
 		<!--[if lte IE 8]>
 		<script type="text/javascript">
 			$(function(){
-				$('html').html(
+				$('html').prepend(
 					'This Website Curretly does not work in IE Browsers, '+
 					'Please choose a newer browser ie: '+
 					'<a href="http://www.mozilla.com/firefox/">Mozilla Firefox</a>, '+
