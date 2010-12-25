@@ -63,7 +63,7 @@ try
 		</script>
 	</head>
 <?php
-$findstuff = $findjobs = $findplaces = false;
+$findstuff = $findjobs = $findgigs = $findplaces = false;
 $local = false;
 switch($_SERVER['SERVER_NAME'])
 {
@@ -76,6 +76,11 @@ switch($_SERVER['SERVER_NAME'])
 		$local = true;
 	case 'findjobs.mykraigslist.com':
 		$findjobs = true;
+		break;
+	case 'findgigs':
+		$local = true;
+	case 'findgigs.mykraigslist.com':
+		$findgigs = true;
 		break;
 	case 'findplaces':
 		$local = true;
@@ -90,6 +95,7 @@ switch($_SERVER['SERVER_NAME'])
 				<li><a href="http://www.compubomb.net">Home</a></li>
 				<li><a <?php echo ($findstuff? 'style="color:red;"':'style="color:black;"'); ?> href="http://findstuff<?php echo ($local?'':'.mykraigslist.com'); ?>">Stuff</a></li>
 				<li><a <?php echo ($findjobs? 'style="color:red;"':'style="color:black;"'); ?> href="http://findjobs<?php echo ($local?'':'.mykraigslist.com'); ?>">Jobs</a></li>
+				<li><a <?php echo ($findgigs? 'style="color:red;"':'style="color:black;"'); ?> href="http://findgigs<?php echo ($local?'':'.mykraigslist.com'); ?>">Gigs</a></li>
 				<li><a <?php echo ($findplaces? 'style="color:red;"':'style="color:black;"'); ?> href="http://findplaces<?php echo ($local?'':'.mykraigslist.com'); ?>">Places</a></li>
 			</ul>
 			<div style="clear: both;"></div>
