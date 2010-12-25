@@ -141,7 +141,7 @@ switch($_SERVER['SERVER_NAME'])
 
 ?>
 				<label class="fields" for="<?php echo $arg_name; ?>"><?php echo $title; ?></label>
-				<input <?php echo $checked; ?> class="fields" type="checkbox" name="<?php echo $field['argName']; ?>" value="<?php echo $value; ?>" id="<?php echo $arg_name; ?>" />
+				<input class="fields" type="checkbox" name="<?php echo $field['argName']; ?>" value="<?php echo $value; ?>" id="<?php echo $arg_name; ?>" />
 				<br style="margin:0;padding:0; height:1px; clear: left;" />
 <?php
 
