@@ -65,6 +65,6 @@ a#donate:focus{color: red;}
 a.button.hover {border-bottom: solid 4px red;}
 #link_content iframe {margin-top: 20px;}
 #buttons {display:none;}
-a.button {margin: 0px;margin-right: 5px;padding:0px 4px;outline:none;border: solid 1px #D8EBEC;float:left;font-size: 14px;line-height: 20px;height: 20px;border-bottom: solid 4px #D8EBEC;text-decoration: none;background-color: white;text-align: center;-webkit-border-radius: 4px;-moz-border-radius: 4px;}
+a.button {margin: 0px;margin-right: 5px; margin-bottom: 5px;padding:0px 4px;outline:none;border: solid 1px #D8EBEC;float:left;font-size: 14px;line-height: 20px;height: 20px;border-bottom: solid 4px #D8EBEC;text-decoration: none;background-color: white;text-align: center;-webkit-border-radius: 4px;-moz-border-radius: 4px; -moz-box-shadow: 2px 1px 1px rgba(0, 0, 0, 0.5); -webkit-box-shadow: 2px 1px 1px rgba(0, 0, 0, 0.5);}
 #region_list ,
 #areas_list {display: none;}

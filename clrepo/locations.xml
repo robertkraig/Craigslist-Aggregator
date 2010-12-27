@@ -106,6 +106,10 @@
 			<name><![CDATA[Iowa]]></name>
 			<type>iowa</type>
 		</region>
+		<region>
+			<name><![CDATA[Louisiana]]></name>
+			<type>louisiana</type>
+		</region>
 	</regions>
 	<locations>
 		<location>
@@ -1810,6 +1814,62 @@
 			<url><![CDATA[http://waterloo.craigslist.org/search/jjj?]]></url>
 			<partial>waterloo.craigslist.org</partial>
 			<name><![CDATA[waterloo / cedar falls]]></name>
+		</location>
+		<location>
+			<state>LA</state>
+			<type>louisiana</type>
+			<url><![CDATA[http://batonrouge.craigslist.org/search/jjj?]]></url>
+			<partial>batonrouge.craigslist.org</partial>
+			<name><![CDATA[baton rouge]]></name>
+		</location>
+		<location>
+			<state>LA</state>
+			<type>louisiana</type>
+			<url><![CDATA[http://cenla.craigslist.org/search/jjj?]]></url>
+			<partial>cenla.craigslist.org</partial>
+			<name><![CDATA[central louisiana]]></name>
+		</location>
+		<location>
+			<state>LA</state>
+			<type>louisiana</type>
+			<url><![CDATA[http://houma.craigslist.org/search/jjj?]]></url>
+			<partial>houma.craigslist.org</partial>
+			<name><![CDATA[houma]]></name>
+		</location>
+		<location>
+			<state>LA</state>
+			<type>louisiana</type>
+			<url><![CDATA[http://lafayette.craigslist.org/search/jjj?]]></url>
+			<partial>lafayette.craigslist.org</partial>
+			<name><![CDATA[lafayette]]></name>
+		</location>
+		<location>
+			<state>LA</state>
+			<type>louisiana</type>
+			<url><![CDATA[http://lakecharles.craigslist.org/search/jjj?]]></url>
+			<partial>lakecharles.craigslist.org</partial>
+			<name><![CDATA[lake charles]]></name>
+		</location>
+		<location>
+			<state>LA</state>
+			<type>louisiana</type>
+			<url><![CDATA[http://monroe.craigslist.org/search/jjj?]]></url>
+			<partial>monroe.craigslist.org</partial>
+			<name><![CDATA[monroe]]></name>
+		</location>
+		<location>
+			<state>LA</state>
+			<type>louisiana</type>
+			<url><![CDATA[http://neworleans.craigslist.org/search/jjj?]]></url>
+			<partial>neworleans.craigslist.org</partial>
+			<name><![CDATA[new orleans]]></name>
+		</location>
+		<location>
+			<state>LA</state>
+			<type>louisiana</type>
+			<url><![CDATA[http://shreveport.craigslist.org/search/jjj?]]></url>
+			<partial>shreveport.craigslist.org</partial>
+			<name><![CDATA[shreveport]]></name>
 		</location>
 	</locations>
 </clrepo>
