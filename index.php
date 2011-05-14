@@ -16,10 +16,11 @@ date_default_timezone_set('America/Los_Angeles');
 
 $serverName = $_SERVER['SERVER_NAME'];
 
-if(strpos($serverName, 'findjobs') !== false)		$loadConfiguration = 'findjobs.locations.xml';
-elseif(strpos($serverName,'findgigs') !== false)	$loadConfiguration = 'findgigs.locations.xml';
-elseif(strpos($serverName, 'findplaces') !== false)	$loadConfiguration = 'findplaces.locations.xml';
-elseif(strpos($serverName, 'findstuff') !== false)	$loadConfiguration = 'findstuff.locations.xml';
+if(strpos($serverName, 'findjobs') !== false)			$loadConfiguration = 'findjobs.locations.xml';
+elseif(strpos($serverName,'findgigs') !== false)		$loadConfiguration = 'findgigs.locations.xml';
+elseif(strpos($serverName, 'findplaces') !== false)		$loadConfiguration = 'findplaces.locations.xml';
+elseif(strpos($serverName, 'findstuff') !== false)		$loadConfiguration = 'findstuff.locations.xml';
+elseif(strpos($serverName, 'findservices') !== false)	$loadConfiguration = 'findservices.locations.xml';
 
 require 'lib/CraigListScraper.class.php';
 
@@ -75,7 +76,7 @@ try
 		</script>
 	</head>
 <?php
-$findstuff = $findjobs = $findgigs = $findplaces = false;
+$findstuff = $findjobs = $findgigs = $findplaces = $findservices = false;
 $local = false;
 switch($_SERVER['SERVER_NAME'])
 {
@@ -99,7 +100,13 @@ switch($_SERVER['SERVER_NAME'])
 	case 'findplaces.mykraigslist.com':
 		$findplaces = true;
 		break;
+	case 'findservices.local':
+		$local = true;
+	case 'findservices.mykraigslist.com':
+		$findservices = true;
+		break;
 }
+
 $gotoUrlPostFix = $local?'.local':'.mykraigslist.com';
 
 ?>
@@ -111,6 +118,7 @@ $gotoUrlPostFix = $local?'.local':'.mykraigslist.com';
 				<li><a <?php echo ($findjobs? 'style="color:red;"':'style="color:black;"'); ?> href="http://findjobs<?php echo $gotoUrlPostFix; ?>">Jobs</a></li>
 				<li><a <?php echo ($findgigs? 'style="color:red;"':'style="color:black;"'); ?> href="http://findgigs<?php echo $gotoUrlPostFix; ?>">Gigs</a></li>
 				<li><a <?php echo ($findplaces? 'style="color:red;"':'style="color:black;"'); ?> href="http://findplaces<?php echo $gotoUrlPostFix; ?>">Places</a></li>
+				<li><a <?php echo ($findservices? 'style="color:red;"':'style="color:black;"'); ?> href="http://findservices<?php echo $gotoUrlPostFix; ?>">Services</a></li>
 			</ul>
 			<div style="clear: both;"></div>
 		</div>
