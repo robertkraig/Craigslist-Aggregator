@@ -14,10 +14,18 @@ error_reporting(E_ALL);
 ini_set('error_log', './php_errors.log');
 date_default_timezone_set('America/Los_Angeles');
 
+$serverName = $_SERVER['SERVER_NAME'];
+
+if(strpos($serverName, 'findjobs') !== false)		$loadConfiguration = 'findjobs.locations.xml';
+elseif(strpos($serverName,'findgigs') !== false)	$loadConfiguration = 'findgigs.locations.xml';
+elseif(strpos($serverName, 'findplaces') !== false)	$loadConfiguration = 'findplaces.locations.xml';
+elseif(strpos($serverName, 'findstuff') !== false)	$loadConfiguration = 'findstuff.locations.xml';
+
 require 'lib/CraigListScraper.class.php';
+
 try
 {
-	$cl_scraper = new CraigListScraper('clrepo/locations.xml');
+	$cl_scraper = new CraigListScraper("sites/{$loadConfiguration}");
 
 	$search_field = $cl_scraper->getFields();
 	$search_field_name = $search_field[0]['argName'];
@@ -71,36 +79,38 @@ $findstuff = $findjobs = $findgigs = $findplaces = false;
 $local = false;
 switch($_SERVER['SERVER_NAME'])
 {
-	case 'findstuff':
+	case 'findstuff.local':
 		$local = true;
 	case 'findstuff.mykraigslist.com':
 		$findstuff = true;
 		break;
-	case 'findjobs':
+	case 'findjobs.local':
 		$local = true;
 	case 'findjobs.mykraigslist.com':
 		$findjobs = true;
 		break;
-	case 'findgigs':
+	case 'findgigs.local':
 		$local = true;
 	case 'findgigs.mykraigslist.com':
 		$findgigs = true;
 		break;
-	case 'findplaces':
+	case 'findplaces.local':
 		$local = true;
 	case 'findplaces.mykraigslist.com':
 		$findplaces = true;
 		break;
 }
+$gotoUrlPostFix = $local?'.local':'.mykraigslist.com';
+
 ?>
 	<body>
 		<div id="header">
 			<ul>
 				<li><a href="http://www.compubomb.net">Home</a></li>
-				<li><a <?php echo ($findstuff? 'style="color:red;"':'style="color:black;"'); ?> href="http://findstuff<?php echo ($local?'':'.mykraigslist.com'); ?>">Stuff</a></li>
-				<li><a <?php echo ($findjobs? 'style="color:red;"':'style="color:black;"'); ?> href="http://findjobs<?php echo ($local?'':'.mykraigslist.com'); ?>">Jobs</a></li>
-				<li><a <?php echo ($findgigs? 'style="color:red;"':'style="color:black;"'); ?> href="http://findgigs<?php echo ($local?'':'.mykraigslist.com'); ?>">Gigs</a></li>
-				<li><a <?php echo ($findplaces? 'style="color:red;"':'style="color:black;"'); ?> href="http://findplaces<?php echo ($local?'':'.mykraigslist.com'); ?>">Places</a></li>
+				<li><a <?php echo ($findstuff? 'style="color:red;"':'style="color:black;"'); ?> href="http://findstuff<?php echo $gotoUrlPostFix; ?>">Stuff</a></li>
+				<li><a <?php echo ($findjobs? 'style="color:red;"':'style="color:black;"'); ?> href="http://findjobs<?php echo $gotoUrlPostFix; ?>">Jobs</a></li>
+				<li><a <?php echo ($findgigs? 'style="color:red;"':'style="color:black;"'); ?> href="http://findgigs<?php echo $gotoUrlPostFix; ?>">Gigs</a></li>
+				<li><a <?php echo ($findplaces? 'style="color:red;"':'style="color:black;"'); ?> href="http://findplaces<?php echo $gotoUrlPostFix; ?>">Places</a></li>
 			</ul>
 			<div style="clear: both;"></div>
 		</div>

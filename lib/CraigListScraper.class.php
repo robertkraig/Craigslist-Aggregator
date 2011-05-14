@@ -1,5 +1,38 @@
 <?php
 
+function getFileCache($location, $expire = false)
+{
+	if(is_bool($expire)) $expire = 60*30;
+	$hash = sha1($location);
+	$file = "./cache/{$hash}";
+	if(file_exists($file))
+	{
+		$file_content = file_get_contents($file);
+		$unserialize_file = unserialize($file_content);
+		$file_expire = $unserialize_file['expire'];
+		if($file_expire > time())
+		{
+//			error_log('Returning Cache', E_NOTICE);
+			return base64_decode($unserialize_file['content']);
+		}
+		else
+		{
+//			error_log('Cache Expired', E_NOTICE);
+		}
+	}
+	$content = @file_get_contents($location);
+	if(!$content) return false;
+	$store = array(
+		'date'		=> time(),
+		'expire'	=> time() + $expire,
+		'content'	=> base64_encode($content)
+	);
+	$serialize = serialize($store);
+	file_put_contents($file, $serialize);
+//	error_log('Writing Cache', E_NOTICE);
+	return $content;
+}
+
 /**
  * @author Robert S Kraig
  * @version 0.7
@@ -33,6 +66,9 @@ class CraigListScraper {
 
 		if(!file_exists($fileLocation))
 			throw new Exception('Your XML Configuration must exist');
+
+		if(is_bool(strpos(strtolower($fileLocation),'.xml')))
+			throw new Exception('File must have .xml extention');
 
 		$xmlstr = file_get_contents($fileLocation);
 		$this->xml = simplexml_load_string($xmlstr, 'SimpleXMLElement', LIBXML_NOCDATA);
@@ -167,7 +203,7 @@ class CraigListScraper {
 	 */
 	private static function getRecords($location)
 	{
-		$file = @file_get_contents($location['url']);
+		$file = getFileCache($location['url']);
 		if(!$file) return array();
 
 		$dom = new DOMDocument();
