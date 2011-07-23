@@ -31,31 +31,28 @@ function CURL($url, $post = null, $retries = 3)
 		curl_close($curl);
 	}
 
-	if($response['http_code'] == 200)
+	switch($response['http_code'])
 	{
-		$return = array(
-			'response'	=>$response,
-			'output'	=>$result
-		);
-	}
-
-	elseif ($response['http_code'] == 301 || $response['http_code'] == 302)
-	{
-
-		$headers = get_headers($response['url']);
-		$location = "";
-
-		foreach ($headers as $value)
-		{
-			if (substr(strtolower($value), 0, 9) == "location:")
+		case 200:
+			$return = array(
+				'response'	=>$response,
+				'output'	=>$result
+			);
+			break;
+		case 301:
+		case 302:
+			foreach(get_headers($response['url']) as $value)
 			{
-				return $this->CURL(trim(substr($value, 9, strlen($value))));
+				if(substr(strtolower($value), 0, 9) == "location:")
+				{
+					return CURL(trim(substr($value, 9, strlen($value))));
+				}
 			}
-		}
-	}
-	elseif($response['http_code'] == 404)
-	{
-		$return = false;
+			break;
+		default:
+			$return = false;
+			break;
+
 	}
 
 	return $return;
