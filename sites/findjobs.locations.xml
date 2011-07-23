@@ -4,6 +4,7 @@
 		<title><![CDATA[Job Search Via Craigslist]]></title>
 		<pagetitle><![CDATA[Find yourself a Job]]></pagetitle>
 		<pagesearchexample><![CDATA[Ex: php, C#, .NET, ASP.NET, Linux]]></pagesearchexample>
+		<pageType>findjobs</pageType>
 		<fields>
 			<argField>
 				<argId>search_term</argId>

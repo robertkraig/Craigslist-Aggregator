@@ -5,6 +5,7 @@
 		<pagetitle><![CDATA[Find yourself a new Toy]]></pagetitle>
 		<pagesearchexample><![CDATA[Ex: LCD, Blue-ray, etc]]></pagesearchexample>
 		<searchType>2</searchType>
+		<pageType>findstuff</pageType>
 		<fields>
 			<argField>
 				<argId>search_term</argId>

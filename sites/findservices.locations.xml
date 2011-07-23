@@ -5,6 +5,7 @@
 		<pagetitle><![CDATA[Find yourself a Gig]]></pagetitle>
 		<pagesearchexample><![CDATA[Ex: Music, Computer, Etc.]]></pagesearchexample>
 		<searchType>2</searchType>
+		<pageType>findservices</pageType>
 		<fields>
 			<argField>
 				<argId>search_term</argId>

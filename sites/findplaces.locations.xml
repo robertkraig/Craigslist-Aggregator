@@ -5,6 +5,7 @@
 		<pagetitle><![CDATA[Find yourself a new Place]]></pagetitle>
 		<pagesearchexample><![CDATA[Ex: House, Apartment, Office, Rental, Etc.]]></pagesearchexample>
 		<searchType>2</searchType>
+		<pageType>findplaces</pageType>
 		<fields>
 			<argField>
 				<argId>search_term</argId>

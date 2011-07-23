@@ -14,37 +14,82 @@ error_reporting(E_ALL);
 ini_set('error_log', './php_errors.log');
 date_default_timezone_set('America/Los_Angeles');
 
-$serverName = $_SERVER['SERVER_NAME'];
+$POST_GET = array_merge($_GET,$_POST);
 
-if(strpos($serverName, 'findjobs') !== false)			$loadConfiguration = 'findjobs.locations.xml';
-elseif(strpos($serverName,'findgigs') !== false)		$loadConfiguration = 'findgigs.locations.xml';
-elseif(strpos($serverName, 'findplaces') !== false)		$loadConfiguration = 'findplaces.locations.xml';
-elseif(strpos($serverName, 'findstuff') !== false)		$loadConfiguration = 'findstuff.locations.xml';
-elseif(strpos($serverName, 'findservices') !== false)	$loadConfiguration = 'findservices.locations.xml';
+$init = true;
+$findstuff = $findjobs = $findgigs = $findplaces = $findservices = false;
+$title = 'My KraigsList Search';
 
-require 'lib/CraigListScraper.class.php';
-
-try
+if(isset($POST_GET['site']))
 {
-	$cl_scraper = new CraigListScraper("sites/{$loadConfiguration}");
+	$site = $POST_GET['site'];
+	$siteList = array(
+		'findjobs',
+		'findgigs',
+		'findplaces',
+		'findstuff',
+		'findservices'
+	);
 
-	$search_field = $cl_scraper->getFields();
-	$search_field_name = $search_field[0]['argName'];
-
-	if(isset($_POST[$search_field_name]) && strlen($_POST[$search_field_name]))
+	if(in_array($site, $siteList))
 	{
-		header('Content-type: application/json');
-		$cl_scraper->initialize($_POST['include']);
-		echo $cl_scraper;
+		$loadConfiguration = "{$site}.locations.xml";
 	}
 	else
 	{
+		$loadConfiguration = "findjobs.locations.xml";
+	}
+
+	switch($POST_GET['site'])
+	{
+		case 'findstuff':
+			$findstuff = true;
+			break;
+		case 'findjobs':
+			$findjobs = true;
+			break;
+		case 'findgigs':
+			$findgigs = true;
+			break;
+		case 'findplaces':
+			$findplaces = true;
+			break;
+		case 'findservices':
+			$findservices = true;
+			break;
+	}
+
+}
+else
+{
+	$init = false;
+}
+
+try
+{
+	if($init)
+	{
+		require 'lib/CraigListScraper.class.php';
+		$cl_scraper = new CraigListScraper("sites/{$loadConfiguration}");
+		$title = $cl_scraper->getInfo()->title;
+		$search_field = $cl_scraper->getFields();
+		$search_field_name = $search_field[0]['argName'];
+
+		if(isset($_POST[$search_field_name]) && strlen($_POST[$search_field_name]))
+		{
+			ob_clean();
+			header('Content-type: application/json');
+			$cl_scraper->initialize($_POST['include']);
+			echo $cl_scraper;
+			exit;
+		}
+	}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-		<title><?php echo $cl_scraper->getInfo()->title; ?></title>
+		<title><?php echo $title; ?></title>
 		<link rel="stylesheet" type="text/css" href="/css/body.css" />
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 		<script type="text/javascript" src="/js/app.js"></script>
@@ -77,53 +122,27 @@ try
 		</script>
 	</head>
 <?php
-$findstuff = $findjobs = $findgigs = $findplaces = $findservices = false;
-$local = false;
-switch($_SERVER['SERVER_NAME'])
-{
-	case 'findstuff.local':
-		$local = true;
-	case 'findstuff.mykraigslist.com':
-		$findstuff = true;
-		break;
-	case 'findjobs.local':
-		$local = true;
-	case 'findjobs.mykraigslist.com':
-		$findjobs = true;
-		break;
-	case 'findgigs.local':
-		$local = true;
-	case 'findgigs.mykraigslist.com':
-		$findgigs = true;
-		break;
-	case 'findplaces.local':
-		$local = true;
-	case 'findplaces.mykraigslist.com':
-		$findplaces = true;
-		break;
-	case 'findservices.local':
-		$local = true;
-	case 'findservices.mykraigslist.com':
-		$findservices = true;
-		break;
-}
 
-$gotoUrlPostFix = $local?'.local':'.mykraigslist.com';
 
 ?>
 	<body>
 		<div id="header">
 			<ul>
 				<li><a href="http://www.compubomb.net">Home</a></li>
-				<li><a <?php echo ($findstuff? 'style="color:red;"':'style="color:black;"'); ?> href="http://findstuff<?php echo $gotoUrlPostFix; ?>">Stuff</a></li>
-				<li><a <?php echo ($findjobs? 'style="color:red;"':'style="color:black;"'); ?> href="http://findjobs<?php echo $gotoUrlPostFix; ?>">Jobs</a></li>
-				<li><a <?php echo ($findgigs? 'style="color:red;"':'style="color:black;"'); ?> href="http://findgigs<?php echo $gotoUrlPostFix; ?>">Gigs</a></li>
-				<li><a <?php echo ($findplaces? 'style="color:red;"':'style="color:black;"'); ?> href="http://findplaces<?php echo $gotoUrlPostFix; ?>">Places</a></li>
-				<li><a <?php echo ($findservices? 'style="color:red;"':'style="color:black;"'); ?> href="http://findservices<?php echo $gotoUrlPostFix; ?>">Services</a></li>
+				<li><a <?php echo ($findstuff? 'style="color:red;"':'style="color:black;"'); ?> href="http://<?php echo $_SERVER['SERVER_NAME']; ?>?site=findstuff">Stuff</a></li>
+				<li><a <?php echo ($findjobs? 'style="color:red;"':'style="color:black;"'); ?> href="http://<?php echo $_SERVER['SERVER_NAME']; ?>?site=findjobs">Jobs</a></li>
+				<li><a <?php echo ($findgigs? 'style="color:red;"':'style="color:black;"'); ?> href="http://<?php echo $_SERVER['SERVER_NAME']; ?>?site=findgigs">Gigs</a></li>
+				<li><a <?php echo ($findplaces? 'style="color:red;"':'style="color:black;"'); ?> href="http://<?php echo $_SERVER['SERVER_NAME']; ?>?site=findplaces">Places</a></li>
+				<li><a <?php echo ($findservices? 'style="color:red;"':'style="color:black;"'); ?> href="http://<?php echo $_SERVER['SERVER_NAME']; ?>?site=findservices">Services</a></li>
 			</ul>
 			<div style="clear: both;"></div>
 		</div>
+<?php
+if($init)
+{
+?>
 		<form action="" method="post" id="find_items">
+			<input type="hidden" name="site" id="site" value="<?php echo $cl_scraper->getInfo()->pageType; ?>" />
 			<div id="change_size_container">
 				<div style="font-size: 20px;"><?php echo $cl_scraper->getInfo()->pagetitle; ?></div>
 <?php
@@ -200,10 +219,13 @@ $gotoUrlPostFix = $local?'.local':'.mykraigslist.com';
 			<div style="display:none;" id="link_content"></div>
 			<div style="display:none;" id="content"></div>
 		</div>
+<?php
+}
+?>
 	</body>
 </html>
 <?php
-	}
+
 }
 catch (Exception $e)
 {

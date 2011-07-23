@@ -3,6 +3,7 @@
 	<info>
 		<title><![CDATA[Stuff Search Via Craigslist]]></title>
 		<pagetitle><![CDATA[Find yourself a Gig]]></pagetitle>
+		<pageType>findgigs</pageType>
 		<pagesearchexample><![CDATA[Ex: Music, Computer, Etc.]]></pagesearchexample>
 		<searchType>2</searchType>
 		<fields>
