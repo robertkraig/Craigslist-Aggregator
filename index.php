@@ -77,7 +77,6 @@ try
 
 		if(isset($_POST[$search_field_name]) && strlen($_POST[$search_field_name]))
 		{
-			ob_clean();
 			header('Content-type: application/json');
 			$cl_scraper->initialize($_POST['include']);
 			echo $cl_scraper;
