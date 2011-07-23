@@ -31,13 +31,14 @@ ul.locationItems li.odd,
 ul.locationItems li.even,
 ul.locationItems li a {-moz-border-radius:5px; -webkit-border-radius:5px; -o-border-radius:5px; border-radius:5px;}
 
-form label {display:block; font-size: 12px;}
+form label {display:block; font-size: 12px; clear:left; line-height: 20px;}
 form label.fields {width:80px;float: left; line-height: 20px; text-align: right; margin-right: 10px;}
-form input[type="text"].fields {float:left; width: 120px; line-height: 20px;}
-form input[type="radio"].fields {float:left; line-height: 20px;}
+form input[type=text].fields {float:left; width: 120px; line-height: 20px;}
+form input[type=radio].fields {float:left; line-height: 20px;}
 form input,form button {margin:5px; padding:2px; color:red; border:solid 1px gray; background-color:white; margin-top: 0px;}
 span.near {margin-left:10px; text-transform:uppercase; font-weight:bold;}
-form button, form input[type="text"]{-moz-box-shadow: 0px 0px 2px #000;-webkit-box-shadow: 0px 0px 2px #000;}
+form button, form input[type=text]{-moz-box-shadow: 0px 0px 2px #000;-webkit-box-shadow: 0px 0px 2px #000;}
+form label input[type=checkbox]{-moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.7);-webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.7); float:left; margin-bottom:0px; margin-top: 2px;}
 cite {display:block;font-size: 10px; font-style: italic;margin:5px; margin-top: 0px; padding:2px;}
 a#search_btn {margin:5px;padding:2px;color:red;border:solid 1px gray;background-color:white;-moz-box-shadow: 0px 0px 2px #000;-webkit-box-shadow: 0px 0px 2px #000;text-decoration: none;padding:5px;display:inline-block;}
 form button:focus,form input[type="text"]:focus,form input[type="password"]:focus,form input[type="file"]:focus,form select:focus,form textarea:focus,a#search_btn:focus,a#search_btn:hover{ background-color: #FFF;border: 1px solid #508FCF; -moz-box-shadow: 0px 0px 2px #999; -webkit-box-shadow: 0px 0px 2px #999;}
