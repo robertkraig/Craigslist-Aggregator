@@ -38,7 +38,7 @@ function CURL($url, $post = null, $retries = 3)
 			'output'	=>$result
 		);
 	}
-	
+
 	elseif ($response['http_code'] == 301 || $response['http_code'] == 302)
 	{
 
@@ -52,10 +52,10 @@ function CURL($url, $post = null, $retries = 3)
 				return $this->CURL(trim(substr($value, 9, strlen($value))));
 			}
 		}
-		if($response['http_code'] == 404)
-		{
-			$return = false;
-		}
+	}
+	elseif($response['http_code'] == 404)
+	{
+		$return = false;
 	}
 
 	return $return;
