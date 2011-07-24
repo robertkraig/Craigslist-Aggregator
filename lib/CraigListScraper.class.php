@@ -157,33 +157,57 @@ class CraigListScraper {
 	{
 		$this->locations = array();
 		$this->areas = array();
+		$locations = array();
 		foreach($this->xml->xpath('/clrepo/locations/location') as $location)
 		{
-			$loc = get_object_vars($location);
-			$this->locations[] = $loc;
-			extract($loc);
+			$locations[] = get_object_vars($location);		
+		}
 
+		uasort($locations, function($a, $b)
+		{ 
+			if ($a['state'] == $b['state'])
+				return $a['name'] > $b['name']?1:-1;
+			else
+				return $a['state'] > $b['state']?1:-1;
+		});
+
+		foreach($locations as $location)
+		{
+			$this->locations[] = $location;
+			extract($location);
 			$this->areas[$partial] = ''.
 				'<label for="'.$partial.'">'.
-				'<input class="region '.$type.' location" type="checkbox" id="'.$partial.'" name="include[]" value="'.$partial.'" />'.$name.', '.$state.
+					'<input class="region '.$type.' location" type="checkbox" id="'.$partial.'" name="include[]" value="'.$partial.'" />'.$name.', '.$state.
 				'</label>';
 			unset($name);
 			unset($url);
 			unset($partial);
 			unset($type);
+
 		}
 	}
 
 	public function buildRegions()
 	{
 		$this->regions = array();
+		$regions = array();
 		foreach($this->xml->xpath('/clrepo/regions/region') as $region)
 		{
-			$reg = get_object_vars($region);
-			extract($reg);
+			$regions[] = get_object_vars($region);
+		}
+
+		uasort($regions, function($a,$b)
+		{
+			return $a['name'] > $b['name']?1:-1;
+		});
+
+		foreach($regions as $region)
+		{
+			extract($region);
 			$this->regions[] = '<label for="'.$type.'"><input class="regions" type="checkbox" id="'.$type.'" name="region[]" value="'.$type.'" />'.$name.'</label>';
 			unset($type);
 			unset($name);
+
 		}
 	}
 
