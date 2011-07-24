@@ -174,16 +174,12 @@ class CraigListScraper {
 		foreach($locations as $location)
 		{
 			$this->locations[] = $location;
-			extract($location);
-			$this->areas[$partial] = ''.
-				'<label for="'.$partial.'">'.
-					'<input class="region '.$type.' location" type="checkbox" id="'.$partial.'" name="include[]" value="'.$partial.'" />'.$name.', '.$state.
-				'</label>';
-			unset($name);
-			unset($url);
-			unset($partial);
-			unset($type);
-
+			$this->areas[$location['partial']] = array(
+				'type'		=>$location['type'],
+				'partial'	=>$location['partial'],
+				'name'		=>ucwords($location['name']),
+				'state'		=>$location['state']
+			);
 		}
 	}
 
@@ -203,11 +199,10 @@ class CraigListScraper {
 
 		foreach($regions as $region)
 		{
-			extract($region);
-			$this->regions[] = '<label for="'.$type.'"><input class="regions" type="checkbox" id="'.$type.'" name="region[]" value="'.$type.'" />'.$name.'</label>';
-			unset($type);
-			unset($name);
-
+			$this->regions[] = array(
+				'type'=>$region['type'],
+				'name'=>ucwords($region['name']),
+			);
 		}
 	}
 

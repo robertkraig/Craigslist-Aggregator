@@ -381,12 +381,61 @@ $('#show_search')
 $(function()
 {
 
+	if($('#areas_list').length)
+	{
+		$.each(window.area_list,function(i,obj)
+		{
+			$('<label>',{
+				'for':obj.partial
+			}).append(
+				$('<input>',{
+					'class':'region '+obj.type+' location',
+					'type':'checkbox',
+					'id':obj.partial,
+					'name':'include[]',
+					'value':obj.partial
+				})
+			).append(obj.name+', '+obj.state).appendTo('#areas_list');
+		});
+	}
+
+	if($('#region_list').length)
+	{
+		$.each(window.region_list,function(i,obj)
+		{
+			$('<label>',{
+				'for':obj.type
+			}).append(
+				$('<input>',{
+					'class':'regions',
+					'type':'checkbox',
+					'id':obj.type,
+					'name':'region[]',
+					'value':obj.type
+				})
+				.click(function()
+				{
+					var region = $(this).val();
+					var str = 'input[name="include[]"].'+region;
+					var $regions = $(str);
+					if($(this).is(':checked'))
+					{
+						$regions.attr('checked','checked');
+					}
+					else
+					{
+						$regions.removeAttr('checked');
+					}
+				})
+			).append(obj.name).appendTo('#region_list');
+		});
+	}
+
 	$(document)
 		.data('title',$('title').text());
 
 	$('#buttons a.button')
 		.click(hoverReset);
-
 
 	$('#toggle_disp')
 		.data('open',true)
@@ -416,21 +465,7 @@ $(function()
 			$('#find_items').submit();
 		});
 
-	$('input[type="checkbox"].regions')
-		.click(function()
-		{
-			var region = $(this).val();
-			var str = 'input[name="include[]"].'+region;
-			var $regions = $(str);
-			if($(this).is(':checked'))
-			{
-				$regions.attr('checked','checked');
-			}
-			else
-			{
-				$regions.removeAttr('checked');
-			}
-		});
+
 
 	$('#find_items')
 		.submit(function(){

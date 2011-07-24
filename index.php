@@ -92,22 +92,20 @@ try
 		<link rel="stylesheet" type="text/css" href="/css/body.css" />
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 		<script type="text/javascript" src="/js/app.js"></script>
-		<!--[if lte IE 8]>
+
+<?php
+if($init)
+{
+?>
 		<script type="text/javascript">
-			$(function(){
-				$('#header ul').append(
-					'<li>'+
-					'This Website Curretly does not work in IE Browsers, '+
-					'Please choose a newer browser ie: '+
-					'<a style="display:inline;" href="http://www.mozilla.com/firefox/">Mozilla Firefox</a>, '+
-					'<a style="display:inline;" href="http://www.opera.com/download/">Opera</a>, '+
-					'<a style="display:inline;" href="http://www.google.com/chrome/">Chome</a>. '+
-					' You can thank me later ^_^' +
-					'</li>'
-				);
-			});
+			window.region_list = <?php echo json_encode($cl_scraper->getRegions()); ?>;
+			window.area_list = <?php echo json_encode($cl_scraper->getAreas()); ?>;
+			window.PHP_SELF = "<?php echo $_SERVER['PHP_SELF']; ?>";
 		</script>
-		<![endif]-->
+<?php
+}
+?>
+
 		<script type="text/javascript">
 		  var _gaq = _gaq || [];
 		  _gaq.push(['_setAccount', 'UA-12896175-6']);
@@ -120,10 +118,6 @@ try
 		  })();
 		</script>
 	</head>
-<?php
-
-
-?>
 	<body>
 		<div id="header">
 			<ul>
@@ -178,26 +172,20 @@ if($init)
 		{
 			list($title,$value) = explode(':', $field['argTitle']);
 			$arg_name = str_replace(' ', '_', $field['argName']);
-
 ?>
 				<label class="fields" for="<?php echo $arg_name; ?>"><?php echo $title; ?></label>
 				<input class="fields" type="checkbox" name="<?php echo $field['argName']; ?>" value="<?php echo $value; ?>" id="<?php echo $arg_name; ?>" />
 				<br style="margin:0;padding:0; height:1px; clear: left;" />
 <?php
-
 		}
 	}
 ?>
 				<cite><?php echo $cl_scraper->getInfo()->pagesearchexample; ?></cite>
 				<div id="locations_container">
 					Region:&nbsp;&nbsp;<a id="region_list_disp">open</a>
-					<div id="region_list">
-						<?php echo implode("\n\t", $cl_scraper->getRegions()); ?>						
-					</div><br />
+					<div id="region_list"></div><br />
 					Areas:&nbsp;&nbsp;<a id="areas_list_disp">open</a>
-					<div id="areas_list">
-						<?php echo implode("\n\t", $cl_scraper->getAreas()); ?>
-					</div>
+					<div id="areas_list"></div>
 				</div>
 				<a id="search_btn">Search</a>
 				<input type="submit" style="display:none;" />
@@ -205,9 +193,6 @@ if($init)
 				<img alt="loader" id="loader" style="display:none; position: absolute; bottom: 0; right: 0; margin:10px; margin-bottom: 35px;" src="/img/loading.gif" />
 			</div>
 		</form>
-		<script type="text/javascript">
-			window.PHP_SELF = "<?php echo $_SERVER['PHP_SELF']; ?>";
-		</script>
 		<div id="content-container">
 			<div id="buttons">
 				<a id="toggle_disp" class="button">Close All</a>

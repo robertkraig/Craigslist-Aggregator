@@ -47,15 +47,15 @@
 	</info>
 	<regions>
 		<region>
-			<name><![CDATA[Southern California]]></name>
+			<name><![CDATA[California / SoCal]]></name>
 			<type>socal</type>
 		</region>
 		<region>
-			<name><![CDATA[Central California]]></name>
+			<name><![CDATA[California / Central]]></name>
 			<type>cencal</type>
 		</region>
 		<region>
-			<name><![CDATA[Northern California]]></name>
+			<name><![CDATA[California / NorCal]]></name>
 			<type>norcal</type>
 		</region>
 		<region>
@@ -214,6 +214,7 @@
 			<name><![CDATA[Ventura]]></name>
 		</location>
 		<location>
+			<state>CA</state>
 			<type>cencal</type>
 			<url><![CDATA[http://bakersfield.craigslist.org/search/sss?]]></url>
 			<partial><![CDATA[bakersfield.craigslist.org]]></partial>
