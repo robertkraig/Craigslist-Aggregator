@@ -12,23 +12,23 @@ ul {list-style-type:none;}
 ul li {list-style-type:none; margin:0px; padding:0px;}
 ul.locationItems li {list-style-type:none; margin:1px; padding:0px;}
 ul.locationItems li a {padding:4px 10px;}
-ul.locationItems li.odd {background-color: #F7F7F7;}
-ul.locationItems li.odd a{border:dashed 1px #F7F7F7;}
-ul.locationItems li.even {background-color: white;}
-ul.locationItems li.even a{border:dashed 1px white;}
+ul.locationItems li:nth-child(odd) {background-color: #F7F7F7;}
+ul.locationItems li:nth-child(odd) a{border:dashed 1px #F7F7F7;}
+ul.locationItems li:nth-child(even) {background-color: white;}
+ul.locationItems li:nth-child(even) a{border:dashed 1px white;}
 ul.locationItems li,
 ul.locationItems li a { font-size: 16px; line-height:25px;display:block;}
-ul.locationItems li.odd a:hover,
-ul.locationItems li.even a:hover {border: dashed 1px gainsboro; background-color: #EDF3F4;}
+ul.locationItems li:nth-child(odd) a:hover,
+ul.locationItems li:nth-child(even) a:hover {border: dashed 1px gainsboro; background-color: #EDF3F4;}
 
 ul.locationItems li a:visited ,
-ul.locationItems li.odd a:visited,
-ul.locationItems li.even a:visited {border: dashed 1px gray; background-color: #F7EAEA;}
+ul.locationItems li:nth-child(odd) a:visited,
+ul.locationItems li:nth-child(even) a:visited {border: dashed 1px gray; background-color: #F7EAEA;}
 
-ul.locationItems, 
+ul.locationItems,
 ul.locationItems li,
-ul.locationItems li.odd,
-ul.locationItems li.even,
+ul.locationItems li:nth-child(odd),
+ul.locationItems li:nth-child(even),
 ul.locationItems li a {-moz-border-radius:5px; -webkit-border-radius:5px; -o-border-radius:5px; border-radius:5px;}
 
 form label {display:block; font-size: 12px; clear:left; line-height: 20px;}
@@ -47,6 +47,12 @@ form button:focus,form input[type="text"]:focus,form input[type="password"]:focu
 #link_content, #content {overflow-y: scroll; display:block;}
 #find_items {position: relative; top: 25px; left:0px; width: 250px; background-color: #fff; border: solid 1px #999; padding:10px; border-left: none; border-top: none; margin: 0px; -moz-box-shadow:0px 1px 3px #000; -webkit-box-shadow:0px 1px 3px #000;}
 #change_size_container {display:block;}
+
+#areas_list label:nth-child(even),
+#region_list label:nth-child(even) {background-color: rgba(0, 0, 0, 0.2);}
+#areas_list label:nth-child(odd),
+#region_list label:nth-child(odd) {background-color: rgba(0, 0, 0, 0.07);}
+
 a#donate {text-decoration: none; display:block; border-top: solid 1px #999; margin:-10px; margin-top: 0px; line-height: 30px; text-align: center;}
 a#donate:hover{background-color: #F4FDFF;}
 a#donate:focus{color: red;}
@@ -68,4 +74,4 @@ a.button.hover {border-bottom: solid 4px red;}
 #buttons {display:none;}
 a.button {margin: 0px;margin-right: 5px; margin-bottom: 5px;padding:0px 4px;outline:none;border: solid 1px #D8EBEC;float:left;font-size: 14px;line-height: 20px;height: 20px;border-bottom: solid 4px #D8EBEC;text-decoration: none;background-color: white;text-align: center;-webkit-border-radius: 4px;-moz-border-radius: 4px; -moz-box-shadow: 2px 1px 1px rgba(0, 0, 0, 0.5); -webkit-box-shadow: 2px 1px 1px rgba(0, 0, 0, 0.5);}
 #region_list ,
-#areas_list {display: none;}
+#areas_list {display: none; border: 1px solid gainsboro;}

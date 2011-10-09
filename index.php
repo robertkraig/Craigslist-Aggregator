@@ -17,7 +17,7 @@ date_default_timezone_set('America/Los_Angeles');
 $POST_GET = array_merge($_GET,$_POST);
 
 $init = true;
-$findstuff = $findjobs = $findgigs = $findplaces = $findservices = false;
+$find_stuff = $find_jobs = $find_gigs = $find_places = $find_services = false;
 $title = 'My KraigsList Search';
 
 if(isset($POST_GET['site']))
@@ -43,19 +43,19 @@ if(isset($POST_GET['site']))
 	switch($POST_GET['site'])
 	{
 		case 'findstuff':
-			$findstuff = true;
+			$find_stuff = true;
 			break;
 		case 'findjobs':
-			$findjobs = true;
+			$find_jobs = true;
 			break;
 		case 'findgigs':
-			$findgigs = true;
+			$find_gigs = true;
 			break;
 		case 'findplaces':
-			$findplaces = true;
+			$find_places = true;
 			break;
 		case 'findservices':
-			$findservices = true;
+			$find_services = true;
 			break;
 	}
 
@@ -84,28 +84,15 @@ try
 		}
 	}
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 	<head>
+		<meta charset="utf-8" />
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 		<title><?php echo $title; ?></title>
 		<link rel="stylesheet" type="text/css" href="/css/body.css" />
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-		<script type="text/javascript" src="/js/app.js"></script>
-
-<?php
-if($init)
-{
-?>
-		<script type="text/javascript">
-			window.region_list = <?php echo json_encode($cl_scraper->getRegions()); ?>;
-			window.area_list = <?php echo json_encode($cl_scraper->getAreas()); ?>;
-			window.PHP_SELF = "<?php echo $_SERVER['PHP_SELF']; ?>";
-		</script>
-<?php
-}
-?>
-
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script src="/js/app.js"></script>
 		<script type="text/javascript">
 		  var _gaq = _gaq || [];
 		  _gaq.push(['_setAccount', 'UA-12896175-6']);
@@ -122,97 +109,22 @@ if($init)
 		<div id="header">
 			<ul>
 				<li><a href="http://www.compubomb.net">Home</a></li>
-				<li><a <?php echo ($findstuff? 'style="color:red;"':'style="color:black;"'); ?> href="http://<?php echo $_SERVER['SERVER_NAME']; ?>?site=findstuff">Stuff</a></li>
-				<li><a <?php echo ($findjobs? 'style="color:red;"':'style="color:black;"'); ?> href="http://<?php echo $_SERVER['SERVER_NAME']; ?>?site=findjobs">Jobs</a></li>
-				<li><a <?php echo ($findgigs? 'style="color:red;"':'style="color:black;"'); ?> href="http://<?php echo $_SERVER['SERVER_NAME']; ?>?site=findgigs">Gigs</a></li>
-				<li><a <?php echo ($findplaces? 'style="color:red;"':'style="color:black;"'); ?> href="http://<?php echo $_SERVER['SERVER_NAME']; ?>?site=findplaces">Places</a></li>
-				<li><a <?php echo ($findservices? 'style="color:red;"':'style="color:black;"'); ?> href="http://<?php echo $_SERVER['SERVER_NAME']; ?>?site=findservices">Services</a></li>
+				<li><a <?php echo ($find_stuff? 'style="color:red;"':'style="color:black;"'); ?> href="http://<?php echo $_SERVER['SERVER_NAME']; ?>?site=findstuff">Stuff</a></li>
+				<li><a <?php echo ($find_jobs? 'style="color:red;"':'style="color:black;"'); ?> href="http://<?php echo $_SERVER['SERVER_NAME']; ?>?site=findjobs">Jobs</a></li>
+				<li><a <?php echo ($find_gigs? 'style="color:red;"':'style="color:black;"'); ?> href="http://<?php echo $_SERVER['SERVER_NAME']; ?>?site=findgigs">Gigs</a></li>
+				<li><a <?php echo ($find_places? 'style="color:red;"':'style="color:black;"'); ?> href="http://<?php echo $_SERVER['SERVER_NAME']; ?>?site=findplaces">Places</a></li>
+				<li><a <?php echo ($find_services? 'style="color:red;"':'style="color:black;"'); ?> href="http://<?php echo $_SERVER['SERVER_NAME']; ?>?site=findservices">Services</a></li>
 			</ul>
 			<div style="clear: both;"></div>
 		</div>
 <?php
-if($init)
-{
-?>
-		<form action="" method="post" id="find_items">
-			<input type="hidden" name="site" id="site" value="<?php echo $cl_scraper->getInfo()->pageType; ?>" />
-			<div id="change_size_container">
-				<div style="font-size: 20px;"><?php echo $cl_scraper->getInfo()->pagetitle; ?></div>
-<?php
-	foreach($cl_scraper->getFields() as $field)
-	{
-		if(preg_match('/(string|int)/', $field['argType']))
-		{
-?>
-				<label class="fields" for="<?php echo $field['argId']; ?>"><?php echo $field['argTitle']; ?></label>
-				<input class="fields" type="text" name="<?php echo $field['argName']; ?>" id="<?php echo $field['argId']; ?>" />
-				<br style="margin:0;padding:0; height:1px; clear: left;" />
-<?php
-		}
-		elseif($field['argType'] == 'radio')
-		{
-			$argList = explode(':', $field['argTitle']);
-			$titles = explode('|', $argList[0]);
-			$args = explode('|', $argList[1]);
-			$select = explode('|', $argList[2]);
-			for($i = 0; $i < count($titles); $i++)
-			{
-				$checked = '';
-				if($select[$i] == '1')
-					$checked = 'checked="checked"';
-				$arg_name = str_replace(' ', '_', $titles[$i]);
-?>
-				<label class="fields" for="<?php echo $arg_name; ?>"><?php echo $titles[$i]; ?></label>
-				<input <?php echo $checked; ?> class="fields" type="radio" name="<?php echo $field['argName']; ?>" value="<?php echo $args[$i]; ?>" id="<?php echo $arg_name; ?>" />
-				<br style="margin:0;padding:0; height:1px; clear: left;" />
-<?php
-			}
-		}
-		elseif($field['argType'] == 'checkbox')
-		{
-			list($title,$value) = explode(':', $field['argTitle']);
-			$arg_name = str_replace(' ', '_', $field['argName']);
-?>
-				<label class="fields" for="<?php echo $arg_name; ?>"><?php echo $title; ?></label>
-				<input class="fields" type="checkbox" name="<?php echo $field['argName']; ?>" value="<?php echo $value; ?>" id="<?php echo $arg_name; ?>" />
-				<br style="margin:0;padding:0; height:1px; clear: left;" />
-<?php
-		}
-	}
-?>
-				<cite><?php echo $cl_scraper->getInfo()->pagesearchexample; ?></cite>
-				<div id="locations_container">
-					Region:&nbsp;&nbsp;<a id="region_list_disp">open</a>
-					<div id="region_list"></div><br />
-					Areas:&nbsp;&nbsp;<a id="areas_list_disp">open</a>
-					<div id="areas_list"></div>
-				</div>
-				<a id="search_btn">Search</a>
-				<input type="submit" style="display:none;" />
-				<div><a id="donate" href="http://www.compubomb.net/pages/payme" target="_blank">Donate To Author</a></div>
-				<img alt="loader" id="loader" style="display:none; position: absolute; bottom: 0; right: 0; margin:10px; margin-bottom: 35px;" src="/img/loading.gif" />
-			</div>
-		</form>
-		<div id="content-container">
-			<div id="buttons">
-				<a id="toggle_disp" class="button">Close All</a>
-				<a id="show_search" class="button">Show Search</a>
-				<span id="open_windows"></span>
-				<div style="clear: left; height: 0px;"></div>
-			</div>
-			<div style="display:none;" id="link_content"></div>
-			<div style="display:none;" id="content"></div>
-		</div>
-<?php
-}
+if($init) include_once 'inc/form.php';
 ?>
 	</body>
 </html>
 <?php
-
 }
 catch (Exception $e)
 {
 	echo $e->getMessage();
 }
-?>

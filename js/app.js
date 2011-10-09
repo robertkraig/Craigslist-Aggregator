@@ -27,7 +27,7 @@
 		{
 			if(!$('#tooltip').length)
 			{
-				var $tooltip = 
+				var $tooltip =
 					$('<div/>')
 					.attr('id','tooltip')
 					.hide()
@@ -79,7 +79,7 @@
 				.html(
 					(
 					!config.disabletext
-						? (config.prepend.length?config.prepend:'<strong>' + $self.text() + '</strong>' + '<br />') + 
+						? (config.prepend.length?config.prepend:'<strong>' + $self.text() + '</strong>' + '<br />') +
 							$self.attr(config.attr)
 						: (config.prepend.length?config.prepend:'<strong>' + $self.attr(config.attr) + '</strong>')
 					)
@@ -112,53 +112,6 @@
 
 $(document)
 	.data('counter',0);
-
-function addSearch($add)
-{
-	var $hash = window.location.hash;
-	if(!$hash.match(/^#!\//))
-	{
-		$hash = '#!/';
-	}
-	$hash = $hash + $add;
-	window.location.hash = $hash;
-}
-
-function runSearch()
-{
-	var run = false;
-	var $hash = window.location.hash;
-	if($hash.match(/^#!\//))
-	{
-		$hash = $hash.replace('#!/','');
-		var listArgs = $hash.split('&'),
-			arg = null;
-		for(var i in listArgs)
-		{
-			arg = listArgs[i].split('=');
-			switch(arg[0])
-			{
-				case 'title':
-					$('#search_term').val(arg[1]);
-					break;
-				case 'regions':
-					$('input.regions[value="'+arg[1]+'"]')
-						.trigger('click')
-						.triggerHandler('click');
-					break;
-				case 'location':
-					$('input.region.location[value="'+arg[1]+'"]').attr('checked','checked');
-					break;
-			}
-			run = true;
-		}
-
-		if(run)
-		{
-			$('#find_items').submit();		
-		}		
-	}
-}
 
 function centerWindow($div)
 {
@@ -202,19 +155,28 @@ function centerWindow($div)
 function createDialog(_title,_url)
 {
 	var incrementor = ($(document).data().counter++)+1;
-	var div = document.createElement('div');
-	$(div).hide();
-	$(div).addClass('window');
-	$(div).attr('id','window_'+incrementor);
-	$('#link_content').prepend(div);
-	var iframe = document.createElement('iframe');
-	$(iframe).attr('border','0');
-	$(iframe).attr('id','iframe_'+incrementor);
-	$(iframe).attr('src',_url);
-	$(iframe).attr('title',_title);
-	$(div).append(iframe);
-	$('#open_windows').prepend('<a class="windowLink button" info="'+_title+'" rel="'+incrementor+'" id="link_'+incrementor+'">Window&nbsp;'+ incrementor +'&nbsp;<span>X</span></a>');
-	$('#link_'+incrementor).hoverWindow({
+	var $window = $('<div>',{
+		'class':'window',
+		'id':'window_'+incrementor,
+		'style':'display:none;'
+	}).prependTo('#link_content');
+
+	$('<iframe>',{
+		'border':'0',
+		'id':'iframe_'+incrementor,
+		'src':_url,
+		'title':_title
+	}).appendTo($window);
+
+	$('<a>',{
+		'class':'windowLink button',
+		'info':_title,
+		'rel':incrementor,
+		'id':'link_'+incrementor
+	})
+	.html('Window&nbsp;'+ incrementor +'&nbsp;<span>X</span>')
+	.prependTo('#open_windows')
+	.hoverWindow({
 		'attr':'info',
 		'disabletext':true,
 		'width':'500px'
@@ -223,36 +185,49 @@ function createDialog(_title,_url)
 
 function process_data(json)
 {
-	var output = '';
-	var date;
-	var location;
-	var info,link,not_near;
-	for(var i in json)
-	{
-		date = json[i].date;
-		output += '<h1>' + date + '</h1>';
-		output += '<div class="date">';
-		var tmp_location = '';
-		for(var j in json[i].records)
-		{
-			location = json[i].records[j].location.split('.')[0];
-			if(tmp_location != location)
-			{
-				if(tmp_location != '') // first iteration
-					output+='</ul>';
 
-				output+='<h2>' + location + '</h2>';
-				output+='<ul class="locationItems">';
+	var date,location,info,link,not_near;
+	var $container = $('#content');
+	$container.empty();
+
+	$.each(json,function(key,array)
+	{
+		var date = array.date;
+		$('<h1>').text(date).appendTo($container);
+		var $dateGroup = $('<div>',{
+			'class':'date'
+		}).appendTo($container);
+		var tmp_location_switch = '';
+		var $locationGroup = null;
+		$.each(array.records,function(key,values)
+		{
+			var location = values.location.split('.')[0];
+			if(tmp_location_switch != location)
+			{
+				$('<h2>').text(location).appendTo($dateGroup);
+				$locationGroup = $('<ul>',{
+					'class':'locationItems'
+				}).appendTo($dateGroup);
 			}
-			tmp_location = location;
-			info = json[i].records[j].info;
+			tmp_location_switch = location;
+			info = values.info;
 			not_near = info.url.replace('http://', '').split('.')[0] != location?'<span class="near"></span>':'';
 			link = info.url.match(/http:\/\//)?info.url:'http://'+info.from+info.url;
-			output+='<li><a href="' + link + '" class="jobsite" info="'+info.title+'" target="_blank"><span>' + info.title + ' : <span style="color:black;">' + info.field + '</span></span></a>' + not_near + '</li>';
-		}
-		output+='</div>';
-	}
-	return output;
+			var $anchor = $('<a>',{
+				'href':link,
+				'class':'jobsite',
+				'info':info.title,
+				'target':'_blank'
+			}).html('<span>' + info.title + ' : <span style="color:black;">' + info.field + '</span></span>');
+			$('<li>').append($anchor).append(not_near).appendTo($locationGroup);
+		});
+	});
+
+	$('#buttons').show();
+	$('#search_btn').val('Search Craigslist');
+	$('#loader').hide();
+	$.getScript('/js/nav.js');
+
 }
 
 function content_size()
@@ -292,7 +267,8 @@ function showSearch()
 }
 
 $('.windowLink')
-	.live('click',function(event){
+	.live('click',function(event)
+	{
 		event.preventDefault();
 		hoverReset();
 		$(this).addClass('hover');
@@ -465,10 +441,9 @@ $(function()
 			$('#find_items').submit();
 		});
 
-
-
 	$('#find_items')
-		.submit(function(){
+		.submit(function()
+		{
 			if(!$('input[name="include[]"]:checked').length)
 			{
 				$('input[value="socal"]').attr('checked','checked');
@@ -492,18 +467,14 @@ $(function()
 				url: window.PHP_SELF,
 				data: $('#find_items').serialize(),
 				dataType: 'json',
-				success: function(json){
-					$('#content').html(process_data(json));
-					$('#buttons').show();
-					$('#search_btn').val('Search Craigslist');
-					$('#loader').hide();
-					$.getScript('/js/nav.js');
-					$('ul.locationItems li:odd').addClass('odd');
-					$('ul.locationItems li:even').addClass('even');
+				success: function(json)
+				{
+					process_data(json);
+
 				},
 				error: function(XMLHttpRequest, textStatus, errorThrown){
 					try{
-						console.log(XMLHttpRequest, textStatus, errorThrown);					
+						console.log(XMLHttpRequest, textStatus, errorThrown);
 					}
 					catch(e){}
 				}
@@ -537,25 +508,33 @@ $(function()
 			</form>';
 
 			var $modal =
-				$('<div/>')
-				.attr('id','mask')
-				.css('background-color','rgba(0,0,0,.65)')
-				.css('position','absolute')
-				.css('top','0').css('left','0')
-				.css('z-index','1020')
+				$('<div>',{
+					'id':'mask',
+					'css':{
+						'background-color':'rgba(0,0,0,.65)',
+						'position':'absolute',
+						'top':'0',
+						'left':'0',
+						'z-index':'1020'
+					}
+				});
 
-			var $load = 
-				$('<div/>')
-				.attr('id','load')
-				.css('width','275px')
-				.css('height','100px')
-				.css('position','absolute')
-				.css('top','0').css('left','0')
-				.css('z-index','1050')
-				.css('background-color','white')
-				.css('border','solid 1px black')
-				.css('-moz-box-shadow','0px 0px 2px #000')
-				.css('-webkit-box-shadow','0px 0px 2px #000')
+			var $load =
+				$('<div>',{
+					'id':'load',
+					'css':{
+						'width':'275px',
+						'height':'100px',
+						'position':'absolute',
+						'top':'0',
+						'left':'0',
+						'z-index':'1050',
+						'background-color':'white',
+						'border':'solid 1px black',
+						'-moz-box-shadow':'0 0 2px black',
+						'-webkit-box-shadow':'0 0 2px black'
+					}
+				})
 				.append(form);
 
 			$('body')
@@ -576,7 +555,5 @@ $(function()
 			$('#mask').css({'width':maskWidth,'height':maskHeight});
 			centerWindow($load);
 		});
-
-	runSearch();
 
 });
