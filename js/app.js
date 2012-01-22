@@ -1,5 +1,7 @@
-(function($){
-	$.fn.wait = function(time, type) {
+(function ($) {
+
+	$.fn.wait = function(time, type)
+	{
 		time = time || 1000;
 		type = type || "fx";
 		return this.queue(type, function() {
@@ -10,25 +12,28 @@
 		});
 	};
 
-	$.fn.hoverWindow = function(settings) {
+	$.fn.hoverWindow = function( settings)
+	{
 
 		var config = {
-			'attr': 'href',
+			'attr':'href',
 			'disabletext':false,
 			'prepend':'',
 			'width':'',
 			'height':'',
-			'backgroundColor':'white'
+			'backgroundColor' : 'white'
 		};
 
-		if (settings) $.extend(config, settings);
+		if(settings)
+		{
+			$.extend(config, settings);
+		}
 
 		function tooltip()
 		{
 			if(!$('#tooltip').length)
 			{
-				var $tooltip =
-					$('<div/>')
+				var $tooltip = $('<div/>')
 					.attr('id','tooltip')
 					.hide()
 					.prependTo('body');
@@ -74,10 +79,10 @@
 			}
 
 			tooltip()
-				.css('top',_topCord)
-				.css('left',_leftCord)
-				.html(
-					(
+			.css('top',_topCord)
+			.css('left',_leftCord)
+			.html(
+				(
 					!config.disabletext
 						? (config.prepend.length?config.prepend:'<strong>' + $self.text() + '</strong>' + '<br />') +
 							$self.attr(config.attr)
@@ -99,15 +104,73 @@
 					tooltip()
 						.show()
 						.wait(250)
-						.animate({opacity: 1}, {duration: 550}, 'linear');
+						.animate({
+							opacity: 1
+						}, {
+							duration: 550
+						}, 'linear');
 				})
 				.mouseout(function(){
 					tooltip()
-						.stop()
-						.remove();
+					.stop()
+					.remove();
 				});
 		});
 	};
+
+	$.fn.sortElements = function()
+	{
+		var sort = [].sort;
+
+		return function(comparator, getSortable)
+		{
+
+			getSortable = getSortable || function()
+			{
+				return this;
+			};
+
+			var placements = this.map(function()
+			{
+
+				var sortElement = getSortable.call(this),
+				parentNode = sortElement.parentNode,
+
+				// Since the element itself will change position, we have
+				// to have some way of storing its original position in
+				// the DOM. The easiest way is to have a 'flag' node:
+				nextSibling = parentNode.insertBefore(
+					document.createTextNode(''),
+					sortElement.nextSibling
+				);
+
+				return function()
+				{
+					if (parentNode === this)
+					{
+						throw new Error(
+							"You can't sort elements if any one is a descendant of another."
+						);
+					}
+
+					// Insert before flag:
+					parentNode.insertBefore(this, nextSibling);
+					// Remove flag:
+					parentNode.removeChild(nextSibling);
+
+				};
+
+			});
+
+			return sort.call(this, comparator).each(function(i)
+			{
+				placements[i].call(getSortable.call(this));
+			});
+
+		};
+
+	};
+
 })(jQuery);
 
 $(document)
@@ -125,7 +188,9 @@ function centerWindow($div)
 		horizontal:true, // booleen, center horizontal
 		absolute:true
 	};
-	var props = {position:'absolute'};
+	var props = {
+		position:'absolute'
+	};
 	if (options.vertical)
 	{
 		var top = (options.inside.height() - $div.outerHeight()) / 2;
@@ -207,13 +272,16 @@ function process_data(json)
 			var location = locationGroup.location.split('.')[0];
 			if(tmp_location_switch != location)
 			{
-				if(!$('ul[group='+location+']',$dateGroup).length)
+				if(!$('div[group='+location+']',$dateGroup).length)
 				{
-					$('<h2>').text(location).appendTo($dateGroup);
+					var $group = $('<div>',{
+						group:location
+					}).appendTo($dateGroup);
+					$('<h2>').text(location).appendTo($group);
 					$('<ul>',{
 						'class':'locationItems',
 						'group':location
-					}).appendTo($dateGroup);
+					}).appendTo($group);
 				}
 			}
 
@@ -232,6 +300,16 @@ function process_data(json)
 			$('ul[group='+location+']',$dateGroup).append($row);
 
 		});
+
+		var $newOrder = $('div[group]',$dateGroup).get();
+		$newOrder.sort(function(a , b)
+		{
+			return $(a).attr('group') > $(b).attr('group')?1:-1;
+		});
+		$dateGroup.empty();
+		$dateGroup.append($newOrder);
+//		console.log('blah',$('div[group]',$dateGroup));
+
 	});
 
 	$('#buttons').show();
@@ -245,9 +323,9 @@ function content_size()
 {
 	$('#content-container').css('left',$('#find_items').innerWidth(true));
 	$('#content,#link_content')
-		.css('height',$(window).height()-70)
-		.css('width',$(window).width() - ($('#find_items').innerWidth(true)+25))
-		.css('margin-left','10px');
+	.css('height',$(window).height()-70)
+	.css('width',$(window).width() - ($('#find_items').innerWidth(true)+25))
+	.css('margin-left','10px');
 }
 
 $('#content h1')
@@ -324,14 +402,14 @@ $('#region_list_disp')
 		if($(this).data().show)
 		{
 			$(this)
-				.text('open')
-				.data('show',false);
+			.text('open')
+			.data('show',false);
 		}
 		else
 		{
 			$(this)
-				.text('close')
-				.data('show',true);
+			.text('close')
+			.data('show',true);
 		}
 
 		$('#region_list').toggle();
@@ -344,14 +422,14 @@ $('#areas_list_disp')
 		if($(this).data().show)
 		{
 			$(this)
-				.text('open')
-				.data('show',false);
+			.text('open')
+			.data('show',false);
 		}
 		else
 		{
 			$(this)
-				.text('close')
-				.data('show',true);
+			.text('close')
+			.data('show',true);
 		}
 		$('#areas_list').toggle();
 	});
@@ -382,7 +460,7 @@ $(function()
 					'name':'include[]',
 					'value':obj.partial
 				})
-			).append(obj.name+', '+obj.state).appendTo('#areas_list');
+				).append(obj.name+', '+obj.state).appendTo('#areas_list');
 		});
 	}
 
@@ -414,94 +492,94 @@ $(function()
 						$regions.removeAttr('checked');
 					}
 				})
-			).append(obj.name).appendTo('#region_list');
+				).append(obj.name).appendTo('#region_list');
 		});
 	}
 
 	$(document)
-		.data('title',$('title').text());
+	.data('title',$('title').text());
 
 	$('#buttons a.button')
-		.click(hoverReset);
+	.click(hoverReset);
 
 	$('#toggle_disp')
-		.data('open',true)
-		.click(function(event)
+	.data('open',true)
+	.click(function(event)
+	{
+		event.preventDefault();
+		if($(this).data().open)
 		{
-			event.preventDefault();
-			if($(this).data().open)
-			{
-				$(this).text('Expand All');
-				$('#content div.date').hide();
-				$('#content div.date ul').css('display','none');
-				$(this).data().open = false;
-			}
-			else
-			{
-				$('#content div.date').show();
-				$('#content div.date ul').css('display','block');
-				$(this).data().open = true;
-				$(this).text('Close All');
-			}
-			$('#show_search').hide();
-		});
+			$(this).text('Expand All');
+			$('#content div.date').hide();
+			$('#content div.date ul').css('display','none');
+			$(this).data().open = false;
+		}
+		else
+		{
+			$('#content div.date').show();
+			$('#content div.date ul').css('display','block');
+			$(this).data().open = true;
+			$(this).text('Close All');
+		}
+		$('#show_search').hide();
+	});
 
 	$('#search_btn')
-		.click(function(event){
-			event.preventDefault();
-			$('#find_items').submit();
-		});
+	.click(function(event){
+		event.preventDefault();
+		$('#find_items').submit();
+	});
 
 	$('#find_items')
-		.submit(function()
+	.submit(function()
+	{
+		if(!$('input[name="include[]"]:checked').length)
 		{
-			if(!$('input[name="include[]"]:checked').length)
-			{
-				$('input[value="socal"]').attr('checked','checked');
-				$('input[name="include[]"].socal').attr('checked','checked');
-			}
-			if($('#search_term').val() == "")
-			{
-				$('#search_term')
-					.css('-moz-box-shadow','0px 0px 2px red')
-					.css('-webkit-box-shadow','0px 0px 2px red')
-					.css('border','solid 1px red')
-				return false;
-			}
-			$('#loader').show();
-			$('#link_content').hide();
-			$('#content').show().html('Loading...');
-			$('#search_btn').val('searching');
-			$('#buttons').hide();
-			$.ajax({
-				type: "POST",
-				url: window.PHP_SELF,
-				data: $('#find_items').serialize(),
-				dataType: 'json',
-				success: function(json)
-				{
-					process_data(json);
-
-				},
-				error: function(XMLHttpRequest, textStatus, errorThrown){
-					try{
-						console.log(XMLHttpRequest, textStatus, errorThrown);
-					}
-					catch(e){}
-				}
-			});
+			$('input[value="socal"]').attr('checked','checked');
+			$('input[name="include[]"].socal').attr('checked','checked');
+		}
+		if($('#search_term').val() == "")
+		{
+			$('#search_term')
+			.css('-moz-box-shadow','0px 0px 2px red')
+			.css('-webkit-box-shadow','0px 0px 2px red')
+			.css('border','solid 1px red')
 			return false;
+		}
+		$('#loader').show();
+		$('#link_content').hide();
+		$('#content').show().html('Loading...');
+		$('#search_btn').val('searching');
+		$('#buttons').hide();
+		$.ajax({
+			type: "POST",
+			url: window.PHP_SELF,
+			data: $('#find_items').serialize(),
+			dataType: 'json',
+			success: function(json)
+			{
+				process_data(json);
+
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown){
+				try{
+					console.log(XMLHttpRequest, textStatus, errorThrown);
+				}
+				catch(e){}
+			}
 		});
+		return false;
+	});
 
 	content_size();
 
 	$(window)
-		.resize(content_size);
+	.resize(content_size);
 
 	$('#donate')
-		.click(function(event){
-			event.preventDefault();
-			var form = ' \
+	.click(function(event){
+		event.preventDefault();
+		var form = ' \
 			<form action="https://www.paypal.com/cgi-bin/webscr" method="post"> \
 				<input name="cmd" value="_xclick" type="hidden" /> \
 				<input name="business" value="robertkraig@gmail.com" type="hidden" /> \
@@ -518,53 +596,56 @@ $(function()
 				</div> \
 			</form>';
 
-			var $modal =
-				$('<div>',{
-					'id':'mask',
-					'css':{
-						'background-color':'rgba(0,0,0,.65)',
-						'position':'absolute',
-						'top':'0',
-						'left':'0',
-						'z-index':'1020'
-					}
-				});
-
-			var $load =
-				$('<div>',{
-					'id':'load',
-					'css':{
-						'width':'275px',
-						'height':'100px',
-						'position':'absolute',
-						'top':'0',
-						'left':'0',
-						'z-index':'1050',
-						'background-color':'white',
-						'border':'solid 1px black',
-						'-moz-box-shadow':'0 0 2px black',
-						'-webkit-box-shadow':'0 0 2px black'
-					}
-				})
-				.append(form);
-
-			$('body')
-				.prepend($modal)
-				.prepend($load);
-
-			$modal
-				.click(function(){
-					$modal.remove();
-					$load.remove();
-				});
-
-			//Get the screen height and width
-			var maskHeight = $(document).height();
-			var maskWidth = $(window).width();
-
-			//Set heigth and width to mask to fill up the whole screen
-			$('#mask').css({'width':maskWidth,'height':maskHeight});
-			centerWindow($load);
+		var $modal =
+		$('<div>',{
+			'id':'mask',
+			'css':{
+				'background-color':'rgba(0,0,0,.65)',
+				'position':'absolute',
+				'top':'0',
+				'left':'0',
+				'z-index':'1020'
+			}
 		});
+
+		var $load =
+		$('<div>',{
+			'id':'load',
+			'css':{
+				'width':'275px',
+				'height':'100px',
+				'position':'absolute',
+				'top':'0',
+				'left':'0',
+				'z-index':'1050',
+				'background-color':'white',
+				'border':'solid 1px black',
+				'-moz-box-shadow':'0 0 2px black',
+				'-webkit-box-shadow':'0 0 2px black'
+			}
+		})
+		.append(form);
+
+		$('body')
+		.prepend($modal)
+		.prepend($load);
+
+		$modal
+		.click(function(){
+			$modal.remove();
+			$load.remove();
+		});
+
+		//Get the screen height and width
+		var maskHeight = $(document).height();
+		var maskWidth = $(window).width();
+
+		//Set heigth and width to mask to fill up the whole screen
+		$('#mask').css({
+			'width':maskWidth,
+			'height':maskHeight
+		});
+		centerWindow($load);
+	});
 
 });

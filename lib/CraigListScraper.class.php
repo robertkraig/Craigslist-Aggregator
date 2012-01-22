@@ -343,16 +343,7 @@ class CraigListScraper {
 			$regroupList[$group_hash]['records'][] = $item;
 		}
 
-		foreach($regroupList as $groupHash => $dateGroups)
-		{
-			uksort($regroupList[$groupHash]['records'], function($a, $b)
-			{
-				if($a['location'] == $b['location']) return 0;
-				return $a['location'] > $b['location']?-1:1;
-			});
-		}
-
-		$this->record_list = $regroupList;
+		$this->record_list = array_reverse($regroupList);
 	}
 
 	function  __toString()
