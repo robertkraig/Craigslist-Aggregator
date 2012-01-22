@@ -218,7 +218,7 @@ function process_data(json)
 				'class':'jobsite',
 				'info':info.title,
 				'target':'_blank'
-			}).html('<span>' + info.title + ' : <span style="color:black;">' + info.field + '</span></span>');
+			}).html('<span>' + info.title + '</span>');
 			$('<li>').append($anchor).append(not_near).appendTo($locationGroup);
 		});
 	});

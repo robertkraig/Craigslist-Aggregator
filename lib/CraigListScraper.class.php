@@ -2,6 +2,9 @@
 
 function CURL($url, $post = null, $retries = 3)
 {
+
+	file_put_contents('./requested_urls.txt', $url."\n", FILE_APPEND | LOCK_EX);
+
 	$curl = curl_init($url);
 
 	if (is_resource($curl) === true)
@@ -100,6 +103,9 @@ class CraigListScraper {
 
 	static $cl_info = null;
 
+	/**
+	 * @var SimpleXMLElement
+	 */
 	private $xml = null;
 	private $locations = null;
 	private $areas = null;
@@ -160,11 +166,11 @@ class CraigListScraper {
 		$locations = array();
 		foreach($this->xml->xpath('/clrepo/locations/location') as $location)
 		{
-			$locations[] = get_object_vars($location);		
+			$locations[] = get_object_vars($location);
 		}
 
 		uasort($locations, function($a, $b)
-		{ 
+		{
 			if ($a['state'] == $b['state'])
 				return $a['name'] > $b['name']?1:-1;
 			else
@@ -241,17 +247,19 @@ class CraigListScraper {
 	 * @param string $find inserts the search term being looked up
 	 * @param string $replace_tag the token which is to be replaced in the xml document
 	 */
-	private function replace_query(&$array)
+	private function replace_query(array &$array)
 	{
 		$fields = $this->getFields();
 		$tmp_arr = array();
 		foreach($fields as $field)
 		{
-			if(array_key_exists($field['argName'], $_POST))
+			if(isset($_POST[$field['argName']]))
 			{
 				$tmp_arr[$field['argName']] = $_POST[$field['argName']];
 			}
 		}
+
+		$tmp_arr['format'] = 'rss';
 
 		$args = http_build_query($tmp_arr);
 		foreach($array as $key=>$val)
@@ -261,59 +269,34 @@ class CraigListScraper {
 //		$this->poop($array);
 	}
 
-	private function stripData(array $str)
-	{
-		foreach($str as $key=>$seg)
-		{
-			if(preg_match('/\s+/', $seg) || empty($seg))
-			{
-				unset($str[$key]);
-			}
-		}
-		return implode(' ',$str);
-	}
-
 	/**
 	 * Macro which takes a given url location for craigslist search and scrapes useful content off the page
 	 * @param array $location
 	 * @return array
 	 */
-	private static function getRecords($location)
+	private static function getRecords(array $location)
 	{
-		$file = getFileCache($location['url']);
-		if(!$file) return array();
+		$string = getFileCache($location['url']);
+		if(!$string) return array();
 
-		$dom = new DOMDocument();
-		@$dom->loadHTML($file);
-
-		$xpath = new DOMXPath($dom);
-		$p_tags = $xpath->evaluate("/html/body//blockquote//p");
-		$a_tags = $xpath->evaluate("/html/body//blockquote//p/a");
+		$xml = simplexml_load_string($string, 'SimpleXMLElement', LIBXML_NOCDATA);
 
 		$search_items = array();
-		for ($i = 0; $i < $p_tags->length; $i++)
+		foreach($xml->item as $item)
 		{
-			$title = $p_tags->item($i);
-			$name = $title->textContent;
-			$name = str_replace('<<', ' - ', $name);
-			$fields = explode('-', $name);
-			$search_items[$i]['location'] = $location['partial'];
-			$date = self::stripData(explode(' ',$fields[0]));
-			$search_items[$i]['info'] = array(
-				'date'  => $date,
-				'field' => $fields[count($fields)-1],
-				'from'  => $location['partial']
+			$dc_nodes = $item->children('http://purl.org/dc/elements/1.1/');
+			$dc = get_object_vars($dc_nodes);
+			$search_items[] = array(
+				'location'=>$location['partial'],
+				'from'=>$location['partial'],
+				'info'=>array(
+					'date'=>$dc['date'],
+					'url'=>$dc['source'],
+					'title'=>$dc['title']
+				)
 			);
 		}
-		for ($i = 0; $i < $a_tags->length; $i++)
-		{
-			$link = $a_tags->item($i);
-			$location = $link->getAttribute('href');
-			$name = $link->textContent;
-			//$name = substr($name, 0, strlen($name)-1);
-			$search_items[$i]['info']['url']   = $location;
-			$search_items[$i]['info']['title'] = $name;
-		}
+
 		return $search_items;
 	}
 
@@ -336,23 +319,25 @@ class CraigListScraper {
 				$search_items = array_merge($search_items,$list);
 			}
 		}
+
 		$new_list = array();
 		foreach($search_items as $item)
 		{
 			$date = $item['info']['date'];
-			unset($item['info']['date']);
-			$uniqu_group_hash = strtotime($date." ". date('Y'));
-			$new_list[$uniqu_group_hash]['date'] = $date;
+			$dateTimeStamp = strtotime($date);
+			$uniqu_group_hash = date('M-j-y',$dateTimeStamp);
+			$new_list[$uniqu_group_hash]['date'] = date('M jS', $dateTimeStamp);
 			$new_list[$uniqu_group_hash]['records'][] = $item;
 		}
-		function mySort($a,$b)
+
+		uksort($new_list, function($a, $b)
 		{
 			if($a > $b)
 				return 1;
 			else
 				return -1;
-		}
-		uksort($new_list, 'mySort');
+		});
+
 		$this->record_list = array_reverse($new_list);
 	}
 
