@@ -3,7 +3,7 @@
 function CURL($url, $post = null, $retries = 3)
 {
 
-	file_put_contents('./requested_urls.txt', $url."\n", FILE_APPEND | LOCK_EX);
+//	file_put_contents('./requested_urls.txt', $url."\n", FILE_APPEND | LOCK_EX);
 
 	$curl = curl_init($url);
 
