@@ -190,36 +190,47 @@ function process_data(json)
 	var $container = $('#content');
 	$container.empty();
 
-	$.each(json,function(key,array)
+	$.each(json,function(key, dateGroup)
 	{
-		var date = array.date;
+		var date = dateGroup.date;
+
 		$('<h1>').text(date).appendTo($container);
+
 		var $dateGroup = $('<div>',{
 			'class':'date'
 		}).appendTo($container);
+
 		var tmp_location_switch = '';
-		var $locationGroup = null;
-		$.each(array.records,function(key,values)
+
+		$.each(dateGroup.records, function(key, locationGroup)
 		{
-			var location = values.location.split('.')[0];
+			var location = locationGroup.location.split('.')[0];
 			if(tmp_location_switch != location)
 			{
-				$('<h2>').text(location).appendTo($dateGroup);
-				$locationGroup = $('<ul>',{
-					'class':'locationItems'
-				}).appendTo($dateGroup);
+				if(!$('ul[group='+location+']',$dateGroup).length)
+				{
+					$('<h2>').text(location).appendTo($dateGroup);
+					$('<ul>',{
+						'class':'locationItems',
+						'group':location
+					}).appendTo($dateGroup);
+				}
 			}
+
 			tmp_location_switch = location;
-			info = values.info;
-			not_near = info.url.replace('http://', '').split('.')[0] != location?'<span class="near"></span>':'';
-			link = info.url.match(/http:\/\//)?info.url:'http://'+info.from+info.url;
+
+			info = locationGroup.info;
+
 			var $anchor = $('<a>',{
-				'href':link,
+				'href':info.source,
 				'class':'jobsite',
 				'info':info.title,
 				'target':'_blank'
 			}).html('<span>' + info.title + '</span>');
-			$('<li>').append($anchor).append(not_near).appendTo($locationGroup);
+
+			var $row = $('<li>').append($anchor)
+			$('ul[group='+location+']',$dateGroup).append($row);
+
 		});
 	});
 

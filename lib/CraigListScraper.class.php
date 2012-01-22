@@ -284,16 +284,13 @@ class CraigListScraper {
 		$search_items = array();
 		foreach($xml->item as $item)
 		{
+			$info = get_object_vars($item);
 			$dc_nodes = $item->children('http://purl.org/dc/elements/1.1/');
 			$dc = get_object_vars($dc_nodes);
+			$data = $info + $dc;
 			$search_items[] = array(
 				'location'=>$location['partial'],
-				'from'=>$location['partial'],
-				'info'=>array(
-					'date'=>$dc['date'],
-					'url'=>$dc['source'],
-					'title'=>$dc['title']
-				)
+				'info'=>$data
 			);
 		}
 
@@ -325,9 +322,8 @@ class CraigListScraper {
 		{
 			$date = $item['info']['date'];
 			$dateTimeStamp = strtotime($date);
-			$uniqu_group_hash = date('M-j-y',$dateTimeStamp);
-			$new_list[$uniqu_group_hash]['date'] = date('M jS', $dateTimeStamp);
-			$new_list[$uniqu_group_hash]['records'][] = $item;
+			$uniqu_group_hash = $dateTimeStamp;
+			$new_list[$uniqu_group_hash] = $item;
 		}
 
 		uksort($new_list, function($a, $b)
@@ -338,7 +334,25 @@ class CraigListScraper {
 				return -1;
 		});
 
-		$this->record_list = array_reverse($new_list);
+		$regroupList = array();
+		foreach($new_list as $dateTimeStamp => $item)
+		{
+			$group_hash = date('M-j-y', $dateTimeStamp);
+			$regroupList[$group_hash]['timestamp'] = $dateTimeStamp;
+			$regroupList[$group_hash]['date'] = date('M jS', $dateTimeStamp);
+			$regroupList[$group_hash]['records'][] = $item;
+		}
+
+		foreach($regroupList as $groupHash => $dateGroups)
+		{
+			uksort($regroupList[$groupHash]['records'], function($a, $b)
+			{
+				if($a['location'] == $b['location']) return 0;
+				return $a['location'] > $b['location']?-1:1;
+			});
+		}
+
+		$this->record_list = $regroupList;
 	}
 
 	function  __toString()
