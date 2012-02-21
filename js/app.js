@@ -118,59 +118,6 @@
 		});
 	};
 
-	$.fn.sortElements = function()
-	{
-		var sort = [].sort;
-
-		return function(comparator, getSortable)
-		{
-
-			getSortable = getSortable || function()
-			{
-				return this;
-			};
-
-			var placements = this.map(function()
-			{
-
-				var sortElement = getSortable.call(this),
-				parentNode = sortElement.parentNode,
-
-				// Since the element itself will change position, we have
-				// to have some way of storing its original position in
-				// the DOM. The easiest way is to have a 'flag' node:
-				nextSibling = parentNode.insertBefore(
-					document.createTextNode(''),
-					sortElement.nextSibling
-				);
-
-				return function()
-				{
-					if (parentNode === this)
-					{
-						throw new Error(
-							"You can't sort elements if any one is a descendant of another."
-						);
-					}
-
-					// Insert before flag:
-					parentNode.insertBefore(this, nextSibling);
-					// Remove flag:
-					parentNode.removeChild(nextSibling);
-
-				};
-
-			});
-
-			return sort.call(this, comparator).each(function(i)
-			{
-				placements[i].call(getSortable.call(this));
-			});
-
-		};
-
-	};
-
 })(jQuery);
 
 $(document)
@@ -497,155 +444,156 @@ $(function()
 	}
 
 	$(document)
-	.data('title',$('title').text());
+		.data('title',$('title').text());
 
 	$('#buttons a.button')
-	.click(hoverReset);
+		.click(hoverReset);
 
 	$('#toggle_disp')
-	.data('open',true)
-	.click(function(event)
-	{
-		event.preventDefault();
-		if($(this).data().open)
+		.data('open',true)
+		.click(function(event)
 		{
-			$(this).text('Expand All');
-			$('#content div.date').hide();
-			$('#content div.date ul').css('display','none');
-			$(this).data().open = false;
-		}
-		else
-		{
-			$('#content div.date').show();
-			$('#content div.date ul').css('display','block');
-			$(this).data().open = true;
-			$(this).text('Close All');
-		}
-		$('#show_search').hide();
-	});
+			event.preventDefault();
+			if($(this).data().open)
+			{
+				$(this).text('Expand All');
+				$('#content div.date').hide();
+				$('#content div.date ul').css('display','none');
+				$(this).data().open = false;
+			}
+			else
+			{
+				$('#content div.date').show();
+				$('#content div.date ul').css('display','block');
+				$(this).data().open = true;
+				$(this).text('Close All');
+			}
+			$('#show_search').hide();
+		});
 
 	$('#search_btn')
-	.click(function(event){
-		event.preventDefault();
-		$('#find_items').submit();
-	});
+		.click(function(event){
+			event.preventDefault();
+			$('#find_items').submit();
+		});
 
 	$('#find_items')
-	.submit(function()
-	{
-		if(!$('input[name="include[]"]:checked').length)
+		.submit(function()
 		{
-			$('input[value="socal"]').attr('checked','checked');
-			$('input[name="include[]"].socal').attr('checked','checked');
-		}
-		if($('#search_term').val() == "")
-		{
-			$('#search_term')
-			.css('-moz-box-shadow','0px 0px 2px red')
-			.css('-webkit-box-shadow','0px 0px 2px red')
-			.css('border','solid 1px red')
-			return false;
-		}
-		$('#loader').show();
-		$('#link_content').hide();
-		$('#content').show().html('Loading...');
-		$('#search_btn').val('searching');
-		$('#buttons').hide();
-		$.ajax({
-			type: "POST",
-			url: window.PHP_SELF,
-			data: $('#find_items').serialize(),
-			dataType: 'json',
-			success: function(json)
+			if(!$('input[name="include[]"]:checked').length)
 			{
-				process_data(json);
-
-			},
-			error: function(XMLHttpRequest, textStatus, errorThrown){
-				try{
-					console.log(XMLHttpRequest, textStatus, errorThrown);
-				}
-				catch(e){}
+				$('input[value="socal"]').attr('checked','checked');
+				$('input[name="include[]"].socal').attr('checked','checked');
 			}
+			if($('#search_term').val() == "")
+			{
+				$('#search_term')
+				.css('-moz-box-shadow','0px 0px 2px red')
+				.css('-webkit-box-shadow','0px 0px 2px red')
+				.css('border','solid 1px red')
+				return false;
+			}
+			$('#loader').show();
+			$('#link_content').hide();
+			$('#content').show().html('Loading...');
+			$('#search_btn').val('searching');
+			$('#buttons').hide();
+			$.ajax({
+				type: "POST",
+				url: window.PHP_SELF,
+				data: $('#find_items').serialize(),
+				dataType: 'json',
+				success: function(json)
+				{
+					process_data(json);
+
+				},
+				error: function(XMLHttpRequest, textStatus, errorThrown){
+					try{
+						console.log(XMLHttpRequest, textStatus, errorThrown);
+					}
+					catch(e){}
+				}
+			});
+			return false;
 		});
-		return false;
-	});
 
 	content_size();
 
 	$(window)
-	.resize(content_size);
+		.resize(content_size);
 
 	$('#donate')
-	.click(function(event){
-		event.preventDefault();
-		var form = ' \
-			<form action="https://www.paypal.com/cgi-bin/webscr" method="post"> \
-				<input name="cmd" value="_xclick" type="hidden" /> \
-				<input name="business" value="robertkraig@gmail.com" type="hidden" /> \
-				<input name="item_name" value="Donation to the Robert Kraig Fund." type="hidden" /> \
-				<input name="item_number" value="" type="hidden" /> \
-				<input name="no_shipping" value="0" type="hidden" /> \
-				<input name="no_note" value="1" type="hidden" /> \
-				<input name="currency_code" value="USD" type="hidden" /> \
-				<input name="bn" value="PP-BuyNowBF" type="hidden" /> \
-				<div style="font-size: 24px;line-height:30px; padding:10px; text-align:center;">Donate to author</div> \
-				<div style="padding:10px; padding-top:0px; margin:0px; text-align:center;"> \
-					<label style="display:inline;" for="amount">$<input name="amount" value="" type="text" /></label> \
-					<button style="display:inline;" name="submit" type="submit">Donate</button>\
-				</div> \
-			</form>';
+		.click(function(event)
+		{
+			event.preventDefault();
+			var form = ' \
+				<form action="https://www.paypal.com/cgi-bin/webscr" method="post"> \
+					<input name="cmd" value="_xclick" type="hidden" /> \
+					<input name="business" value="robertkraig@gmail.com" type="hidden" /> \
+					<input name="item_name" value="Donation to the Robert Kraig Fund." type="hidden" /> \
+					<input name="item_number" value="" type="hidden" /> \
+					<input name="no_shipping" value="0" type="hidden" /> \
+					<input name="no_note" value="1" type="hidden" /> \
+					<input name="currency_code" value="USD" type="hidden" /> \
+					<input name="bn" value="PP-BuyNowBF" type="hidden" /> \
+					<div style="font-size: 24px;line-height:30px; padding:10px; text-align:center;">Donate to author</div> \
+					<div style="padding:10px; padding-top:0px; margin:0px; text-align:center;"> \
+						<label style="display:inline;" for="amount">$<input name="amount" value="" type="text" /></label> \
+						<button style="display:inline;" name="submit" type="submit">Donate</button>\
+					</div> \
+				</form>';
 
-		var $modal =
-		$('<div>',{
-			'id':'mask',
-			'css':{
-				'background-color':'rgba(0,0,0,.65)',
-				'position':'absolute',
-				'top':'0',
-				'left':'0',
-				'z-index':'1020'
-			}
+			var $modal =
+				$('<div>',{
+					'id':'mask',
+					'css':{
+						'background-color':'rgba(0,0,0,.65)',
+						'position':'absolute',
+						'top':'0',
+						'left':'0',
+						'z-index':'1020'
+					}
+				});
+
+			var $load =
+				$('<div>',{
+					'id':'load',
+					'css':{
+						'width':'275px',
+						'height':'100px',
+						'position':'absolute',
+						'top':'0',
+						'left':'0',
+						'z-index':'1050',
+						'background-color':'white',
+						'border':'solid 1px black',
+						'-moz-box-shadow':'0 0 2px black',
+						'-webkit-box-shadow':'0 0 2px black'
+					}
+				})
+				.append(form);
+
+			$('body')
+				.prepend($modal)
+				.prepend($load);
+
+			$modal
+				.click(function(){
+					$modal.remove();
+					$load.remove();
+				});
+
+			//Get the screen height and width
+			var maskHeight = $(document).height();
+			var maskWidth = $(window).width();
+
+			//Set heigth and width to mask to fill up the whole screen
+			$('#mask').css({
+				'width':maskWidth,
+				'height':maskHeight
+			});
+			centerWindow($load);
 		});
-
-		var $load =
-		$('<div>',{
-			'id':'load',
-			'css':{
-				'width':'275px',
-				'height':'100px',
-				'position':'absolute',
-				'top':'0',
-				'left':'0',
-				'z-index':'1050',
-				'background-color':'white',
-				'border':'solid 1px black',
-				'-moz-box-shadow':'0 0 2px black',
-				'-webkit-box-shadow':'0 0 2px black'
-			}
-		})
-		.append(form);
-
-		$('body')
-		.prepend($modal)
-		.prepend($load);
-
-		$modal
-		.click(function(){
-			$modal.remove();
-			$load.remove();
-		});
-
-		//Get the screen height and width
-		var maskHeight = $(document).height();
-		var maskWidth = $(window).width();
-
-		//Set heigth and width to mask to fill up the whole screen
-		$('#mask').css({
-			'width':maskWidth,
-			'height':maskHeight
-		});
-		centerWindow($load);
-	});
 
 });

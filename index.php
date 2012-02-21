@@ -20,7 +20,7 @@ $app->get('/',function() use ($app, $sites)
 {
 	$title = 'My KraigsList Search';
 	$init = false;
-	include_once 'templates/index.php';
+	require 'templates/index.php';
 });
 
 $app->post('/',function() use ($app, $sites)
@@ -72,30 +72,22 @@ $app->get('/site/:site',function($site) use ($app, $sites)
 		$sites[$site] = true;
 	}
 	else
+	{
 		$app->redirect('/');
+	}
 
 	try
 	{
 		require 'lib/CraigListScraper.class.php';
 		$cl_scraper = new CraigListScraper("sites/{$loadConfiguration}");
 		$title = $cl_scraper->getInfo()->title;
-		$search_field = $cl_scraper->getFields();
-		$search_field_name = $search_field[0]['argName'];
-
-		if(isset($_POST[$search_field_name]) && strlen($_POST[$search_field_name]))
-		{
-			header('Content-type: application/json');
-			$cl_scraper->initialize($_POST['include']);
-			echo $cl_scraper;
-			exit;
-		}
 	}
 	catch (Exception $e)
 	{
 		echo $e->getMessage();
 	}
 
-	include_once'templates/index.php';
+	require'templates/index.php';
 });
 
 $app->notFound(function () use ($app)
