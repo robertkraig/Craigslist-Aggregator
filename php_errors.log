@@ -10,3 +10,55 @@
 [23-Jul-2011 01:38:44] PHP Fatal error:  Call to a member function getInfo() on a non-object in /home/rkraig/Projects/Craigslist-Aggregator/index.php on line 91
 [23-Jul-2011 01:38:44] PHP Stack trace:
 [23-Jul-2011 01:38:44] PHP   1. {main}() /home/rkraig/Projects/Craigslist-Aggregator/index.php:0
+[21-Feb-2012 01:06:20] PHP Warning:  file_put_contents(./cache/65d8eaa3520d6017e286413973bab8ea2bbf9156): failed to open stream: No such file or directory in /home/rkraig/Projects/Craigslist-Aggregator/lib/CraigListScraper.class.php on line 92
+[21-Feb-2012 01:06:20] PHP Stack trace:
+[21-Feb-2012 01:06:20] PHP   1. {main}() /home/rkraig/Projects/Craigslist-Aggregator/index.php:0
+[21-Feb-2012 01:06:20] PHP   2. CraigListScraper->initialize() /home/rkraig/Projects/Craigslist-Aggregator/index.php:81
+[21-Feb-2012 01:06:20] PHP   3. CraigListScraper::getRecords() /home/rkraig/Projects/Craigslist-Aggregator/lib/CraigListScraper.class.php:315
+[21-Feb-2012 01:06:20] PHP   4. getFileCache() /home/rkraig/Projects/Craigslist-Aggregator/lib/CraigListScraper.class.php:279
+[21-Feb-2012 01:06:20] PHP   5. file_put_contents() /home/rkraig/Projects/Craigslist-Aggregator/lib/CraigListScraper.class.php:92
+[21-Feb-2012 01:06:20] PHP Warning:  file_put_contents(./cache/e9385decfc935b8485d22f88478792f3b03c1a6a): failed to open stream: No such file or directory in /home/rkraig/Projects/Craigslist-Aggregator/lib/CraigListScraper.class.php on line 92
+[21-Feb-2012 01:06:20] PHP Stack trace:
+[21-Feb-2012 01:06:20] PHP   1. {main}() /home/rkraig/Projects/Craigslist-Aggregator/index.php:0
+[21-Feb-2012 01:06:20] PHP   2. CraigListScraper->initialize() /home/rkraig/Projects/Craigslist-Aggregator/index.php:81
+[21-Feb-2012 01:06:20] PHP   3. CraigListScraper::getRecords() /home/rkraig/Projects/Craigslist-Aggregator/lib/CraigListScraper.class.php:315
+[21-Feb-2012 01:06:20] PHP   4. getFileCache() /home/rkraig/Projects/Craigslist-Aggregator/lib/CraigListScraper.class.php:279
+[21-Feb-2012 01:06:20] PHP   5. file_put_contents() /home/rkraig/Projects/Craigslist-Aggregator/lib/CraigListScraper.class.php:92
+[21-Feb-2012 01:06:21] PHP Warning:  file_put_contents(./cache/c3cbfbdbc5f3bda63b3a6d55df019ce594cda48e): failed to open stream: No such file or directory in /home/rkraig/Projects/Craigslist-Aggregator/lib/CraigListScraper.class.php on line 92
+[21-Feb-2012 01:06:21] PHP Stack trace:
+[21-Feb-2012 01:06:21] PHP   1. {main}() /home/rkraig/Projects/Craigslist-Aggregator/index.php:0
+[21-Feb-2012 01:06:21] PHP   2. CraigListScraper->initialize() /home/rkraig/Projects/Craigslist-Aggregator/index.php:81
+[21-Feb-2012 01:06:21] PHP   3. CraigListScraper::getRecords() /home/rkraig/Projects/Craigslist-Aggregator/lib/CraigListScraper.class.php:315
+[21-Feb-2012 01:06:21] PHP   4. getFileCache() /home/rkraig/Projects/Craigslist-Aggregator/lib/CraigListScraper.class.php:279
+[21-Feb-2012 01:06:21] PHP   5. file_put_contents() /home/rkraig/Projects/Craigslist-Aggregator/lib/CraigListScraper.class.php:92
+[21-Feb-2012 01:06:22] PHP Warning:  file_put_contents(./cache/53e2dcfc12c3354d3f2dcc3eb3d1deee4b0e28be): failed to open stream: No such file or directory in /home/rkraig/Projects/Craigslist-Aggregator/lib/CraigListScraper.class.php on line 92
+[21-Feb-2012 01:06:22] PHP Stack trace:
+[21-Feb-2012 01:06:22] PHP   1. {main}() /home/rkraig/Projects/Craigslist-Aggregator/index.php:0
+[21-Feb-2012 01:06:22] PHP   2. CraigListScraper->initialize() /home/rkraig/Projects/Craigslist-Aggregator/index.php:81
+[21-Feb-2012 01:06:22] PHP   3. CraigListScraper::getRecords() /home/rkraig/Projects/Craigslist-Aggregator/lib/CraigListScraper.class.php:315
+[21-Feb-2012 01:06:22] PHP   4. getFileCache() /home/rkraig/Projects/Craigslist-Aggregator/lib/CraigListScraper.class.php:279
+[21-Feb-2012 01:06:22] PHP   5. file_put_contents() /home/rkraig/Projects/Craigslist-Aggregator/lib/CraigListScraper.class.php:92
+[21-Feb-2012 01:47:48] PHP Fatal error:  Class 'Slim_Session_Handler_Cookies' not found in /home/rkraig/Projects/Craigslist-Aggregator/Slim/Slim.php on line 184
+[21-Feb-2012 01:47:48] PHP Stack trace:
+[21-Feb-2012 01:47:48] PHP   1. {main}() /home/rkraig/Projects/Craigslist-Aggregator/index.php:0
+[21-Feb-2012 01:47:48] PHP   2. Slim->__construct() /home/rkraig/Projects/Craigslist-Aggregator/index.php:9
+[21-Feb-2012 02:14:37] PHP Fatal error:  Class 'Slim_Session_Handler_Cookies' not found in /home/rkraig/Projects/Craigslist-Aggregator/Slim/Slim.php on line 184
+[21-Feb-2012 02:14:37] PHP Stack trace:
+[21-Feb-2012 02:14:37] PHP   1. {main}() /home/rkraig/Projects/Craigslist-Aggregator/index.php:0
+[21-Feb-2012 02:14:37] PHP   2. Slim->__construct() /home/rkraig/Projects/Craigslist-Aggregator/index.php:9
+[21-Feb-2012 02:14:54] PHP Fatal error:  Class 'Slim_Session_Handler_Cookies' not found in /home/rkraig/Projects/Craigslist-Aggregator/Slim/Slim.php on line 184
+[21-Feb-2012 02:14:54] PHP Stack trace:
+[21-Feb-2012 02:14:54] PHP   1. {main}() /home/rkraig/Projects/Craigslist-Aggregator/index.php:0
+[21-Feb-2012 02:14:54] PHP   2. Slim->__construct() /home/rkraig/Projects/Craigslist-Aggregator/index.php:9
+[21-Feb-2012 02:15:23] PHP Fatal error:  Class 'Slim_Session_Handler_Cookies' not found in /home/rkraig/Projects/Craigslist-Aggregator/Slim/Slim.php on line 184
+[21-Feb-2012 02:15:23] PHP Stack trace:
+[21-Feb-2012 02:15:23] PHP   1. {main}() /home/rkraig/Projects/Craigslist-Aggregator/index.php:0
+[21-Feb-2012 02:15:23] PHP   2. Slim->__construct() /home/rkraig/Projects/Craigslist-Aggregator/index.php:9
+[21-Feb-2012 02:15:38] PHP Fatal error:  Class 'Slim_Session_Handler_Cookies' not found in /home/rkraig/Projects/Craigslist-Aggregator/Slim/Slim.php on line 184
+[21-Feb-2012 02:15:38] PHP Stack trace:
+[21-Feb-2012 02:15:38] PHP   1. {main}() /home/rkraig/Projects/Craigslist-Aggregator/index.php:0
+[21-Feb-2012 02:15:38] PHP   2. Slim->__construct() /home/rkraig/Projects/Craigslist-Aggregator/index.php:9
+[21-Feb-2012 02:16:21] PHP Fatal error:  Class 'Slim_Session_Handler_Cookies' not found in /home/rkraig/Projects/Craigslist-Aggregator/Slim/Slim.php on line 184
+[21-Feb-2012 02:16:21] PHP Stack trace:
+[21-Feb-2012 02:16:21] PHP   1. {main}() /home/rkraig/Projects/Craigslist-Aggregator/index.php:0
+[21-Feb-2012 02:16:21] PHP   2. Slim->__construct() /home/rkraig/Projects/Craigslist-Aggregator/index.php:9

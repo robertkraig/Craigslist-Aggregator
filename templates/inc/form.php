@@ -3,20 +3,20 @@
 	window.region_list = <?php echo json_encode($cl_scraper->getRegions()); ?>;
 	window.area_list = <?php echo json_encode($cl_scraper->getAreas()); ?>;
 	window.form_fields = <?php echo json_encode($cl_scraper->getFields()); ?>;
-	window.PHP_SELF = "<?php echo $_SERVER['PHP_SELF']; ?>";
+	window.PHP_SELF = "/";
 </script>
-<form action="" method="post" id="find_items">
+<form action="/" method="post" id="find_items">
 	<input type="hidden" name="site" id="site" value="<?php echo $cl_scraper->getInfo()->pageType; ?>" />
 	<div id="change_size_container">
 		<div style="font-size: 20px;"><?php echo $cl_scraper->getInfo()->pagetitle; ?></div>
 		<?php
 		foreach ($cl_scraper->getFields() as $field)
 			if (preg_match('/(string|int)/', $field['argType']))
-				include "fieldtypes/int_string.php";
+				include "templates/fieldtypes/int_string.php";
 			elseif ($field['argType'] == 'radio')
-				include "fieldtypes/radio.php";
+				include "templates/fieldtypes/radio.php";
 			elseif ($field['argType'] == 'checkbox')
-				include "fieldtypes/checkbox.php";
+				include "templates/fieldtypes/checkbox.php";
 		?>
 		<cite><?php echo $cl_scraper->getInfo()->pagesearchexample; ?></cite>
 		<div id="locations_container">
