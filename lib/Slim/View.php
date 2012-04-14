@@ -126,7 +126,8 @@ class Slim_View {
      * Set templates directory
      * @param   string $dir
      * @return  void
-     * @throws  RuntimeException If directory is not a directory or does not exist
+     * @throws  RuntimeException If directory is not a d
+     * irectory or does not exist
      */
     public function setTemplatesDirectory( $dir ) {
         $this->templatesDirectory = rtrim($dir, '/');

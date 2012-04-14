@@ -1,8 +1,10 @@
 <script>
-	window.page_info = <?php echo json_encode($cl_scraper->getInfo()); ?>;
-	window.region_list = <?php echo json_encode($cl_scraper->getRegions()); ?>;
-	window.area_list = <?php echo json_encode($cl_scraper->getAreas()); ?>;
-	window.form_fields = <?php echo json_encode($cl_scraper->getFields()); ?>;
+	$(function(){
+		$.getJSON('/site/<?php echo $site; ?>/data',{}, function(json)
+		{
+			buildFormList(json);
+		});
+	});
 	window.PHP_SELF = "/";
 </script>
 <form action="/" method="post" id="find_items">

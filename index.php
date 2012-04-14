@@ -81,13 +81,48 @@ $app->get('/site/:site',function($site) use ($app, $sites)
 		require 'lib/CraigListScraper.class.php';
 		$cl_scraper = new CraigListScraper("sites/{$loadConfiguration}");
 		$title = $cl_scraper->getInfo()->title;
+		require'templates/index.php';
 	}
 	catch (Exception $e)
 	{
 		echo $e->getMessage();
 	}
+});
 
-	require'templates/index.php';
+$app->get('/site/:site/data',function($site) use ($app, $sites)
+{
+
+	$init = true;
+	$loadConfiguration = "findjobs.locations.xml";
+
+	if(isset($sites[$site]))
+	{
+		$loadConfiguration = "{$site}.locations.xml";
+		$sites[$site] = true;
+	}
+	else
+	{
+		$app->redirect('/');
+	}
+
+	try
+	{
+		require 'lib/CraigListScraper.class.php';
+		$cl_scraper = new CraigListScraper("sites/{$loadConfiguration}");
+		$json_results = array(
+			'page_info'		=>$cl_scraper->getInfo(),
+			'region_list'	=>$cl_scraper->getRegions(),
+			'area_list'		=>$cl_scraper->getAreas(),
+			'form_fields'	=>$cl_scraper->getFields()
+		);
+		header('Content-type: application/json');
+		echo json_encode($json_results);
+		exit;
+	}
+	catch (Exception $e)
+	{
+		echo $e->getMessage();
+	}
 });
 
 $app->notFound(function () use ($app)
